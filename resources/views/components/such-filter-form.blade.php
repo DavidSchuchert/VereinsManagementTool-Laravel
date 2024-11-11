@@ -1,5 +1,5 @@
-@vite('/resources/css/alert.css')
-@vite('/resources/css/search.css')
+@vite('resources/css/alert.css')
+@vite('resources/css/search.css')
 
 
 @if ($meldung)
