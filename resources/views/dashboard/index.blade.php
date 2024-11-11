@@ -1,4 +1,4 @@
-@vite('/resources/css/dashboard/index.css')
+@vite('resources/css/dashboard/index.css')
 @extends('layouts.app')
 @apexchartsScripts
 @section('title', 'Dashboard')

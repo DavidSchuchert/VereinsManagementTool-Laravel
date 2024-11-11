@@ -1,4 +1,4 @@
-@vite('/resources/css/inventar/index.css')
+@vite('resources/css/inventar/index.css')
 @extends('layouts.app')
 @section('title', 'Inventar')
 
