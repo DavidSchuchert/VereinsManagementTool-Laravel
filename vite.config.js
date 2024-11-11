@@ -11,7 +11,7 @@ export default defineConfig({
                 "resources/css/zahlungen/create.css",
                 "resources/css/zahlungen/edit.css",
                 "resources/css/zahlungen/index.css",
-                "resources/css/zahlungen/alert.css",
+                "resources/css/alert.css",
                 "resources/css/zahlungen/app.css",
                 "resources/css/zahlungen/header.css",
                 "resources/css/zahlungen/search.css",
