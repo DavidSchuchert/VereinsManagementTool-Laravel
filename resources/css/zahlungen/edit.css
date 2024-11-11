@@ -1,0 +1,141 @@
+/* Popup-Overlay */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0.8
+    ); /* Halbtransparenter schwarzer Hintergrund */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Über alles andere legen */
+}
+
+/* Weißer Container für das Formular */
+.create {
+    position: relative;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px; /* Begrenzte maximale Breite */
+    box-sizing: border-box;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Titel im Formular */
+.create h2 {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 0; /* Entferne zusätzlichen oberen Abstand */
+    color: #007bff; /* Optional: Farbe für "Bearbeiten" */
+}
+
+/* Formular-Styling */
+.create form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Gruppierung der Formularelemente */
+.form-group {
+    flex: 1 1 calc(50% - 20px); /* Flexibles Layout für Formularelemente */
+    min-width: 200px;
+    box-sizing: border-box;
+}
+
+/* Beschriftung der Eingabefelder */
+.create form label {
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Eingabefelder */
+.create form input,
+.create form select,
+.create form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Textarea spezifisch */
+.create form textarea {
+    resize: vertical; /* Benutzer kann die Größe vertikal ändern */
+}
+
+/* Schließen-Button */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Klasse zum Verstecken von Elementen */
+.createhidden {
+    display: none;
+}
+
+/* Styling für die Tabelle */
+.transaction_sum {
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.positiv {
+    background-color: #28a745; /* Grün für positiven Saldo */
+}
+
+.negativ {
+    background-color: #dc3545; /* Rot für negativen Saldo */
+}
+
+/* Button zum Erstellen eines neuen Artikels */
+#edit-popup .Neu-btn {
+    padding: 10px 20px;
+    background-color: #007bff !important;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.03);
+}
+
+input[required], select[required], textarea[required]{
+    border: 2px solid #ff8c42 !important;
+}
+
+

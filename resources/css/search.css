@@ -1,0 +1,93 @@
+/* Container für das Suchformular */
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Input-Felder und Select-Box im Suchformular */
+.search-form input[type="text"],
+.search-form input[type="date"],
+.search-form input[type="number"],
+.search-form select {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.search-form input[type="text"]:focus,
+.search-form input[type="date"]:focus,
+.search-form input[type="number"]:focus,
+.search-form select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Submit-Button im Suchformular */
+.search-form button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.date-placeholder {
+    position: relative;
+}
+
+#geburtsdatum_bis {
+    color: white;
+}
+
+.placeholder-label {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+    color: #aaa;
+    font-size: 14px;
+    pointer-events: none;
+    transition: 0.2s;
+}
+
+input[type="date"]:focus + .placeholder-label,
+input[type="date"]:not(:placeholder-shown) + .placeholder-label {
+    left: 10px;
+    font-size: 12px;
+    color: #6c727f;
+}
+
+.custom-hidden {
+    display: none;
+}
+
+/* Responsive Anpassungen für das Suchformular */
+@media (max-width: 768px) {
+    .search-form {
+        flex-direction: column;
+    }
+
+    .search-form input[type="text"],
+    .search-form input[type="date"],
+    .search-form input[type="number"],
+    .search-form select,
+    .search-form button[type="submit"] {
+        width: 100%;
+    }
+}

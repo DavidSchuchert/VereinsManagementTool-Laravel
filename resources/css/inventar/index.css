@@ -1,0 +1,149 @@
+/* Grundstil für den Körper */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+/* Überschriften */
+h1 {
+    text-align: center;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    margin-bottom: 64px !important;
+}
+
+/* Hauptinhalt */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Tabelle */
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.trhead:hover {
+    cursor: default;
+}
+
+table th {
+    background-color: #f8f8f8;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+table td {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Versteckte Zeilen */
+.custom-hidden {
+    display: none;
+}
+
+/* Zusätzliche Inventarinformationen */
+.extra_info_inventory {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.extra_info_flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Icons */
+.icon {
+    width: 12px;
+}
+
+.btn-icon {
+    margin: 16px;
+}
+
+/* Formular für zusätzliche Transaktionen */
+.extra-transaction-form {
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+/* Lösch-Button */
+.delete-btn {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Optionen */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+}
+
+
+/* PDF Export */
+.export_btn{
+    background-color: #ffffff;
+    width: 80%;
+    align-self: center;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    padding: 8px;
+}
+
+.export_btn:hover{
+    background-color: #f2f2f2;
+}

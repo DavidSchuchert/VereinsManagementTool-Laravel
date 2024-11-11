@@ -1,0 +1,39 @@
+/* Grundlegender Stil für das Alert-Element */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Informations-Alert (z.B. für Benachrichtigungen) */
+.alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
+/* Erfolgs-Alert (z.B. für Erfolgsmeldungen) */
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Warn-Alert (z.B. für Warnungen) */
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+/* Fehler-Alert (z.B. für Fehlermeldungen) */
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

@@ -1,0 +1,160 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+h1 {
+    text-align: center;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    margin-bottom: 64px !important;
+}
+
+.export_btn {
+    background-color: #ffffff;
+    width: 80%;
+    align-self: center;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 8px;
+    color:black;
+    font-weight: bold;
+}
+
+.export_btn:hover {
+    background-color: #f2f2f2;
+}
+
+/* Abschnitt (Section) */
+section {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.mitglieder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mitgliederliste {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+}
+
+.edit_mitglied,
+.datei_anzeigen {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black !important;
+    padding: 6px;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.datei_anzeigen a {
+    color: black !important;
+    font-weight: 500;
+}
+
+.edit_mitglied:hover,
+.datei_anzeigen:hover {
+    background-color: #f2f2f2 !important;
+    cursor: pointer;
+}
+
+/* Icon */
+.icon {
+    width: 16px; /* Vergrößert für bessere Sichtbarkeit */
+    margin-right: 5px; /* Abstand zwischen Icon und Text */
+}
+
+/* Flex-Container für zusätzliche Informationen */
+.extra_info_flex {
+    display: flex;
+    align-items: center;
+}
+
+.extra_info_flex a {
+    display: flex;
+    align-items: center;
+    color: #ffcc80;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.extra_info_flex a:hover {
+    color: #ffe0b2;
+}
+
+.options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 8px;
+    width: 100%;
+    gap: 16px;
+}
+/* Akkordeon-Stil */
+.accordion_summary {
+    background-color: #673ab7;
+    color: white;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 16px;
+    font-weight: bold;
+    word-break: keep-all;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+details[open] {
+    background-color: #8f7ac8;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+details {
+    width: fit-content;
+}
+
+.accordion_data {
+    background-color: #9575cd;
+    color: white;
+    padding: 20px;
+    border-radius: 0 0 8px 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.accordion_data p {
+    margin: 8px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.accordion_href {
+    color: #ffcc80;
+    font-weight: normal;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.accordion_href:hover {
+    color: #ffe0b2;
+}

@@ -1,0 +1,115 @@
+/* Allgemeine Header-Styling */
+nav {
+    width: 100vw;
+    margin-bottom: 100px;
+    background-color: lightslategray !important;
+}
+
+nav a {
+    color: white !important;
+    text-decoration: none;
+    border-bottom: 4px solid transparent; /* Standardmäßig transparent */
+}
+
+nav a.active {
+    color: white !important;
+    border-bottom: 4px solid #ffffff !important; /* Weiße Border für aktive Links */
+}
+
+nav a:hover {
+    color: #673ab7 !important;
+}
+
+.headercustom{
+    width: 80% !important;
+}
+.headercustom-inlay{
+    width: 100% !important;
+}
+
+
+/* Logo Styling */
+.header .logo img {
+    height: 80px;
+    width: 3rem;
+    margin-right: 0.5rem;
+}
+
+.header .logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Weiß für Klarheit */
+}
+
+/* Desktop Navigation Links */
+.nav-link {
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem; /* Leicht abgerundet für modernes Gefühl */
+}
+
+.nav-link:hover {
+    color: #ffcb05 !important; /* Helleres Lila als Akzent */
+}
+
+.header_button {
+    background-color: #673ab7 !important;
+    color: white !important;
+}
+
+/* Mobile Button */
+.nav-button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav-button:hover {
+    transform: scale(1.1); /* Leichter Vergrößerungseffekt */
+}
+
+/* Mobile Menu Styling */
+.nav-link.block {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    border-radius: 0.375rem;
+}
+
+.nav-link.block:hover {
+    background-color: white;
+}
+
+/* Benutzerdefinierte Dropdown und Schatten für Moderne */
+.header .dropdown,
+.header .dropdown a {
+    background-color: #9500ff;
+    color: #ffffff;
+}
+
+.header .dropdown a:hover {
+    background-color: white;
+}
+
+.navlink {
+    color: white !important;
+}
+
+.navlinks{
+    margin-left: 80px;
+}
+
+.navlinkres {
+    color: white;
+    background-color: #ffcd056a;
+}
+
+.resnavback {
+    background-color: rgba(0, 0, 0, 0.6);
+}

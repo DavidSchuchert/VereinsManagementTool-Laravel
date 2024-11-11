@@ -1,0 +1,138 @@
+/* Zusätzliche globale Stile */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #eef2f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Container-Stil */
+.container {
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    height: auto;
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.container .container:hover {
+    transform: translateY(-5px);
+}
+
+/* Headerbereich */
+#upper_db {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#upper_db h1 {
+    font-size: 2em;
+    color: #0056b3;
+}
+
+#upper_db h2 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+#upper_db span {
+    color: #1e90ff;
+}
+
+/* Statistikkacheln */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.stat-box {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 100%;
+    margin: 0 10px;
+    transition: transform 0.2s;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-box h3 {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Charts-Abschnitt */
+#charts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.chart-container {
+    flex: 1 1 100%;
+    min-width: 300px;
+    max-width: 100%;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    transition: box-shadow 0.3s;
+}
+
+.chart-container:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.chart-container h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
+    color: #444;
+    text-align: center;
+}
+
+/* Media Queries für mobile Optimierung */
+@media (min-width: 768px) {
+    .stat-box {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+
+    .chart-container {
+        flex: 1 1 calc(48% - 20px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .stat-box h3 {
+        font-size: 1.2em;
+    }
+
+    .stat-box p {
+        font-size: 1.5em;
+    }
+}

@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "akaunting/laravel-apexcharts": "^3.1",
+        "barryvdh/laravel-dompdf": "^3.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
     },
