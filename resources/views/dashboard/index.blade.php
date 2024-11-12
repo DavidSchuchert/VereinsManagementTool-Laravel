@@ -56,7 +56,7 @@
                 // Aktualisiere beide Charts nach einer kurzen Verzögerung
                 ApexCharts.exec('{{ $mitgliederChart->id }}', 'update');
                 ApexCharts.exec('{{ $chart->id }}', 'update');
-            }, 100); // 100 ms Verzögerung, um sicherzustellen, dass alles geladen ist
+            }, 10000); // 100 ms Verzögerung, um sicherzustellen, dass alles geladen ist
         });
     </script>
 @endsection
