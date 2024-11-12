@@ -8,8 +8,7 @@
         <div id="upper_db">
             <h1>Dashboard</h1>
             <h2>Herzlich Willkommen {{ Auth::user()->name }} im
-                <span style="color: lightskyblue;">{{ config('app.name') }}
-                </span>
+                <span style="color: lightskyblue;">{{ config('app.name') }}</span>
             </h2>
         </div>
 
@@ -31,7 +30,7 @@
 
         <section id="charts">
             <!-- Diagramm zur Mitgliederanzahl pro Rang -->
-            <div class="chart-container">
+            <div class="chart-container" id="mitgliederChartContainer" style="display: none;">
                 <h2>Mitglieder({{ $mitgliedergesammt }}) nach Rang</h2>
                 <div>
                     {!! $mitgliederChart->container() !!}
@@ -40,7 +39,7 @@
             </div>
 
             <!-- Diagramm zur Transaktionsberechnung (Einnahmen vs. Ausgaben) -->
-            <div class="chart-container">
+            <div class="chart-container" id="chartContainer" style="display: none;">
                 <h2>Einnahmen vs. Ausgaben</h2>
                 <div>
                     {!! $chart->container() !!}
@@ -53,10 +52,9 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
-                // Aktualisiere beide Charts nach einer kurzen Verzögerung
-                ApexCharts.exec('{{ $mitgliederChart->id }}', 'update');
-                ApexCharts.exec('{{ $chart->id }}', 'update');
-            }, 10000); // 100 ms Verzögerung, um sicherzustellen, dass alles geladen ist
+                document.getElementById('mitgliederChartContainer').style.display = 'block';
+                document.getElementById('chartContainer').style.display = 'block';
+            }, 100);
         });
     </script>
 @endsection
