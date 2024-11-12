@@ -1,4 +1,4 @@
-@vite('resources/css/mitglieder/index.css')
+@vite('resources/css/zahlungen/create.css')
 <div class="popup createhidden" id="popup">
     <div class="create">
         <button class="close-btn" onclick="Popup()">×</button>
