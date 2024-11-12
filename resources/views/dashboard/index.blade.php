@@ -49,4 +49,14 @@
             </div>
         </section>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                // Aktualisiere beide Charts nach einer kurzen Verzögerung
+                ApexCharts.exec('{{ $mitgliederChart->id }}', 'update');
+                ApexCharts.exec('{{ $chart->id }}', 'update');
+            }, 100); // 100 ms Verzögerung, um sicherzustellen, dass alles geladen ist
+        });
+    </script>
 @endsection
