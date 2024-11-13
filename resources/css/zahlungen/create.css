@@ -128,9 +128,13 @@
     margin-bottom: 20px;
 }
 
+.neu-btn:hover {
+    background-color: #0056b3;
+    filter: drop-shadow(0 0 2px #4689e7);
+}
+
 input[required],
 select[required],
 textarea[required] {
     border: 2px solid #ff8c42 !important;
 }
-

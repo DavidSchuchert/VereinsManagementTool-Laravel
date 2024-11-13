@@ -183,6 +183,10 @@ a {
     box-sizing: border-box;
 }
 
+.neu-btn:hover {
+    filter:drop-shadow(0 0 2px #4689e7);
+}
+
 .timestamp {
     display: flex;
     align-items: center;

@@ -1,6 +1,6 @@
 /* Allgemeine Header-Styling */
 nav {
-    width: 100vw;
+    width: 100%;
     margin-bottom: 100px;
     background-color: lightslategray !important;
 }
