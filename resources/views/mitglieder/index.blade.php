@@ -5,11 +5,13 @@
 
 @section('content')
     <h1>Mitglieder-Datenbank</h1>
+    <p>Mitgliederanzahl: <b>{{ $mitglieder->count() }}</b></p>
     <x-mitglieder-such-filter-form :rangarten="$rangarten" />
     <section>
         <div class="mitglieder">
             <button onclick="Popup()" class="Neu-btn">Neues Mitglied anlegen</button>
-            <a href="{{ route('mitglieder.exportPdf', request()->query()) }}" class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
+            <a href="{{ route('mitglieder.exportPdf', request()->query()) }}"
+                class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
             <div class="mitgliederliste">
                 @foreach ($mitglieder as $mitglied)
                     <details>
