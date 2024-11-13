@@ -12,6 +12,7 @@ Das VereinsManagementTool ist eine umfassende Webanwendung zur Verwaltung von Ve
 -   **Profilverwaltung**: Benutzerprofile anpassen.
 -   **Setup**: Festlegung des Vereinsnamens und Logos.
 -   **Authentifizierung**: Benutzeranmeldung und Anlegen neuer Benutzer
+-   **Update**: Automatische Information, sollte ein Update vorliegen
 
 ## Installation
 
@@ -20,9 +21,11 @@ Folgen Sie dieser Anleitung, um das VereinsManagementTool auf Ihrem lokalen Serv
 ### Voraussetzungen
 
 -   PHP >= 8.0
+-   PHP Curl
 -   Composer
 -   MySQL oder eine andere unterstützte Datenbank
 -   Node.js & npm
+
 
 ### Schritt-für-Schritt-Anleitung
 
