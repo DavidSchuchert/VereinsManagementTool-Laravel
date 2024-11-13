@@ -1,66 +1,86 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# VereinsManagementTool
 
-## About Laravel
+Das VereinsManagementTool ist eine umfassende Webanwendung zur Verwaltung von Vereinsmitgliedern, Inventar, Transaktionen und weiteren Modulen. Die Anwendung ist mit Laravel entwickelt und bietet eine benutzerfreundliche Oberfläche sowie eine Vielzahl von Funktionen, um die Vereinsverwaltung effizient zu gestalten.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Funktionen
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+-   **Benutzerverwaltung**: Benutzer erstellen, bearbeiten und verwalten.
+-   **Mitgliederverwaltung**: Mitgliederinformationen anzeigen und verwalten.
+-   **Inventarverwaltung**: Artikel, Mengen, EAN und Lagerstandorte verwalten.
+-   **Transaktionsverwaltung**: Einfache Anzeige und Verwaltung von Transaktionen.
+-   **Profilverwaltung**: Benutzerprofile anpassen.
+-   **Setup**: Festlegung des Vereinsnamens und Logos.
+-   **Authentifizierung**: Benutzeranmeldung und Anlegen neuer Benutzer
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Installation
 
-## Learning Laravel
+Folgen Sie dieser Anleitung, um das VereinsManagementTool auf Ihrem lokalen Server einzurichten:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Voraussetzungen
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   PHP >= 8.0
+-   Composer
+-   MySQL oder eine andere unterstützte Datenbank
+-   Node.js & npm
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Schritt-für-Schritt-Anleitung
 
-## Laravel Sponsors
+1.  **Repository klonen:**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    `git clone https://github.com/DavidSchuchert/VereinsManagementTool-Laravel.git
+    cd VereinsManagementTool` 
+    
+2.  **Abhängigkeiten installieren:**
 
-### Premium Partners
+    `composer install
+    npm install
+    npm run build` 
+    
+3.  **.env-Datei erstellen:** Erstellen Sie eine `.env`-Datei, indem Sie die `.env.example` kopieren:
+    
+    `cp .env.example .env` 
+    
+    Bearbeiten Sie die `.env`-Datei und fügen Sie Ihre Datenbankinformationen sowie weitere Konfigurationsdetails hinzu.
+    
+4.  **App-Schlüssel generieren:**
+    
+    `php artisan key:generate` 
+    
+5.  **Datenbankmigrationen ausführen:**
+    
+    `php artisan migrate --seed` 
+    
+    **Hinweis**: Der `--seed`-Befehl füllt die Datenbank mit einigen Beispieldaten und erzeugt den Admin benutzer.
+    
+6.  **Storage verlinken:**
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    `php artisan storage:link` 
+    
+7.  **Webserver einrichten:** Richten Sie einen Webserver (z.B. Apache oder Nginx) ein, um die Anwendung in einer Produktionsumgebung auszuführen.
 
-## Contributing
+7.  **Rechte prüfen:** Bitte vergeben sie alle erforderlichen rechte für Laravel, wie z.B. den public ordner und die storage.
+    
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Standard-Login-Daten
 
-## Code of Conduct
+Nach der Installation können Sie sich mit den folgenden Standard-Login-Daten anmelden:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+-   **E-Mail**: `admin@admin`
+-   **Passwort**: `admin`
 
-## Security Vulnerabilities
+**Hinweis**: Ändern Sie die Standard-Login-Daten nach der ersten Anmeldung, um die Sicherheit zu gewährleisten.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Weitere Informationen
 
-## License
+-   **Environment Setup**: Stellen Sie sicher, dass alle Konfigurationsdaten korrekt in der `.env`-Datei eingetragen sind, z.B. Datenbankverbindungen.
+-   **Seeds**: Die Datenbank wird mit Basisdaten für eine schnelle Übersicht gefüllt. Bearbeiten Sie die Seed-Dateien nach Bedarf.
+-   **Storage Link**: Der Befehl `php artisan storage:link` erstellt eine symbolische Verknüpfung, um Dateien im `storage`-Verzeichnis öffentlich zugänglich zu machen.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Mitwirken
+
+Beiträge und Verbesserungsvorschläge sind herzlich willkommen! Bitte erstellen Sie einen Fork des Projekts, nehmen Sie Ihre Änderungen vor und senden Sie eine Pull-Request.# VereinsManagementTool
+
+**DEMO:  https://verein.david-schuchert.de/**
+E-Mail: admin@admin
+Passwort: admin
