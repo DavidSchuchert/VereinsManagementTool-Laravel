@@ -14,6 +14,7 @@
     </div>
     <button onclick="Popup()" class="Neu-btn">Neuen artikel erstellen</button>
 
+    <p>Transaktionsanzahl: <b>{{ $zahlungen->count() }}</b>
     <x-such-filter-form :zahlungsarten="$zahlungsarten" :meldung="$meldung" />
 
     <a href="{{ route('zahlungen.exportPdf', request()->query()) }}" class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
