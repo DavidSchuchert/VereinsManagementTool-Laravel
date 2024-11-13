@@ -13,7 +13,7 @@ body {
     justify-content: flex-start;
 }
 
-main{
+main {
     align-items: center;
     justify-content: center;
 }
@@ -122,6 +122,13 @@ main{
 }
 
 /* Media Queries für mobile Optimierung */
+
+@media (max-width: 800px) {
+    main{
+        width: 100% !important;
+    }
+}
+
 @media (min-width: 768px) {
     .stat-box {
         flex: 1 1 calc(33.33% - 20px);
@@ -131,7 +138,6 @@ main{
         flex: 1 1 calc(48% - 20px);
     }
 }
-
 @media (min-width: 1200px) {
     .stat-box h3 {
         font-size: 1.2em;

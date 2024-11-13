@@ -158,3 +158,13 @@ details {
 .accordion_href:hover {
     color: #ffe0b2;
 }
+
+@media (max-width: 800px) {
+    main {
+        width: 100% !important;
+    }
+
+    body{
+        width: unset !important;
+    }
+}
