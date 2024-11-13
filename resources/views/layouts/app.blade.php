@@ -13,7 +13,13 @@
 </head>
 
 <body>
+    @if (session('updateMessage'))
+        <div style="background-color: lightgreen; width: 100%; text-align: center;">
+            {{ session('updateMessage') }}
+        </div>
+    @endif
     @include('layouts.navigation')
+
 
     <!-- Page Heading -->
     @isset($header)
