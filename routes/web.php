@@ -8,6 +8,7 @@ use App\Http\Controllers\SetupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZahlungController;
 use App\Http\Controllers\LogoController;
+use App\Http\Middleware\CheckForUpdate;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
 
@@ -16,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('auth')->group(function () {
+Route::middleware('auth')->middleware(CheckForUpdate::class)->group(function () {
     /* Dashboard */
     Route::get("/", [DashboardController::class, 'index'])->name("home");
-    
+
     /* Setup */
     Route::get('/setup', [LogoController::class, 'index'])->name('setup.index');
     Route::post('/setup/logo-upload', [LogoController::class, 'uploadLogo'])->name('logo.upload');
