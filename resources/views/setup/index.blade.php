@@ -30,6 +30,7 @@
                     <!-- Formular zum Ändern des Vereinsnamens -->
                     <div class="col-md-6 border_frm">
                         <h4>Vereinsname ändern</h4>
+                        <p style="color: red"><b>Bitte Seite nach der Änderung aktualisieren.</b></p>
                         <form action="{{ route('update.app_name') }}" method="POST" class="mt-3">
                             @csrf
                             <div class="form-group">
