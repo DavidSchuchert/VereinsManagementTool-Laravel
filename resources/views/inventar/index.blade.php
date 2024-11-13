@@ -7,8 +7,9 @@
 
     <button onclick="Popup()" class="Neu-btn">Neuen artikel erstellen</button>
     <p>Artikelanzahl: <b>{{ $inventar->count() }}</b>
-    <x-inventar-such-filter-form />
-    <a href="{{ route('inventar.exportPdf', request()->query()) }}" class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
+        <x-inventar-such-filter-form />
+        <a href="{{ route('inventar.exportPdf', request()->query()) }}" class="btn btn-primary export_btn">🖨️Exportieren als
+            PDF</a>
     <table border="1">
         <tr class="trhead">
             <th>Artikel</th>
@@ -47,6 +48,10 @@
             </tr>
         @endforeach
     </table>
+    <div style="display:flex">
+        {{-- Pagination --}}
+        {{ $inventar->links() }}
+    </div>
 
     <x-inventar.create />
     <x-inventar.edit />
