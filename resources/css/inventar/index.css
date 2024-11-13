@@ -132,9 +132,8 @@ table td {
     justify-content: center;
 }
 
-
 /* PDF Export */
-.export_btn{
+.export_btn {
     background-color: #ffffff;
     width: 80%;
     align-self: center;
@@ -143,6 +142,16 @@ table td {
     padding: 8px;
 }
 
-.export_btn:hover{
+.export_btn:hover {
     background-color: #f2f2f2;
+}
+
+@media (max-width: 800px) {
+    main {
+        width: 100% !important;
+    }
+
+    body {
+        width: unset !important;
+    }
 }
