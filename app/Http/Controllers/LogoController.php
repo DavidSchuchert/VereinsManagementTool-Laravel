@@ -54,6 +54,6 @@ class LogoController extends Controller
         // Leere den Cache, damit die Änderungen übernommen werden
         \Artisan::call('config:cache');
 
-        return back()->with('success', 'Vereinsname erfolgreich aktualisiert!');
+        return back()->with('success', 'Vereinsname erfolgreich aktualisiert! Bitte Seite neu laden.');
     }
 }
