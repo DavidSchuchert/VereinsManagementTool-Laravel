@@ -5,7 +5,7 @@
 
 @section('content')
     <h1>Mitglieder-Datenbank</h1>
-    <p>Mitgliederanzahl: <b>{{ $mitglieder->count() }}</b> davon ausgeschieden:  <b>{{ $mitglieder->whereNotNull('austritt')->count() }}</b></p>
+    <p>Mitgliederanzahl: <b>{{ $mitglieder->count() }}</b> davon ausgeschieden:  <b>{{ $mitglieder->whereNotNull('austrittsdatum')->count() }}</b></p>
     <x-mitglieder-such-filter-form :rangarten="$rangarten" />
     <section>
         <div class="mitglieder">
