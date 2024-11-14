@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('auth')->middleware(CheckForUpdate::class)->group(function () {
+Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () {
     /* Dashboard */
     Route::get("/", [DashboardController::class, 'index'])->name("home");
 
