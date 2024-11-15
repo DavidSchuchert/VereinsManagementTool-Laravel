@@ -95,7 +95,7 @@ class MitgliederController extends Controller
         // Filter für Zahlungen anwenden
         $query = $this->applyFilters($request);
 
-        $mitglieder = $query->orderBy('id', 'desc')->paginate(15);
+        $mitglieder = $query->orderBy('id', 'desc')->paginate(45);
 
         $rangarten = Rangart::orderBy('id')->pluck('name', 'id');
 
