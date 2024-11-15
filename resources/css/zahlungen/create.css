@@ -27,6 +27,8 @@
     max-width: 600px; /* Begrenzte maximale Breite */
     box-sizing: border-box;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 100vh;
 }
 
 /* Titel im Formular */
