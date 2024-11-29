@@ -16,7 +16,7 @@ class InventarController extends Controller
         if ($request->filled('suche')) {
             $query->where(function ($q) use ($request) {
                 $q->where('artikel', 'like', '%' . $request->suche . '%')
-                    ->orWhere('beschreibung', 'like', '%' . $request->suche . '%');
+                    ->orWhere('bemerkung', 'like', '%' . $request->suche . '%');
             });
         }
 
