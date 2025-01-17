@@ -5,6 +5,7 @@ use App\Http\Controllers\InventarController;
 use App\Http\Controllers\MitgliederController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SetupController;
+use App\Http\Controllers\ProtokollController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZahlungController;
 use App\Http\Controllers\LogoController;
@@ -45,6 +46,14 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
+    /* Protokolle */
+
+    Route::get('/protokolle', [ProtokollController::class, 'index'])->name('protokolle.index');
+    Route::get('/protokolle/create', [ProtokollController::class, 'create'])->name('protokolle.create');
+    Route::post('/protokolle', [ProtokollController::class, 'store'])->name('protokolle.store');
+    Route::get('/protokolle/{protokoll}/edit', [ProtokollController::class, 'edit'])->name('protokolle.edit');
+    Route::put('/protokolle/{protokoll}', [ProtokollController::class, 'update'])->name('protokolle.update');
+    Route::delete('/protokolle/{protokoll}', [ProtokollController::class, 'destroy'])->name('protokolle.destroy');
 });
 
 Route::middleware('auth')->group(function () {

@@ -28,6 +28,10 @@
                     <x-nav-link :href="route('inventar.index')" :class="request()->routeIs('inventar.index') ? 'active' : ''">
                         {{ __('Inventar') }}
                     </x-nav-link>
+                    <!-- Inventar Link -->
+                    <x-nav-link :href="route('protokolle.index')" :class="request()->routeIs('protokolle.index') ? 'active' : ''">
+                        {{ __('Protokolle') }}
+                    </x-nav-link>
                     <!-- Setup Link -->
                     <x-nav-link :href="route('setup.index')" :class="request()->routeIs('setup.index') ? 'active' : ''">
                         {{ __('Einstellungen') }}
