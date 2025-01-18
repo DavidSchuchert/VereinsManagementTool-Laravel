@@ -1,0 +1,60 @@
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+}
+h1 {
+    text-align: center;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    margin-bottom: 64px !important;
+}
+
+input {
+    flex: 1 !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    transition: border-color 0.3s !important;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+}
+
+input[type="submit"]:hover{
+    background-color: white;
+    color: black;
+}
+.form-group-title{
+    display:flex;
+    justify-content: center;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.ql-editor, .ql-blank{
+    background-color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

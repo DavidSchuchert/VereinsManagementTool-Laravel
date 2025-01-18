@@ -1,0 +1,235 @@
+table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    color: #333;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+}
+
+.export_btn {
+    background-color: #ffffff;
+    width: 80%;
+    align-self: center;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    padding: 8px;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.export_btn:hover {
+    background-color: #f2f2f2;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+    cursor: pointer;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+td {
+    border-bottom: 1px solid #ddd;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.btn-icon {
+    border: none;
+    background-color: white;
+    height: 18px;
+    width: 18px;
+}
+
+.extra_info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.extra-transaction-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.transactions_td {
+    background-color: #f2f2f2;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.file_upload {
+    width: auto;
+    align-self: center;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding: 8px;
+    gap: 0px;
+}
+
+.file_upload_button {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.createhidden {
+    display: none;
+}
+
+#fileToUpload {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.transaction_sum {
+    font-weight: bold;
+    color: white;
+    padding: 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+.positiv {
+    background-color: green;
+}
+
+.negativ {
+    background-color: red;
+}
+
+.delete-btn {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    font-weight: bold;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.neu-btn {
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.neu-btn:hover {
+    filter: drop-shadow(0 0 2px #4689e7);
+}
+
+.timestamp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: #6c757d;
+    margin-bottom: 5px;
+}
+
+.timestamp-icon {
+    font-size: 16px;
+    color: #007bff;
+}
+
+.icon {
+    width: 12px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 32px !important;
+    font-weight: bold !important;
+    margin-bottom: 64px !important;
+}
+
+.extra_info_flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    main {
+        width: 100% !important;
+    }
+
+    table {
+        align-self: center;
+        width: 90%;
+    }
+}

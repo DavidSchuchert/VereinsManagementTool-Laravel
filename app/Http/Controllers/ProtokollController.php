@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Protokoll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ProtokollController extends Controller
 {
@@ -59,4 +60,13 @@ class ProtokollController extends Controller
         $protokoll->delete();
         return redirect()->route('protokolle.index')->with('success', 'Protokoll gelöscht!');
     }
+
+    public function exportSinglePdf(Protokoll $protokoll)
+    {
+        $pdf = Pdf::loadView('pdf.protokoll', compact('protokoll'))->setPaper('a4', 'portrait');
+
+        return $pdf->download('protokoll_' . $protokoll->id . '_' . date('Y-m-d_H-i-s') . '.pdf');
+    }
+
+
 }

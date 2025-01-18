@@ -54,6 +54,8 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::get('/protokolle/{protokoll}/edit', [ProtokollController::class, 'edit'])->name('protokolle.edit');
     Route::put('/protokolle/{protokoll}', [ProtokollController::class, 'update'])->name('protokolle.update');
     Route::delete('/protokolle/{protokoll}', [ProtokollController::class, 'destroy'])->name('protokolle.destroy');
+    Route::get('/protokolle/{protokoll}/export-pdf', [ProtokollController::class, 'exportSinglePdf'])->name('protokolle.exportSinglePdf');
+
 });
 
 Route::middleware('auth')->group(function () {
