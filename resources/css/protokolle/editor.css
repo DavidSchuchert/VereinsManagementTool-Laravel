@@ -27,24 +27,25 @@ input {
     transition: border-color 0.3s !important;
 }
 
-input[type="submit"]{
+input[type="submit"] {
     cursor: pointer;
     background-color: #007bff;
     color: white;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     background-color: white;
     color: black;
 }
-.form-group-title{
-    display:flex;
+.form-group-title {
+    display: flex;
     justify-content: center;
     flex-grow: 1;
     align-items: center;
 }
 
-.ql-editor, .ql-blank{
+.ql-editor,
+.ql-blank {
     background-color: white;
 }
 
@@ -57,4 +58,36 @@ form {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#editor-container{
+    position:unset !important;
+}
+
+@media (max-width: 1440px) {
+    main {
+        width: 90% !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    main {
+        width: 95% !important;
+    }
+    nav{
+        margin-bottom: 20px !important;
+    }
+
+    h1{
+        font-size: 28px !important;
+        margin-bottom: 8px !important;
+    }
+}
+@media (max-width: 450px) {
+    h1{
+        font-size: 18px !important;
+    }
+    #create-form{
+        padding: 2px !important;
+    }
 }
