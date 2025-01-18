@@ -69,12 +69,13 @@ class InventarController extends Controller
     public function index(Request $request)
     {
         $query = Inventar::query();
+        $totalInventar = $query->count();
 
         $query = $this->applyFilters($request);
 
         $inventar = $query->orderBy("created_at", "desc")->paginate(15);
 
-        return view("inventar.index", compact("inventar"));
+        return view("inventar.index", compact("inventar", "totalInventar"));
     }
 
     /**

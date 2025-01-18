@@ -6,7 +6,7 @@
     <h1>Inventar-Datenbank</h1>
 
     <button onclick="Popup()" class="Neu-btn">Neuen Artikel erstellen</button>
-    <p>Artikelanzahl: <b>{{ $inventar->count() }}</b>
+    <p>Artikelanzahl: <b>{{ $totalInventar }}</b>
         <x-inventar-such-filter-form />
         <a href="{{ route('inventar.exportPdf', request()->query()) }}" class="btn btn-primary export_btn">🖨️Exportieren als
             PDF</a>
