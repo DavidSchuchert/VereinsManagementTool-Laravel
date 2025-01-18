@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Neues Protokoll erstellen')
+@vite('resources/css/protokolle/editor.css')
 
 @section('content')
     <h1>📜 Neues Protokoll erstellen</h1>
@@ -8,18 +9,16 @@
     <form action="{{ route('protokolle.store') }}" method="POST" id="create-form">
         @csrf
 
-        <div class="form-group">
-            <label for="title">Titel:</label>
-            <input type="text" name="title" id="title" class="form-control" required>
+        <div class="form-group-title">
+            <input type="text" name="title" id="title" class="form-control" placeholder="Titel" required>
         </div>
 
         <div class="form-group">
-            <label for="content">Inhalt:</label>
-            <div id="editor-container" style="height: 300px;"></div>
+            <div id="editor-container" style="min-height: 30vh; resize: both;"></div>
             <input type="hidden" name="content" id="hidden-editor">
         </div>
 
-        <button type="submit" class="btn btn-success">Speichern</button>
+        <input type="submit" class="btn btn-success"></input>
     </form>
 @endsection
 
