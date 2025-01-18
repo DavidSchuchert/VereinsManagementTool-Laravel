@@ -15,12 +15,14 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+Route::get('/', [DashboardController::class, 'index'])
+    ->middleware(['auth', CheckForUpdate::class])
+    ->name("home");
 
 
 Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () {
     /* Dashboard */
-    Route::get("/", [DashboardController::class, 'index'])->name("home");
+/*     Route::get("/", [DashboardController::class, 'index'])->name("home"); */
 
     /* Setup */
     Route::get('/setup', [LogoController::class, 'index'])->name('setup.index');
