@@ -15,6 +15,7 @@ export default defineConfig({
                 "resources/css/app.css",
                 "resources/css/header.css",
                 "resources/css/search.css",
+                "resources/css/protokolle/editor.css",
                 "resources/js/app.js",
                 "resources/js/confirm-delete.js",
             ],
