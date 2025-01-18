@@ -36,7 +36,7 @@ class CheckForUpdate
             if (!$latestVersion || !$updateMessage) {
                 return "Die API-Antwort ist ungültig.";
             }
-            $currentVersion = '1.0.0';
+            $currentVersion = '1.1.0';
             // Debugging: Protokolliere die Versionsnummern
             Log::info("Current Version: $currentVersion, Latest Version: $latestVersion");
 
