@@ -51,4 +51,7 @@ class CheckForUpdate
             return "Ein unbekannter Fehler ist aufgetreten: " . $e->getMessage();
         }
     }
+
 }
+
+
