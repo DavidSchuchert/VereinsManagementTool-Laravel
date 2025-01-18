@@ -78,6 +78,7 @@ body {
     justify-content: space-around;
     align-items: center;
     padding-top: 12px;
+    border-top: 1px solid lightgrey;
 }
 
 .extra-transaction-form {
@@ -230,6 +231,6 @@ h1 {
 
     table {
         align-self: center;
-        width: 90%;
+        width: 100%;
     }
 }
