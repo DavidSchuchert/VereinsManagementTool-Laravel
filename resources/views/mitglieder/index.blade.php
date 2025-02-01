@@ -22,7 +22,7 @@
                             <p><b>Telefon/Handy:</b> {{ $mitglied->telefon }}</p>
                             <p><b>E-Mail:</b> {{ $mitglied->email }}</p>
                             <p><b>Rang:</b> {{ $mitglied->rangart->name }}</p>
-                            <p><b>Beitritt:</b> {{ \Carbon\Carbon::parse($mitglied->beitritt)->format('d.m.Y') }}</p>
+                            <p><b>Beitritt:</b> {{ \Carbon\Carbon::parse($mitglied->eintrittsdatum)->format('d.m.Y') }}</p>
                             <p><b>Austritt:</b> {{ $mitglied->austrittsdatum ? \Carbon\Carbon::parse($mitglied->austrittsdatum)->format('d.m.Y') : 'Nicht Ausgetreten' }}</p>
                             <p><b>Adresse:</b> {{ $mitglied->plz }}, {{ $mitglied->ort }}, {{ $mitglied->strasse }}
                                 {{ $mitglied->hausnummer }}</p>
