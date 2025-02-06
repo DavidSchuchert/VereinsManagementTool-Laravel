@@ -6,9 +6,11 @@
     <style>
         /* Allgemeine Stile */
         @page {
-            size: A4;
-            margin: 20mm;
+            size: A4 landscape;
+            /* Querformat setzen */
+            margin: 15mm;
         }
+
 
         body {
             font-family: Arial, sans-serif;
