@@ -26,7 +26,7 @@
             width: 100% !important;
             border-collapse: collapse;
             margin-top: 20px;
-            table-layout: fixed;
+            table-layout: auto;
         }
 
         th,
