@@ -7,7 +7,6 @@
         /* Allgemeine Stile */
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
             color: #333;
         }
 
@@ -18,7 +17,7 @@
 
         /* Tabellenstil */
         table {
-            width: 100%;
+            width: 100% !important;
             border-collapse: collapse;
             margin-top: 20px;
         }
@@ -26,8 +25,9 @@
         th,
         td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 3px;
             text-align: left;
+            word-wrap: break-word;
         }
 
         th {
@@ -96,7 +96,7 @@
         <tbody>
             @foreach ($zahlungen as $zahlung)
                 <tr>
-                    <td>{{ $zahlung->beschreibung }}</td>
+                    <td >{{ $zahlung->beschreibung }}</td>
                     <td>{{ $zahlung->rechnungsnr }}</td>
                     <td>{{ $zahlung->datum }}</td>
                     <td>{{ $zahlung->zahlungsart->name }}</td>
