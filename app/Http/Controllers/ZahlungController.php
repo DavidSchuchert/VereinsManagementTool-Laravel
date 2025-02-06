@@ -55,7 +55,7 @@ class ZahlungController extends Controller
         $query = $this->applyFilters($request);
 
         $zahlungen = $query->orderBy('datum', 'desc')->get();
-        $pdf = Pdf::loadView('pdf.zahlungen', compact('zahlungen'));
+        $pdf = Pdf::loadView('pdf.zahlungen', compact('zahlungen'))->setPaper('a4', 'landscape');
 
         return $pdf->download('zahlungen_' . date('Y-m-d_H-i-s') . '.pdf');
     }
