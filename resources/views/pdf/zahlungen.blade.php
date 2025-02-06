@@ -5,9 +5,15 @@
     <title>Zahlungen PDF</title>
     <style>
         /* Allgemeine Stile */
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
         body {
             font-family: Arial, sans-serif;
             color: #333;
+            width. 100%;
         }
 
         h2 {
@@ -20,6 +26,7 @@
             width: 100% !important;
             border-collapse: collapse;
             margin-top: 20px;
+            table-layout: fixed;
         }
 
         th,
@@ -97,7 +104,7 @@
         <tbody>
             @foreach ($zahlungen as $zahlung)
                 <tr>
-                    <td >{{ $zahlung->beschreibung }}</td>
+                    <td>{{ $zahlung->beschreibung }}</td>
                     <td>{{ $zahlung->rechnungsnr }}</td>
                     <td>{{ $zahlung->datum }}</td>
                     <td>{{ $zahlung->zahlungsart->name }}</td>
