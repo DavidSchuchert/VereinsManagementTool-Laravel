@@ -80,7 +80,7 @@
     <!-- Anzeige des Datumsbereichs -->
     <div class="date-range">
         <p>Zeitraum: {{ $zahlungen->min('datum') }} bis {{ $zahlungen->max('datum') }}</p>
-        <p>Gesammtbetrag: {{ $zahlungen->betrag->sum() }} €</p>
+        <p>Gesamtbetrag: {{ number_format($zahlungen->sum('betrag'), 2, ',', '.') }} €</p>
     </div>
 
     <table>
