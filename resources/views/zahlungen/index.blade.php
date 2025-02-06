@@ -96,7 +96,7 @@
         @endif
     <div style="display:flex">
         {{-- Pagination --}}
-        {{ $zahlungen->links() }}
+        {{ $zahlungen->appends(request()->query())->links() }}
     </div>
 
     {{-- Js --}}
