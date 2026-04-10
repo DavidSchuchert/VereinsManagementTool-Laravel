@@ -41,6 +41,11 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::resource('/inventar', InventarController::class);
     Route::get('/pdf/export-inventar', [InventarController::class, 'exportPdf'])->name('inventar.exportPdf');
 
+    /* Dokumente */
+    Route::get('/dokumente', function() {
+        return view('dokumente.index');
+    })->name('dokumente.index');
+
     /* User */
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');

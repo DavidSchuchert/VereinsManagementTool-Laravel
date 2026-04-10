@@ -30,9 +30,9 @@
 - ✅ Modal/slide-over CRUD forms (All main modules)
 
 #### Phase 3 - Module Expansion
-- Document Management (Media Library)
-- Event & Attendance module
-- Import/Export wizard (Excel/CSV)
+- ✅ Document Management (Media Library / Storage)
+- 🔄 Event & Attendance module
+- 🔄 Import/Export wizard (Excel/CSV)
 
 #### Phase 4 - Polish
 - ✅ Real-time dashboard stats (Livewire + ApexCharts)
