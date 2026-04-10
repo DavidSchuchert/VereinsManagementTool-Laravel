@@ -93,28 +93,33 @@
                                         <p>Erstellt am: {{ $item->created_at->format('d.m.Y H:i') }}</p>
                                         <p>Zuletzt bearbeitet: {{ $item->updated_at->format('d.m.Y H:i') }}</p>
                                     </div>
-                                    <div class="flex items-center space-x-3">
-                                        <button wire:click="$dispatch('open-zahlung-form', { id: {{ $item->id }} })" 
-                                                class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                            <img src="{{ asset('images/edit-svgrepo-com.svg') }}" alt="bearbeiten" class="w-4 h-4 mr-1.5">
-                                            Bearbeiten
+                                    <div class="relative flex items-center space-x-3" x-data="{ open: false }">
+                                        <button @click="open = !open" @click.away="open = false" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+                                            Optionen
+                                            <svg class="-mr-1 ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                                         </button>
-                                        
-                                        @if ($item->file_path)
-                                            <a href="{{ asset('storage/' . $item->file_path) }}" target="_blank"
-                                               class="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                                <img src="{{ asset('images/file-svgrepo-com.svg') }}" alt="datei" class="w-4 h-4 mr-1.5">
-                                                Datei anzeigen
-                                            </a>
-                                        @endif
 
-                                        <form action="{{ route('zahlungen.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Wirklich löschen?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="inline-flex items-center px-3 py-1.5 border border-transparent text-xs font-medium rounded text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                                                Löschen
-                                            </button>
-                                        </form>
+                                        <div x-show="open" x-transition class="origin-top-right absolute right-0 mt-8 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                                            <div class="py-1" role="menu">
+                                                <button wire:click="$dispatch('open-zahlung-form', { id: {{ $item->id }} }); open = false;" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
+                                                    <img src="{{ asset('images/edit-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Bearbeiten
+                                                </button>
+                                                
+                                                @if ($item->file_path)
+                                                    <a href="{{ asset('storage/' . $item->file_path) }}" target="_blank" class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
+                                                        <img src="{{ asset('images/file-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Datei anzeigen
+                                                    </a>
+                                                @endif
+
+                                                <form action="{{ route('zahlungen.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Wirklich löschen?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center">
+                                                        <img src="{{ asset('images/delete-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Löschen
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </td>

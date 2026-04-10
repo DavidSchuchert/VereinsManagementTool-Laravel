@@ -92,6 +92,10 @@ class ZahlungenForm extends Component
 
         $this->showModal = false;
         $this->dispatch('refresh-zahlung-list');
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => $this->zahlungId ? 'Zahlung erfolgreich aktualisiert.' : 'Zahlung erfolgreich erfasst.'
+        ]);
     }
 
     public function render()

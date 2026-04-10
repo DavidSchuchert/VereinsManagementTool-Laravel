@@ -82,6 +82,10 @@ class InventarForm extends Component
 
         $this->showModal = false;
         $this->dispatch('refresh-inventar-list');
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => $this->itemId ? 'Artikel erfolgreich aktualisiert.' : 'Artikel erfolgreich angelegt.'
+        ]);
     }
 
     public function render()

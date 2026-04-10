@@ -87,21 +87,35 @@
                         <p><b>Adresse:</b> {{ $mitglied->plz }}, {{ $mitglied->ort }}, {{ $mitglied->strasse }}
                             {{ $mitglied->hausnummer }}</p>
                     </div>
-                    <div class="options">
-                        <div class="extra_info_flex edit_mitglied">
-                            <img src="{{ asset('images/edit-svgrepo-com.svg') }}" alt="bearbeiten" class="icon">
-                            <button wire:click="$dispatch('open-member-form', { id: {{ $mitglied->id }} })" class="delete-btn">
-                                Bearbeiten
+                    <div class="options" x-data="{ open: false }">
+                        <div class="relative inline-block text-left">
+                            <button @click="open = !open" @click.away="open = false" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none">
+                                Optionen
+                                <svg class="-mr-1 ml-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                             </button>
-                        </div>
 
-                        @if ($mitglied->file_path)
-                            <div class="extra_info_flex datei_anzeigen">
-                                <a href="{{ asset('storage/' . $mitglied->file_path) }}" target="_blank" class="delete-btn">
-                                    <img src="{{ asset('images/file-svgrepo-com.svg') }}" alt="datei" class="icon">Datei anzeigen
-                                </a>
+                            <div x-show="open" x-transition class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
+                                <div class="py-1" role="menu" aria-orientation="vertical">
+                                    <button wire:click="$dispatch('open-member-form', { id: {{ $mitglied->id }} }); open = false;" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
+                                        <img src="{{ asset('images/edit-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Bearbeiten
+                                    </button>
+                                    
+                                    @if ($mitglied->file_path)
+                                        <a href="{{ asset('storage/' . $mitglied->file_path) }}" target="_blank" class="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
+                                            <img src="{{ asset('images/file-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Datei anzeigen
+                                        </a>
+                                    @endif
+
+                                    <form action="{{ route('mitglieder.destroy', $mitglied->id) }}" method="POST" onsubmit="return confirm('Wirklich löschen?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center">
+                                            <img src="{{ asset('images/delete-svgrepo-com.svg') }}" class="w-4 h-4 mr-2"> Löschen
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
-                        @endif
+                        </div>
                     </div>
                 </details>
             @empty

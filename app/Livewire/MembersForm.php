@@ -119,6 +119,10 @@ class MembersForm extends Component
 
         $this->showModal = false;
         $this->dispatch('refresh-member-list');
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => $this->memberId ? 'Mitglied erfolgreich aktualisiert.' : 'Mitglied erfolgreich angelegt.'
+        ]);
     }
 
     public function render()
