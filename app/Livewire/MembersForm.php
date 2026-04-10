@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Mitglied;
 use App\Models\Rangart;
+use App\Events\MembershipUpdated;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -119,6 +120,10 @@ class MembersForm extends Component
 
         $this->showModal = false;
         $this->dispatch('refresh-member-list');
+        
+        // Real-time Dashboard Update
+        broadcast(new MembershipUpdated())->toOthers();
+
         $this->dispatch('notify', [
             'type' => 'success',
             'message' => $this->memberId ? 'Mitglied erfolgreich aktualisiert.' : 'Mitglied erfolgreich angelegt.'

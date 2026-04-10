@@ -11,6 +11,14 @@ use Livewire\Component;
 
 class DashboardStats extends Component
 {
+    public function getListeners()
+    {
+        return [
+            "echo:dashboard-stats,membership.updated" => '$refresh',
+            "echo:dashboard-stats,protokoll.new" => '$refresh',
+        ];
+    }
+
     public function render()
     {
         // 1. Members Stats

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Protokoll;
+use App\Events\NewProtokoll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -26,11 +27,13 @@ class ProtokollController extends Controller
             'content' => 'required|string',
         ]);
 
-        Protokoll::create([
+        $protokoll = Protokoll::create([
             'title' => $request->title,
             'content' => $request->content,
             'user_id' => Auth::id(),
         ]);
+
+        broadcast(new NewProtokoll($protokoll))->toOthers();
 
         return redirect()->route('protokolle.index')->with('success', 'Protokoll erstellt!');
     }
