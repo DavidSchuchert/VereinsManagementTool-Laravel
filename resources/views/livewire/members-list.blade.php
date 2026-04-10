@@ -1,8 +1,8 @@
 <div>
     <div class="mb-4 space-y-4">
-        {{-- Statistic Header (from original) --}}
+        {{-- Statistic Header --}}
         <div class="p-4 bg-white rounded-lg shadow-sm">
-            <h1 class="text-2xl font-bold">Mitglieder-Datenbank</h1>
+            <h1 class="text-2xl font-bold text-gray-800">Mitglieder-Datenbank</h1>
             <p class="text-gray-600">
                 Mitgliederanzahl: <b class="text-blue-600">{{ $members->total() }}</b> 
                 davon ausgeschieden: <b class="text-red-600">{{ $members->whereNotNull('austrittsdatum')->count() }}</b> (in dieser Ansicht)
@@ -16,14 +16,14 @@
                     type="text" 
                     wire:model.live.debounce.300ms="search" 
                     placeholder="Suche nach Name, ID oder E-Mail..." 
-                    class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    class="w-full px-4 py-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 >
             </div>
             
             <div class="flex items-center gap-2">
                 <select 
                     wire:model.live="perPage" 
-                    class="px-4 py-2 border rounded-lg"
+                    class="px-4 py-2 border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                 >
                     <option value="10">10 pro Seite</option>
                     <option value="25">25 pro Seite</option>
@@ -62,7 +62,7 @@
 
     <div class="mitglieder">
         <div class="flex flex-wrap items-center gap-2 mb-4">
-            <button onclick="Popup()" class="Neu-btn">Neues Mitglied anlegen</button>
+            <button wire:click="$dispatch('open-member-form')" class="Neu-btn">Neues Mitglied anlegen</button>
             <a href="{{ route('mitglieder.exportPdf', ['search' => $search, 'filterStatus' => $filterStatus]) }}"
                 class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
         </div>
@@ -90,7 +90,7 @@
                     <div class="options">
                         <div class="extra_info_flex edit_mitglied">
                             <img src="{{ asset('images/edit-svgrepo-com.svg') }}" alt="bearbeiten" class="icon">
-                            <button onclick="openEditPopup('{{ $mitglied->id }}')" class="delete-btn">
+                            <button wire:click="$dispatch('open-member-form', { id: {{ $mitglied->id }} })" class="delete-btn">
                                 Bearbeiten
                             </button>
                         </div>
@@ -115,19 +115,4 @@
     <div class="mt-6">
         {{ $members->links() }}
     </div>
-
-    {{-- Script to bridge Livewire data to the global popup logic --}}
-    <script>
-        document.addEventListener('livewire:initialized', () => {
-            // Watch for changes in members to update the window.mitgliederData object
-            Livewire.on('post-render', () => {
-                // We'll update data in the openEditPopup function directly or via a custom event
-            });
-        });
-        
-        // This is a bit hacky but ensures the existing Popup logic works with the dynamic list
-        window.getMitgliederData = function() {
-            return @json($members->keyBy('id'));
-        };
-    </script>
 </div>

@@ -11,6 +11,8 @@ class MembersList extends Component
 {
     use WithPagination;
 
+    protected $listeners = ['refresh-member-list' => '$refresh'];
+
     public $search = '';
     public $filterStatus = 'all';
     public $perPage = 10;

@@ -65,19 +65,7 @@ class ZahlungController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Zahlung::query();
-        $meldung = null;
-
-        // Filter für Zahlungen anwenden
-        $query = $this->applyFilters($request);
-
-        $zahlungen = $query->orderBy('created_at', 'desc')->paginate(15);
-
-        $summe = Zahlung::sum('betrag');
-
-        $zahlungsarten = Zahlungsart::orderBy('id')->pluck('name', 'id');
-
-        return view('zahlungen.index', compact('zahlungen', 'summe', 'zahlungsarten', 'meldung'));
+        return view('zahlungen.index');
     }
 
     /**
