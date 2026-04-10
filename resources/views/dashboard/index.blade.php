@@ -4,57 +4,19 @@
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="container">
-        <div id="upper_db">
-            <h1>Dashboard</h1>
-            <h2>Herzlich Willkommen {{ Auth::user()->name }} im
-                <span style="color: lightskyblue;">{{ config('app.name') }}</span>
-            </h2>
+    <div class="py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {{-- Welcome Header --}}
+            <div class="mb-8">
+                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
+                <p class="mt-1 text-sm text-gray-500">
+                    Herzlich Willkommen <span class="font-semibold text-blue-600">{{ Auth::user()->name }}</span> im
+                    <span class="font-semibold text-indigo-600">{{ config('app.name') }}</span>
+                </p>
+            </div>
+
+            {{-- Livewire Dashboard Component --}}
+            @livewire('dashboard-stats')
         </div>
-
-        <!-- Statistikkacheln -->
-        <div class="stats">
-            <div class="stat-box">
-                <h3>Gesamtmitglieder</h3>
-                <p>{{ $mitgliedergesammt }}</p>
-            </div>
-            <div class="stat-box">
-                <h3>Gesamte Einnahmen</h3>
-                <p>{{ number_format($einnahmen, 2) }} €</p>
-            </div>
-            <div class="stat-box">
-                <h3>Gesamte Ausgaben</h3>
-                <p>{{ number_format($ausgaben, 2) }} €</p>
-            </div>
-        </div>
-
-        <section id="charts">
-            <!-- Diagramm zur Mitgliederanzahl pro Rang -->
-            <div class="chart-container" id="mitgliederChartContainer" style="display: none;">
-                <h2>Mitglieder({{ $mitgliedergesammt }}) nach Rang</h2>
-                <div>
-                    {!! $mitgliederChart->container() !!}
-                    {!! $mitgliederChart->script() !!}
-                </div>
-            </div>
-
-            <!-- Diagramm zur Transaktionsberechnung (Einnahmen vs. Ausgaben) -->
-            <div class="chart-container" id="chartContainer" style="display: none;">
-                <h2>Einnahmen vs. Ausgaben</h2>
-                <div>
-                    {!! $chart->container() !!}
-                    {!! $chart->script() !!}
-                </div>
-            </div>
-        </section>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.getElementById('mitgliederChartContainer').style.display = 'block';
-                document.getElementById('chartContainer').style.display = 'block';
-            }, 100);
-        });
-    </script>
 @endsection
