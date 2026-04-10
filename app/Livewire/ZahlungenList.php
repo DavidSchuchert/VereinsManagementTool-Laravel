@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Zahlung;
 use App\Models\Zahlungsart;
+use App\Services\FilterService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -33,39 +34,34 @@ class ZahlungenList extends Component
         $this->resetPage();
     }
 
-    public function render()
+    public function render(FilterService $filterService)
     {
         $query = Zahlung::with('zahlungsart');
 
-        if (!empty($this->search)) {
-            $query->where(function ($q) {
-                $q->where('beschreibung', 'like', '%' . $this->search . '%')
-                  ->orWhere('rechnungsnr', 'like', '%' . $this->search . '%');
-            });
-        }
+        $filters = [
+            'search' => $this->search,
+            'search_columns' => ['beschreibung', 'rechnungsnr'],
+            'dropdowns' => [
+                'zahlungsart_id' => $this->filterZahlungsart,
+                'typ' => $this->filterTyp,
+            ],
+            'date_range' => [
+                'from' => $this->dateFrom,
+                'to' => $this->dateTo,
+            ],
+            'date_column' => 'datum',
+            'sort_by' => 'datum',
+            'sort_dir' => 'desc',
+        ];
 
-        if (!empty($this->filterZahlungsart)) {
-            $query->where('zahlungsart_id', $this->filterZahlungsart);
-        }
-
-        if (!empty($this->filterTyp)) {
-            $query->where('typ', $this->filterTyp);
-        }
-
-        if (!empty($this->dateFrom)) {
-            $query->where('datum', '>=', $this->dateFrom);
-        }
-
-        if (!empty($this->dateTo)) {
-            $query->where('datum', '<=', $this->dateTo);
-        }
+        $query = $filterService->filter($query, $filters);
 
         // Totals based on filtered query
         $totalEinnahmen = (clone $query)->where('typ', 'Einnahme')->sum('betrag');
         $totalAusgaben = (clone $query)->where('typ', 'Ausgabe')->sum('betrag');
         $bilanz = $totalEinnahmen - $totalAusgaben;
 
-        $items = $query->orderBy('datum', 'desc')->paginate($this->perPage);
+        $items = $query->paginate($this->perPage);
         $zahlungsarten = Zahlungsart::all();
 
         return view('livewire.zahlungen-list', [

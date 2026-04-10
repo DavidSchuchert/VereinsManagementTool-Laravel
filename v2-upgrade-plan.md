@@ -22,7 +22,7 @@
 - ✅ Install Spatie Permission
 - ✅ Create Category model for inventory categorization
 - 🔄 Refactor Settings service
-- 🔄 Implement unified filtering pipeline
+- ✅ Implement unified filtering pipeline (FilterService)
 
 #### Phase 2 - Reactive Overhaul
 - ✅ Convert index pages to Livewire components (Members, Inventory, Payments)

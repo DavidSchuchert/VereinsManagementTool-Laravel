@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Inventar;
 use App\Models\Category;
+use App\Services\FilterService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -27,24 +28,21 @@ class InventarList extends Component
         $this->resetPage();
     }
 
-    public function render()
+    public function render(FilterService $filterService)
     {
         $query = Inventar::with('category');
 
-        if (!empty($this->search)) {
-            $query->where(function ($q) {
-                $q->where('artikel', 'like', '%' . $this->search . '%')
-                  ->orWhere('ean', 'like', '%' . $this->search . '%')
-                  ->orWhere('bemerkung', 'like', '%' . $this->search . '%')
-                  ->orWhere('lagerstandort', 'like', '%' . $this->search . '%');
-            });
-        }
+        $filters = [
+            'search' => $this->search,
+            'search_columns' => ['artikel', 'ean', 'bemerkung', 'lagerstandort'],
+            'dropdowns' => [
+                'kategorie_id' => $this->filterCategory,
+            ],
+            'sort_by' => 'created_at',
+            'sort_dir' => 'desc',
+        ];
 
-        if (!empty($this->filterCategory)) {
-            $query->where('kategorie_id', $this->filterCategory);
-        }
-
-        $items = $query->orderBy('created_at', 'desc')->paginate($this->perPage);
+        $items = $filterService->filter($query, $filters)->paginate($this->perPage);
         $categories = Category::all();
 
         return view('livewire.inventar-list', [

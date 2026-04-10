@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Mitglied;
 use App\Models\Rangart;
+use App\Services\FilterService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -32,26 +33,20 @@ class MembersList extends Component
         $this->resetPage();
     }
 
-    public function render()
+    public function render(FilterService $filterService)
     {
         $query = Mitglied::with('rangart');
 
-        if (!empty($this->search)) {
-            $query->where(function ($q) {
-                $q->where('vorname', 'like', '%' . $this->search . '%')
-                  ->orWhere('nachname', 'like', '%' . $this->search . '%')
-                  ->orWhere('mitgliedsnummer', 'like', '%' . $this->search . '%')
-                  ->orWhere('email', 'like', '%' . $this->search . '%');
-            });
-        }
+        $filters = [
+            'search' => $this->search,
+            'search_columns' => ['vorname', 'nachname', 'mitgliedsnummer', 'email'],
+            'status' => $this->filterStatus,
+            'status_column' => 'austrittsdatum',
+            'sort_by' => 'nachname',
+            'sort_dir' => 'asc',
+        ];
 
-        if ($this->filterStatus === 'active') {
-            $query->whereNull('austrittsdatum');
-        } elseif ($this->filterStatus === 'inactive') {
-            $query->whereNotNull('austrittsdatum');
-        }
-
-        $members = $query->paginate($this->perPage);
+        $members = $filterService->filter($query, $filters)->paginate($this->perPage);
         $rangarten = Rangart::all();
 
         return view('livewire.members-list', [
