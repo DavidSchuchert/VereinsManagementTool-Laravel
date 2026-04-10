@@ -50,6 +50,11 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
         return view('dokumente.index');
     })->name('dokumente.index');
 
+    /* Import/Export */
+    Route::get('/import-export', function() {
+        return view('import-export.index');
+    })->name('import-export.index');
+
     /* User */
 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
