@@ -1,9 +1,13 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Rangart extends Model
 {
-    protected $table = 'rangarten'; //
+    use SoftDeletes;
+    protected $table = 'rangarten';
+    protected $fillable = ['name'];
 }

@@ -2,28 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category extends Model
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'description',
-        'created_at',
-        'updated_at',
-    ];
+    use HasFactory, SoftDeletes;
 
-    /**
-     * Get all inventories that belong to this category.
-     */
-    public function inventories(): BelongsTo
+    protected $fillable = ['name'];
+
+    public function items()
     {
-        return $this->belongsTo(Inventory::class);
+        return $this->hasMany(Inventar::class, 'kategorie_id');
     }
 }
