@@ -88,18 +88,9 @@ class MitgliederController extends Controller
      */
     public function index(Request $request)
     {
-
-        $query = Mitglied::query();
-        $meldung = null;
-
-        // Filter für Zahlungen anwenden
-        $query = $this->applyFilters($request);
-
-        $mitglieder = $query->orderBy('id', 'desc')->paginate(45);
-
         $rangarten = Rangart::orderBy('id')->pluck('name', 'id');
 
-        return view('mitglieder.index', compact('mitglieder', 'rangarten'));
+        return view('mitglieder.index', compact('rangarten'));
     }
 
     /**

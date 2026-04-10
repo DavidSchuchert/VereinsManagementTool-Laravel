@@ -4,63 +4,15 @@
 @section('title', 'Mitglieder')
 
 @section('content')
-    <h1>Mitglieder-Datenbank</h1>
-    <p>Mitgliederanzahl: <b>{{ $mitglieder->count() }}</b> davon ausgeschieden:  <b>{{ $mitglieder->whereNotNull('austrittsdatum')->count() }}</b></p>
-    <x-mitglieder-such-filter-form :rangarten="$rangarten" />
     <section>
-        <div class="mitglieder">
-            <button onclick="Popup()" class="Neu-btn">Neues Mitglied anlegen</button>
-            <a href="{{ route('mitglieder.exportPdf', request()->query()) }}"
-                class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
-            <div class="mitgliederliste">
-                @foreach ($mitglieder as $mitglied)
-                    <details>
-                        <summary class="accordion_summary">{{ $mitglied->vorname }} {{ $mitglied->nachname }}</summary>
-                        <div class="accordion_data">
-                            <p><b>ID:</b> {{ $mitglied->mitgliedsnummer }}</p>
-                            <p><b>Geburtstag:</b> {{ \Carbon\Carbon::parse($mitglied->geburtsdatum)->format('d.m.Y') }}</p>
-                            <p><b>Telefon/Handy:</b> {{ $mitglied->telefon }}</p>
-                            <p><b>E-Mail:</b> {{ $mitglied->email }}</p>
-                            <p><b>Rang:</b> {{ $mitglied->rangart->name }}</p>
-                            <p><b>Beitritt:</b> {{ \Carbon\Carbon::parse($mitglied->eintrittsdatum)->format('d.m.Y') }}</p>
-                            <p><b>Austritt:</b> {{ $mitglied->austrittsdatum ? \Carbon\Carbon::parse($mitglied->austrittsdatum)->format('d.m.Y') : 'Nicht Ausgetreten' }}</p>
-                            <p><b>Adresse:</b> {{ $mitglied->plz }}, {{ $mitglied->ort }}, {{ $mitglied->strasse }}
-                                {{ $mitglied->hausnummer }}</p>
-                        </div>
-                        <div class="options">
-                            <div class="extra_info_flex edit_mitglied"><img src="{{ asset('images/edit-svgrepo-com.svg') }}"
-                                    alt="bearbeiten" class="icon"><button onclick="openEditPopup('{{ $mitglied->id }}')"
-                                    class="delete-btn">
-                                    Bearbeiten
-                                </button></div>
-                            </p>
-
-
-                            @if ($mitglied->file_path)
-                                <div class="extra_info_flex datei_anzeigen">
-                                    <a href="{{ asset('storage/' . $mitglied->file_path) }}" target="_blank"
-                                        class="delete-btn">
-                                        <img src="{{ asset('images/file-svgrepo-com.svg') }}" alt="datei"
-                                            class="icon">Datei anzeigen
-                                    </a>
-                                </div>
-                            @endif
-                        </div>
-                    </details>
-                @endforeach
-            </div>
-        </div>
+        {{-- The Livewire Component --}}
+        @livewire('members-list')
 
         {{-- Create Popup --}}
         <x-mitglieder.create :rangarten="$rangarten" />
 
         {{-- Edit Popup --}}
-        @if ($mitglieder->isNotEmpty())
-            <x-mitglieder.edit :rangarten="$rangarten" :mitglied="$mitglied" />
-        @endif
-
-        {{-- Pagination --}}
-        {{ $mitglieder->links() }}
+        <x-mitglieder.edit :rangarten="$rangarten" />
     </section>
 
     <script>
@@ -68,13 +20,17 @@
             document.getElementById('popup').classList.toggle('createhidden');
         }
 
-
         function openEditPopup(id) {
-            // Hole die aktuellen Daten der Mitglieder
-            const mitglieder = @json($mitglieder->keyBy('id'));
+            // Get current data from Livewire component bridge
+            const mitglieder = window.getMitgliederData();
             const data = mitglieder[id];
 
-            // Setze die Formularwerte
+            if (!data) {
+                console.error('Mitgliedsdaten nicht gefunden für ID:', id);
+                return;
+            }
+
+            // Set form values
             document.getElementById('edit-form').action = `/mitglieder/${id}`;
             document.getElementById('edit-mitgliedsnummer').value = data.mitgliedsnummer;
             document.getElementById('edit-vorname').value = data.vorname;
@@ -90,7 +46,7 @@
             document.getElementById('edit-austrittsdatum').value = data.austrittsdatum;
             document.getElementById('edit-rang_id').value = data.rang_id;
 
-            // Überprüfen, ob file_path existiert, und den Hinweis anzeigen
+            // Update file path warning
             if (data.file_path) {
                 document.getElementById('file-path-warning').textContent =
                     "Du hast schon eine Datei. Möchtest du sie ersetzen?";
@@ -98,12 +54,11 @@
                 document.getElementById('file-path-warning').textContent = "";
             }
 
-            // Zeige das Bearbeitungs-Popup an
+            // Show edit popup
             document.getElementById('edit-popup').classList.remove('createhidden');
         }
 
         function closeEditPopup() {
-            // Verstecke das Bearbeitungs-Popup
             document.getElementById('edit-popup').classList.add('createhidden');
         }
     </script>

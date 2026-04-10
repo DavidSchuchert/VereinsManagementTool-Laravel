@@ -17,6 +17,14 @@ class Inventar extends Model
         'menge',
         'bemerkung',
         'lagerstandort',
-        
+        'kategorie_id',
     ];
+
+    /**
+     * Get the category that belongs to this inventory item.
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

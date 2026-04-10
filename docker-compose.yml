@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:10.11
+    container_name: vereinsmanagement-db
+    environment:
+      MYSQL_DATABASE: vereinsmanagement
+      MYSQL_USER: vereinsuser
+      MYSQL_PASSWORD: vereinspass
+      MYSQL_ROOT_PASSWORD: rootpass
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - vereinsnetzwerk
+
+  php:
+    image: php:8.2-fpm
+    container_name: vereinsmanagement-php
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - mariadb
+    networks:
+      - vereinsnetzwerk
+
+networks:
+  vereinsnetzwerk:
+    driver: bridge
+
+volumes:
+  mariadb_data:
