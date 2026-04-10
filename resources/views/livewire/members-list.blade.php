@@ -62,12 +62,21 @@
 
     <div class="mitglieder">
         <div class="flex flex-wrap items-center gap-2 mb-4">
-            <button wire:click="$dispatch('open-member-form')" class="Neu-btn">Neues Mitglied anlegen</button>
+            <button wire:click="$dispatch('open-member-form')" class="btn-brand">Neues Mitglied anlegen</button>
             <a href="{{ route('mitglieder.exportPdf', ['search' => $search, 'filterStatus' => $filterStatus]) }}"
-                class="btn btn-primary export_btn">🖨️Exportieren als PDF</a>
+                class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+                🖨️ Export PDF
+            </a>
         </div>
 
-        <div class="mitgliederliste" wire:loading.class="opacity-50">
+        {{-- Skeleton Loader --}}
+        <div wire:loading.flex class="flex-col space-y-4">
+            @foreach(range(1, 5) as $i)
+                <div class="h-16 w-full skeleton"></div>
+            @endforeach
+        </div>
+
+        <div class="mitgliederliste" wire:loading.remove>
             @forelse ($members as $mitglied)
                 <details wire:key="member-{{ $mitglied->id }}">
                     <summary class="accordion_summary">

@@ -2,8 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
+@layer base {
+    body {
+        @apply bg-gray-50 text-gray-900 antialiased;
+    }
+
+    /* Modern Focus States */
+    input:focus, select:focus, textarea:focus {
+        @apply outline-none ring-2 ring-brand-500 border-brand-500 transition-all duration-200;
+    }
+
+    /* Custom Scrollbar for Desktop */
+    @media (min-width: 1024px) {
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            @apply bg-gray-100;
+        }
+        ::-webkit-scrollbar-thumb {
+            @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+        }
+    }
 }
+
+@layer components {
+    .btn-brand {
+        @apply inline-flex items-center px-4 py-2 bg-brand-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-brand-700 active:bg-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition ease-in-out duration-150;
+    }
+
+    .input-field {
+        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm;
+    }
+
+    /* Responsive Card for Mobile Tables */
+    .responsive-card-table {
+        @apply min-w-full divide-y divide-gray-200;
+    }
+
+    /* Skeleton Loading Animation */
+    .skeleton {
+        @apply bg-gray-200 animate-pulse rounded;
+    }
+}
+
+/* Fix main container for responsiveness */
+main {
+    @apply flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+[x-cloak] { display: none !important; }
