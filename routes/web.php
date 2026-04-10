@@ -41,6 +41,10 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::resource('/inventar', InventarController::class);
     Route::get('/pdf/export-inventar', [InventarController::class, 'exportPdf'])->name('inventar.exportPdf');
 
+    /* Events */
+    Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
+    Route::get('/events/{event}', [App\Http\Controllers\EventController::class, 'show'])->name('events.show');
+
     /* Dokumente */
     Route::get('/dokumente', function() {
         return view('dokumente.index');
