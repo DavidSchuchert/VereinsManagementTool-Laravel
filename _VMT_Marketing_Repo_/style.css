@@ -1,0 +1,331 @@
+:root {
+    --primary: #1e40af; /* Dunkleres Blau */
+    --primary-hover: #1e3a8a;
+    --secondary: #64748b;
+    --dark: #0f172a;
+    --gray-dark: #334155;
+    --gray: #64748b;
+    --gray-light: #f8fafc;
+    --border: #e2e8f0;
+    --white: #ffffff;
+    --radius: 8px; /* Cleanere Ecken */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 4rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2.5rem;
+}
+
+/* Nav Bar */
+.main-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+.main-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.logo img {
+    height: 48px; /* Größeres Logo im Header */
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Icons/Badges */
+.badge {
+    display: inline-block;
+    background: #eff6ff;
+    color: var(--primary);
+    padding: 0.5rem 1.25rem;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border: 1px solid #dbeafe;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary);
+    color: white !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: var(--gray-light);
+    color: var(--dark) !important;
+    padding: 0.8rem 1.6rem;
+    border-radius: var(--radius);
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background-color: #f1f5f9;
+}
+
+.btn-primary.large, .btn-secondary.large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 0 10rem;
+    text-align: center;
+    background-color: #fcfdfe;
+}
+
+.hero-header-box h1 {
+    font-size: 4.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    color: var(--dark);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: -0.025em;
+}
+
+.hero-header-box p {
+    font-size: 1.35rem;
+    color: var(--gray);
+    margin: 0 auto 4rem;
+    max-width: 800px;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Large App Showcase */
+.hero-mockup {
+    width: 100%;
+    margin-top: 6rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.full-screenshot {
+    width: 100%;
+    display: block;
+    height: auto;
+}
+
+/* Features Table Style */
+.features {
+    padding: 10rem 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4rem;
+}
+
+.feature-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    color: var(--primary);
+    position: relative;
+    padding-left: 0;
+}
+
+.feature-item p {
+    color: var(--gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+/* Showcase - Content & Screenshots */
+.showcase {
+    padding: 10rem 0;
+    background-color: var(--gray-light);
+}
+
+.showcase-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 12rem;
+}
+
+.showcase-row:last-child {
+    margin-bottom: 0;
+}
+
+.showcase-row.reversed {
+    flex-direction: row-reverse;
+}
+
+.showcase-content {
+    flex: 1;
+}
+
+.showcase-content h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.showcase-content p {
+    font-size: 1.2rem;
+    color: var(--gray);
+}
+
+.showcase-image-wrapper {
+    flex: 1.5;
+}
+
+.app-screenshot {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border);
+}
+
+/* Professional Footer */
+.footer {
+    padding: 5rem 0;
+    border-top: 1px solid var(--border);
+}
+
+.footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-weight: 700;
+}
+
+.footer-brand img {
+    height: 42px;
+}
+
+.footer-copy p {
+    color: var(--gray);
+}
+
+.footer-copy a {
+    color: var(--gray-dark);
+    text-decoration: underline;
+}
+
+/* Responsive Cleanup */
+@media (max-width: 1024px) {
+    .hero-header-box h1 {
+        font-size: 3rem;
+    }
+    .main-nav .container, .showcase-row, .footer-wrap {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+    .nav-links {
+        display: none;
+    }
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    .showcase-row.reversed {
+        flex-direction: column;
+    }
+}
