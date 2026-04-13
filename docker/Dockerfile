@@ -36,27 +36,13 @@ RUN a2enmod rewrite headers
 # PHP.ini
 COPY docker/php.ini /usr/local/etc/php/php.ini
 
-# Laravel App kopieren
+# Laravel App kopieren (ohne storage, vendor, node_modules - kommen rein via Entrypoint)
 COPY . .
 
-# Storage Verzeichnisse erstellen (sind in .dockerignore excluded)
-RUN mkdir -p storage/framework/{views,cache,sessions} \
-    && mkdir -p storage/logs \
-    && mkdir -p bootstrap/cache \
-    && touch storage/logs/.gitignore \
-    && touch storage/framework/views/.gitignore \
-    && touch storage/framework/cache/.gitignore \
-    && touch storage/framework/sessions/.gitignore \
-    && touch bootstrap/cache/.gitignore \
-    && echo "*" > storage/logs/.gitignore \
-    && echo "*" > storage/framework/views/.gitignore \
-    && echo "*" > storage/framework/cache/.gitignore \
-    && echo "*" > storage/framework/sessions/.gitignore \
-    && echo "*" > bootstrap/cache/.gitignore
-
-# Permissions NACH dem Copy
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Bootstrap/cache braucht Schreibzugriff
+RUN mkdir -p bootstrap/cache \
+    && chown -R www-data:www-data bootstrap/cache \
+    && chmod -R 775 bootstrap/cache
 
 # Entrypoint
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh

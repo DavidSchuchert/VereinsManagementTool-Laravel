@@ -45,9 +45,7 @@ npm run build
 echo "⚡ Publishing Livewire assets..."
 php artisan livewire:publish --assets || true
 
-# Config cache
-echo "🔑 Caching config..."
-php artisan config:cache || true
+# Note: config:cache removed - causes path issues in container
 
 # Run migrations
 echo "📦 Running migrations..."
