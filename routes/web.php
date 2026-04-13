@@ -22,7 +22,6 @@ Route::get('/home', fn() => redirect()->route('dashboard'))->name('home');
 
 Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () {
     /* Dashboard */
-/*     Route::get("/", [DashboardController::class, 'index'])->name("home"); */
 
     /* Setup / Einstellungen */
     Route::get('/setup', function() {
