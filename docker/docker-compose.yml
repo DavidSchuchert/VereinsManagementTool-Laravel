@@ -6,7 +6,7 @@ services:
     container_name: vmt-app
     restart: unless-stopped
     volumes:
-      - .:/var/www/html
+      - ./docker/data:/var/www/html/storage
     working_dir: /var/www/html
     ports:
       - "8181:80"
