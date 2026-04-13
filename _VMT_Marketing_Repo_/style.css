@@ -153,11 +153,11 @@ body {
 }
 
 .hero-logo-main {
-    height: 120px;
+    height: 240px;
     width: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08));
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
 }
 
 .hero-header-box h1 {
