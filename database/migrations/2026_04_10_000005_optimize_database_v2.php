@@ -16,8 +16,15 @@ return new class extends Migration
             if (!Schema::hasColumn('protokolle', 'deleted_at')) {
                 $table->softDeletes();
             }
-            $table->index('created_at');
-            if (Schema::hasColumn('protokolle', 'user_id')) {
+            
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $sm->listTableIndexes('protokolle');
+            
+            if (!array_key_exists('protokolle_created_at_index', $indexes)) {
+                $table->index('created_at');
+            }
+            
+            if (Schema::hasColumn('protokolle', 'user_id') && !array_key_exists('protokolle_user_id_index', $indexes)) {
                 $table->index('user_id');
             }
         });
@@ -48,40 +55,56 @@ return new class extends Migration
 
         // Add Performance Indexes
         Schema::table('mitglieder', function (Blueprint $table) {
-            if (Schema::hasColumn('mitglieder', 'mitgliedsnummer')) $table->index('mitgliedsnummer');
-            if (Schema::hasColumn('mitglieder', 'email')) $table->index('email');
-            if (Schema::hasColumn('mitglieder', 'nachname')) $table->index('nachname');
-            if (Schema::hasColumn('mitglieder', 'austrittsdatum')) $table->index('austrittsdatum');
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $sm->listTableIndexes('mitglieder');
+
+            if (Schema::hasColumn('mitglieder', 'mitgliedsnummer') && !array_key_exists('mitglieder_mitgliedsnummer_index', $indexes)) $table->index('mitgliedsnummer');
+            if (Schema::hasColumn('mitglieder', 'email') && !array_key_exists('mitglieder_email_index', $indexes)) $table->index('email');
+            if (Schema::hasColumn('mitglieder', 'nachname') && !array_key_exists('mitglieder_nachname_index', $indexes)) $table->index('nachname');
+            if (Schema::hasColumn('mitglieder', 'austrittsdatum') && !array_key_exists('mitglieder_austrittsdatum_index', $indexes)) $table->index('austrittsdatum');
         });
 
         Schema::table('inventar', function (Blueprint $table) {
-            if (Schema::hasColumn('inventar', 'artikel')) $table->index('artikel');
-            if (Schema::hasColumn('inventar', 'ean')) $table->index('ean');
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $sm->listTableIndexes('inventar');
+
+            if (Schema::hasColumn('inventar', 'artikel') && !array_key_exists('inventar_artikel_index', $indexes)) $table->index('artikel');
+            if (Schema::hasColumn('inventar', 'ean') && !array_key_exists('inventar_ean_index', $indexes)) $table->index('ean');
             
             if (!Schema::hasColumn('inventar', 'lagerstandort')) {
                 $table->string('lagerstandort')->nullable();
             }
-            $table->index('lagerstandort');
+            if (!array_key_exists('inventar_lagerstandort_index', $indexes)) {
+                $table->index('lagerstandort');
+            }
 
             if (!Schema::hasColumn('inventar', 'kategorie_id')) {
                 $table->unsignedBigInteger('kategorie_id')->nullable();
             }
-            $table->index('kategorie_id');
+            if (!array_key_exists('inventar_kategorie_id_index', $indexes)) {
+                $table->index('kategorie_id');
+            }
         });
 
         Schema::table('zahlungen', function (Blueprint $table) {
-            if (Schema::hasColumn('zahlungen', 'datum')) $table->index('datum');
-            if (Schema::hasColumn('zahlungen', 'typ')) $table->index('typ');
-            if (Schema::hasColumn('zahlungen', 'rechnungsnr')) $table->index('rechnungsnr');
-            if (Schema::hasColumn('zahlungen', 'zahlungsart_id')) $table->index('zahlungsart_id');
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $sm->listTableIndexes('zahlungen');
+
+            if (Schema::hasColumn('zahlungen', 'datum') && !array_key_exists('zahlungen_datum_index', $indexes)) $table->index('datum');
+            if (Schema::hasColumn('zahlungen', 'typ') && !array_key_exists('zahlungen_typ_index', $indexes)) $table->index('typ');
+            if (Schema::hasColumn('zahlungen', 'rechnungsnr') && !array_key_exists('zahlungen_rechnungsnr_index', $indexes)) $table->index('rechnungsnr');
+            if (Schema::hasColumn('zahlungen', 'zahlungsart_id') && !array_key_exists('zahlungen_zahlungsart_id_index', $indexes)) $table->index('zahlungsart_id');
         });
 
 
 
         Schema::table('document_uploads', function (Blueprint $table) {
-            if (Schema::hasColumn('document_uploads', 'title')) $table->index('title');
-            if (Schema::hasColumn('document_uploads', 'file_type')) $table->index('file_type');
-            if (Schema::hasColumn('document_uploads', 'uploaded_by')) $table->index('uploaded_by');
+            $sm = Schema::getConnection()->getDoctrineSchemaManager();
+            $indexes = $sm->listTableIndexes('document_uploads');
+
+            if (Schema::hasColumn('document_uploads', 'title') && !array_key_exists('document_uploads_title_index', $indexes)) $table->index('title');
+            if (Schema::hasColumn('document_uploads', 'file_type') && !array_key_exists('document_uploads_file_type_index', $indexes)) $table->index('file_type');
+            if (Schema::hasColumn('document_uploads', 'uploaded_by') && !array_key_exists('document_uploads_uploaded_by_index', $indexes)) $table->index('uploaded_by');
         });
     }
 
