@@ -17,7 +17,9 @@ return new class extends Migration
                 $table->softDeletes();
             }
             $table->index('created_at');
-            $table->index('user_id');
+            if (Schema::hasColumn('protokolle', 'user_id')) {
+                $table->index('user_id');
+            }
         });
 
         Schema::table('categories', function (Blueprint $table) {
@@ -46,32 +48,40 @@ return new class extends Migration
 
         // Add Performance Indexes
         Schema::table('mitglieder', function (Blueprint $table) {
-            $table->index('mitgliedsnummer');
-            $table->index('email');
-            $table->index('nachname');
-            $table->index('austrittsdatum');
+            if (Schema::hasColumn('mitglieder', 'mitgliedsnummer')) $table->index('mitgliedsnummer');
+            if (Schema::hasColumn('mitglieder', 'email')) $table->index('email');
+            if (Schema::hasColumn('mitglieder', 'nachname')) $table->index('nachname');
+            if (Schema::hasColumn('mitglieder', 'austrittsdatum')) $table->index('austrittsdatum');
         });
 
         Schema::table('inventar', function (Blueprint $table) {
-            $table->index('artikel');
-            $table->index('ean');
+            if (Schema::hasColumn('inventar', 'artikel')) $table->index('artikel');
+            if (Schema::hasColumn('inventar', 'ean')) $table->index('ean');
+            
+            if (!Schema::hasColumn('inventar', 'lagerstandort')) {
+                $table->string('lagerstandort')->nullable();
+            }
             $table->index('lagerstandort');
+
+            if (!Schema::hasColumn('inventar', 'kategorie_id')) {
+                $table->unsignedBigInteger('kategorie_id')->nullable();
+            }
             $table->index('kategorie_id');
         });
 
         Schema::table('zahlungen', function (Blueprint $table) {
-            $table->index('datum');
-            $table->index('typ');
-            $table->index('rechnungsnr');
-            $table->index('zahlungsart_id');
+            if (Schema::hasColumn('zahlungen', 'datum')) $table->index('datum');
+            if (Schema::hasColumn('zahlungen', 'typ')) $table->index('typ');
+            if (Schema::hasColumn('zahlungen', 'rechnungsnr')) $table->index('rechnungsnr');
+            if (Schema::hasColumn('zahlungen', 'zahlungsart_id')) $table->index('zahlungsart_id');
         });
 
 
 
         Schema::table('document_uploads', function (Blueprint $table) {
-            $table->index('title');
-            $table->index('file_type');
-            $table->index('uploaded_by');
+            if (Schema::hasColumn('document_uploads', 'title')) $table->index('title');
+            if (Schema::hasColumn('document_uploads', 'file_type')) $table->index('file_type');
+            if (Schema::hasColumn('document_uploads', 'uploaded_by')) $table->index('uploaded_by');
         });
     }
 
