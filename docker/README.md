@@ -10,7 +10,7 @@ cp .env.docker .env
 php artisan key:generate
 
 # 3. Container starten
-docker compose up -d --build
+cd docker && docker compose up -d --build
 
 # 4. Logs verfolgen
 docker compose logs -f app
@@ -45,23 +45,22 @@ Der Entrypoint führt beim ersten Start automatisch aus:
 
 ```bash
 # Container starten
-docker compose up -d
+cd docker && docker compose up -d
 
 # Neu bauen (nach Codeänderungen)
-docker compose up -d --build
+cd docker && docker compose up -d --build
 
 # Container stoppen
-docker compose down
+cd docker && docker compose down
 
 # Logs
-docker compose logs -f
-docker compose logs -f app
+cd docker && docker compose logs -f
 
 # Bash im Container
-docker compose exec app bash
+cd docker && docker compose exec app bash
 
 # Artisan Commands
-docker compose exec app php artisan migrate
+cd docker && docker compose exec app php artisan migrate
 docker compose exec app php artisan db:seed
 docker compose exec app php artisan config:cache
 docker compose exec app php artisan livewire:publish --assets
