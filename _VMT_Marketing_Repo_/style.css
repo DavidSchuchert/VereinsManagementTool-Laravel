@@ -148,13 +148,25 @@ body {
     background-color: #fcfdfe;
 }
 
+.hero-logo-wrapper {
+    margin-bottom: 2.5rem;
+}
+
+.hero-logo-main {
+    height: 120px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08));
+}
+
 .hero-header-box h1 {
-    font-size: 4.2rem;
+    font-size: 3.8rem;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 2rem;
     color: var(--dark);
-    max-width: 1000px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     letter-spacing: -0.025em;
