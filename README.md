@@ -38,7 +38,7 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
 ## 📥 Installation & Setup
 
 ### Voraussetzungen
-*   **PHP >= 8.4** (mit BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML Erweiterungen)
+*   **PHP >= 8.2** (mit BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML Erweiterungen)
 *   **Composer** (PHP Package Manager)
 *   **MySQL 8.0+** oder **MariaDB 10.11+**
 *   **Node.js & NPM** (für den Asset-Build)
@@ -98,6 +98,23 @@ Befolge diese Schritte für ein Erst-Setup oder ein reibungsloses Update auf dei
     php artisan optimize
     ```
 
+### Docker-Setup (Alternative)
+
+Wenn du Docker nutzt, ist der Prozess noch einfacher:
+
+1.  **Container bauen & starten:**
+    ```bash
+    docker compose build --no-cache
+    docker compose up -d
+    ```
+2.  **Initialisierung:**
+    ```bash
+    docker compose exec app php artisan key:generate
+    docker compose exec app php artisan migrate --seed
+    docker compose exec app php artisan storage:link
+    docker compose exec app php artisan livewire:publish --assets
+    ```
+
 ---
 
 ## 🔑 Standard-Zugangsdaten (nach Neu-Installation)
@@ -115,11 +132,10 @@ Nach einer frischen Installation mit dem Befehl `--seed` kannst du dich mit folg
 
 Das System wurde von Grund auf neu konzipiert. Hier sind die wichtigsten Änderungen im Vergleich zur klassischen v1:
 
-### [v2.2.0] - The 2026 Update (Aktuell)
-*   **Core:** Upgrade auf **Laravel 13** und **PHP 8.4**.
-*   **Frontend:** Umstellung auf **Tailwind CSS 4.0** (Engine-Rewrite) und **Vite 8.0**.
-*   **Reaktivität:** Upgrade auf **Livewire 4** für noch flüssigere Interaktionen.
-*   **Performance:** Refactoring der Charts (native JS-Integration statt PHP-Wrapper).
+### [v2.2.0] - The Stability Update (Aktuell)
+*   **Fix:** Umstellung auf standardisierte Livewire 3 / Alpine.js Integration (behebt "Illegal invocation" Fehler).
+*   **Dev:** Einführung von Debug-Logging für Livewire-Events in der Browser-Konsole.
+*   **Infrastructure:** Automatisierte Asset-Injection für stabilere Production-Deployments.
 
 ### [v2.1.0] - Stammdaten & Revision
 *   **Zentrales Setup:** Neues Kontrollzentrum für Ränge, Kategorien und Standorte.
