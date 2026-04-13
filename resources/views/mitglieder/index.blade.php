@@ -1,5 +1,3 @@
-@vite('resources/css/mitglieder/index.css')
-
 @extends('layouts.app')
 @section('title', 'Mitglieder')
 
@@ -10,5 +8,8 @@
 
         {{-- The Livewire Members Form (Slide-over) --}}
         @livewire('members-form')
+
+        {{-- Member Detail View --}}
+        @livewire('member-detail')
     </section>
 @endsection

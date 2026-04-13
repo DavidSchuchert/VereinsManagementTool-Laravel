@@ -64,12 +64,21 @@ class ZahlungenList extends Component
         $items = $query->paginate($this->perPage);
         $zahlungsarten = Zahlungsart::all();
 
+        // Formatted date range for the export button
+        $dateRangeLabel = 'Gesamt';
+        if ($this->dateFrom || $this->dateTo) {
+            $from = $this->dateFrom ? \Carbon\Carbon::parse($this->dateFrom)->format('d.m.y') : '...';
+            $to = $this->dateTo ? \Carbon\Carbon::parse($this->dateTo)->format('d.m.y') : '...';
+            $dateRangeLabel = "$from - $to";
+        }
+
         return view('livewire.zahlungen-list', [
             'items' => $items,
             'zahlungsarten' => $zahlungsarten,
             'totalEinnahmen' => $totalEinnahmen,
             'totalAusgaben' => $totalAusgaben,
             'bilanz' => $bilanz,
+            'dateRangeLabel' => $dateRangeLabel,
         ]);
     }
 }

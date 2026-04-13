@@ -21,10 +21,16 @@ class Zahlung extends Model
         'beschreibung',
         'rechnungsnr',
         'file_path',
+        'user_id',
     ];
 
     public function zahlungsart()
     {
         return $this->belongsTo(Zahlungsart::class, 'zahlungsart_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

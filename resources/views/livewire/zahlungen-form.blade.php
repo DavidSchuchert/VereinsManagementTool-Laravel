@@ -101,7 +101,24 @@
                                     {{-- File --}}
                                     <div>
                                         <label for="file" class="block text-sm font-medium text-gray-900">Beleg (PDF/Foto)</label>
-                                        <input type="file" wire:model="file" id="file" class="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                                        <div class="mt-1">
+                                            @if ($existingFile)
+                                                <div class="flex items-center justify-between mb-2 p-2 bg-emerald-50 rounded-md border border-emerald-100">
+                                                    <div class="flex items-center space-x-2 text-xs text-emerald-700 font-medium">
+                                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                                                        <span>Bestehender Beleg vorhanden</span>
+                                                    </div>
+                                                    <button type="button" 
+                                                            wire:click="deleteFile" 
+                                                            wire:confirm="Möchtest du diesen Beleg wirklich löschen?"
+                                                            class="text-xs font-bold text-rose-600 hover:text-rose-800 transition-colors uppercase tracking-widest">
+                                                        Löschen
+                                                    </button>
+                                                </div>
+                                            @endif
+                                            <input type="file" wire:model="file" id="file" class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-emerald-50 file:text-emerald-700 hover:file:bg-emerald-100">
+                                        </div>
+                                        <div wire:loading wire:target="file" class="mt-1 text-xs text-emerald-500">Hochladen...</div>
                                         @error('file') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                                     </div>
                                 </div>

@@ -15,6 +15,7 @@ class Mitglied extends Model
     protected $table = 'mitglieder';
 
     protected $fillable = [
+        'mitgliedsnummer',
         'vorname',
         'nachname',
         'geburtsdatum',
@@ -27,6 +28,7 @@ class Mitglied extends Model
         'eintrittsdatum',
         'austrittsdatum',
         'rang_id',
+        'file_path',
     ];
 
     public function rangart()

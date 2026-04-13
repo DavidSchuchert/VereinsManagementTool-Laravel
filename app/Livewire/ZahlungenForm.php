@@ -64,6 +64,25 @@ class ZahlungenForm extends Component
         $this->showModal = true;
     }
 
+    public function deleteFile()
+    {
+        if ($this->existingFile) {
+            Storage::disk('public')->delete($this->existingFile);
+        }
+
+        if ($this->zahlungId) {
+            Zahlung::find($this->zahlungId)->update(['file_path' => null]);
+        }
+
+        $this->existingFile = null;
+        $this->file = null;
+
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => 'Beleg erfolgreich gelöscht.'
+        ]);
+    }
+
     public function save()
     {
         $this->validate();
@@ -87,6 +106,7 @@ class ZahlungenForm extends Component
         if ($this->zahlungId) {
             Zahlung::find($this->zahlungId)->update($data);
         } else {
+            $data['user_id'] = auth()->id();
             Zahlung::create($data);
         }
 

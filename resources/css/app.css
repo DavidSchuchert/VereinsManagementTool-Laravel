@@ -2,54 +2,109 @@
 @tailwind components;
 @tailwind utilities;
 
+[x-cloak] {
+    display: none !important;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
 @layer base {
     body {
-        @apply bg-gray-50 text-gray-900 antialiased;
+        @apply bg-[#f8fafc] text-gray-800 antialiased font-sans;
+        background-image: 
+            radial-gradient(at 0% 0%, hsla(228,100%,74%,0.1) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, hsla(240,100%,82%,0.08) 0px, transparent 50%);
+        background-attachment: fixed;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-heading tracking-tight text-gray-900;
     }
 
     /* Modern Focus States */
-    input:focus, select:focus, textarea:focus {
-        @apply outline-none ring-2 ring-brand-500 border-brand-500 transition-all duration-200;
+    input:focus, select:focus, textarea:focus, button:focus {
+        @apply outline-none ring-2 ring-accent-500/50 border-accent-500 transition-all duration-300;
     }
 
-    /* Custom Scrollbar for Desktop */
+    /* Modern Scrollbar */
     @media (min-width: 1024px) {
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
         ::-webkit-scrollbar-track {
-            @apply bg-gray-100;
+            @apply bg-transparent;
         }
         ::-webkit-scrollbar-thumb {
-            @apply bg-gray-300 rounded-full hover:bg-gray-400 transition-colors;
+            @apply bg-gray-300/80 rounded-full hover:bg-gray-400 transition-colors border-2 border-transparent bg-clip-padding;
         }
     }
 }
 
 @layer components {
-    .btn-brand {
-        @apply inline-flex items-center px-4 py-2 bg-brand-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-brand-700 active:bg-brand-900 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition ease-in-out duration-150;
+    /* Premium UI Components */
+    .glass-panel {
+        @apply bg-white/80 backdrop-blur-xl border border-white/40 shadow-glass rounded-2xl;
+    }
+    
+    .card-premium {
+        @apply bg-white border border-gray-100 rounded-2xl shadow-card hover:shadow-float transition-all duration-300;
     }
 
-    .input-field {
-        @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-500 focus:ring-brand-500 sm:text-sm;
+    .btn-primary {
+        @apply relative inline-flex items-center justify-center px-5 py-2.5 
+        bg-gradient-to-r from-accent-600 to-indigo-600 
+        text-white font-medium text-sm rounded-xl
+        shadow-md hover:shadow-lg hover:-translate-y-0.5
+        focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 
+        transition-all duration-300 overflow-hidden;
+    }
+    
+    .btn-secondary {
+        @apply inline-flex items-center justify-center px-5 py-2.5 
+        bg-white border border-gray-200 text-gray-700 
+        font-medium text-sm rounded-xl
+        shadow-sm hover:bg-gray-50 hover:border-gray-300
+        focus:outline-none focus:ring-2 focus:ring-gray-200 focus:ring-offset-1
+        transition-all duration-300;
+    }
+    
+    .btn-danger {
+        @apply inline-flex items-center justify-center px-5 py-2.5 
+        bg-rose-50 border border-rose-100 text-rose-600 
+        font-medium text-sm rounded-xl
+        shadow-sm hover:bg-rose-100 hover:text-rose-700
+        focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-1
+        transition-all duration-300;
     }
 
-    /* Responsive Card for Mobile Tables */
-    .responsive-card-table {
-        @apply min-w-full divide-y divide-gray-200;
+    .input-premium {
+        @apply block w-full px-4 py-2.5 bg-gray-50/50 
+        border border-gray-200 rounded-xl shadow-sm 
+        text-gray-900 placeholder-gray-400
+        focus:bg-white focus:border-accent-500 focus:ring-2 focus:ring-accent-500/20 
+        transition-all duration-300 sm:text-sm;
+    }
+
+    .badge-accent {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-accent-100 text-accent-700 border border-accent-200;
+    }
+    .badge-success {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-700 border border-emerald-200;
+    }
+    .badge-danger {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-rose-100 text-rose-700 border border-rose-200;
     }
 
     /* Skeleton Loading Animation */
     .skeleton {
-        @apply bg-gray-200 animate-pulse rounded;
+        @apply bg-gray-200 animate-pulse rounded-xl;
     }
 }
 
 /* Fix main container for responsiveness */
 main {
-    @apply flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 animate-fade-in;
 }
 
 [x-cloak] { display: none !important; }

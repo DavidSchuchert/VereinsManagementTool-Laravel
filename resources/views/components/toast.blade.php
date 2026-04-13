@@ -1,11 +1,13 @@
 <div x-data="{ 
         notifications: [], 
         add(e) { 
-            const id = Date.now();
+            const payload = e.detail[0] || e.detail;
+            if (this.notifications.some(n => n.message === payload.message)) return; // Prevent double toasts
+            const id = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
             this.notifications.push({
                 id: id,
-                type: e.detail.type || 'info',
-                message: e.detail.message,
+                type: payload.type || 'info',
+                message: payload.message,
             });
             setTimeout(() => {
                 this.notifications = this.notifications.filter(n => n.id !== id);

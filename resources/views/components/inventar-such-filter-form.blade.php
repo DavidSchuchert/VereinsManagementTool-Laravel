@@ -1,5 +1,4 @@
-@vite('resources/css/alert.css')
-@vite('resources/css/search.css')
+
 
 @if ($meldung)
     <div class="alert alert-info">{{ $meldung }}</div>

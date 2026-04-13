@@ -1,5 +1,5 @@
 <div class="popup createhidden" id="popup">
-    @vite('resources/css/zahlungen/create.css')
+
     <div class="create">
         <button class="close-btn" onclick="Popup()">×</button>
 

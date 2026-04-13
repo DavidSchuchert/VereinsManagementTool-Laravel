@@ -85,6 +85,25 @@ class MembersForm extends Component
         $this->showModal = true;
     }
 
+    public function deleteFile()
+    {
+        if ($this->existingFile) {
+            Storage::disk('public')->delete($this->existingFile);
+        }
+
+        if ($this->memberId) {
+            Mitglied::find($this->memberId)->update(['file_path' => null]);
+        }
+
+        $this->existingFile = null;
+        $this->file = null;
+
+        $this->dispatch('notify', [
+            'type' => 'success',
+            'message' => 'Dokument erfolgreich gelöscht.'
+        ]);
+    }
+
     public function save()
     {
         $this->validate();

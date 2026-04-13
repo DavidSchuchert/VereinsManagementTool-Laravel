@@ -1,18 +1,20 @@
-@vite('resources/css/dashboard/index.css')
 @extends('layouts.app')
 @apexchartsScripts
 @section('title', 'Dashboard')
 
 @section('content')
-    <div class="py-6">
+    <div class="py-6 animate-fade-in">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- Welcome Header --}}
-            <div class="mb-8">
-                <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-                <p class="mt-1 text-sm text-gray-500">
-                    Herzlich Willkommen <span class="font-semibold text-blue-600">{{ Auth::user()->name }}</span> im
-                    <span class="font-semibold text-indigo-600">{{ config('app.name') }}</span>
-                </p>
+            <div class="mb-8 p-6 glass-panel flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl font-heading font-extrabold tracking-tight text-gray-900">Übersicht</h1>
+                    <p class="mt-1 text-sm text-gray-500">
+                        Willkommen zurück, <span class="font-semibold text-accent-600">{{ Auth::user()->name }}</span>.
+                        <span class="text-gray-400">&bull;</span>
+                        <span class="font-medium text-gray-700">{{ config('app.name') }}</span>
+                    </p>
+                </div>
             </div>
 
             {{-- Livewire Dashboard Component --}}

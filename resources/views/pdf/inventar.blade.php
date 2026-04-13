@@ -78,10 +78,19 @@
             font-size: 12px;
             color: #999;
         }
+        footer {
+            position: fixed;
+            bottom: -10px;
+            right: 0px;
+            font-size: 10px;
+            color: #999;
+            text-align: right;
+        }
     </style>
 </head>
 
 <body>
+    <footer>{{ config('app.name', 'VereinsManagementTool') }}</footer>
     <div class="creation-date">
         <p>Erstellt am: {{ date('d.m.Y H:i:s') }}</p>
     </div>
@@ -110,6 +119,15 @@
             @endforeach
         </tbody>
     </table>
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
+            $size = 10;
+            $y = $pdf->get_height() - 35;
+            $x = $pdf->get_width() - 110;
+            $pdf->page_text($x, $y, "Seite {PAGE_NUM} von {PAGE_COUNT}", $font, $size, array(0,0,0));
+        }
+    </script>
 </body>
 
 </html>

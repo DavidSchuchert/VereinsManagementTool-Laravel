@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->integer('menge');
             $table->string('bemerkung');
             $table->string('lagerstandort');
+            $table->unsignedBigInteger('kategorie_id')->nullable();
             $table->timestamp('deleted_at')->nullable();
             $table->timestamps();
         });

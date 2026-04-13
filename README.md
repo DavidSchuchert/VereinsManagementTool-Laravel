@@ -1,89 +1,73 @@
+# VereinsManagementTool (v2.1 - Master Data & Auditability)
 
-# VereinsManagementTool
+Das VereinsManagementTool ist eine umfassende Webanwendung zur Verwaltung von Vereinsmitgliedern, Inventar, Finanzen und Protokollen. In der Version 2.1 wurde die Anwendung um eine zentrale Stammdatenverwaltung und verbesserte Revisionssicherheit erweitert.
 
-Das VereinsManagementTool ist eine umfassende Webanwendung zur Verwaltung von Vereinsmitgliedern, Inventar, Transaktionen und weiteren Modulen. Die Anwendung ist mit Laravel entwickelt und bietet eine benutzerfreundliche Oberfläche sowie eine Vielzahl von Funktionen, um die Vereinsverwaltung effizient zu gestalten.
+## Highlights der Version 2.1
 
-## Funktionen
+-   **Premium UI/UX (Glassmorphism)**: Vollständiges Redesign mit modernen Transparenz-Effekten und flüssiger Navigation.
+-   **Zentrales Kontrollzentrum**: Neue Stammdatenverwaltung für Ränge, Kategorien und Standorte in einer tab-basierten Oberfläche.
+-   **Finanz-Revision**: Jede Zahlung wird dem erfassenden Benutzer zugeordnet, inklusive namentlicher Nennung im PDF-Journal.
+-   **Strukturierte Lagerverwaltung**: Umstellung von Freitext-Standorten auf eine saubere, kategorisierte Standortwahl.
+-   **Privacy by Design**: Automatischer Schutz vor Suchmaschinen-Indizierung (`noindex`) und konfigurierbare `robots.txt`.
+-   **Mitglieder- & Dokumentenverwaltung**: Interaktive Slide-overs für schnellen Zugriff auf Zugangsdaten und Dokumente.
+-   **Compliance PDF-Berichte**: Professionelle Berichte mit Seitenzahlen, Bilanz-Zusammenfassungen und namentlichem Erfassernachweis.
+-   **Branding**: Personalisiertes David-Schuchert-Footer-System.
 
--   **Benutzerverwaltung**: Benutzer erstellen, bearbeiten und verwalten.
--   **Mitgliederverwaltung**: Mitgliederinformationen anzeigen und verwalten.
--   **Inventarverwaltung**: Artikel, Mengen, EAN und Lagerstandorte verwalten.
--   **Transaktionsverwaltung**: Einfache Anzeige und Verwaltung von Transaktionen.
--   **Profilverwaltung**: Benutzerprofile anpassen.
--   **Setup**: Festlegung des Vereinsnamens und Logos.
--   **Authentifizierung**: Benutzeranmeldung und Anlegen neuer Benutzer
--   **Update**: Automatische Information, sollte ein Update vorliegen
+## Update von v1 auf v2 (Wichtig!)
 
-## Installation
+Wenn Sie von der klassischen Version 1 auf die Premium-Version 2 aktualisieren, sind folgende Schritte für die UI-Umstellung zwingend erforderlich:
 
-Folgen Sie dieser Anleitung, um das VereinsManagementTool auf Ihrem lokalen Server einzurichten:
+1.  **Code-Basis synchronisieren:** 
+    Ziehen Sie den neuesten Stand aus dem Repository.
+2.  **Abhängigkeiten aktualisieren:**
+    ```bash
+    composer install --no-dev --optimize-autoloader
+    npm install
+    ```
+3.  **Veraltete Assets entfernen & neu bauen:**
+    Da v2 ein komplett neues Design-System nutzt, müssen die CSS/JS-Dateien zwingend neu kompiliert werden:
+    ```bash
+    npm run build
+    ```
+4.  **Laravel-Caches bereinigen:**
+    Wichtig, damit die neuen Pfade und Konfigurationen sofort aktiv werden:
+    ```bash
+    php artisan view:clear
+    php artisan config:clear
+    php artisan cache:clear
+    ```
+5.  **Datenbank-Updates:**
+    ```bash
+    php artisan migrate
+    ```
+
+## Installation (Neu-Setup)
 
 ### Voraussetzungen
 
--   PHP >= 8.0
--   PHP Curl
+-   PHP >= 8.2 (mit Curl-Erweiterung)
 -   Composer
--   MySQL oder eine andere unterstützte Datenbank
+-   Datenbank (MySQL / MariaDB)
 -   Node.js & npm
 
+### Schritte
 
-### Schritt-für-Schritt-Anleitung
+1.  **Repository klonen & Ordner öffnen.**
+2.  **Abhängigkeiten installieren:** `composer install` & `npm install`.
+3.  **Umgebung konfigurieren:** Kopieren Sie `.env.example` zu `.env` und tragen Sie Ihre Datenbank-Zugangsdaten sowie die `APP_URL` ein.
+4.  **Setup ausführen:**
+    ```bash
+    php artisan key:generate
+    php artisan migrate --seed
+    php artisan storage:link
+    npm run build
+    ```
+5.  **Starten:** Richten Sie Ihren Webserver (Apache/Nginx) auf den `public/`-Ordner aus.
 
-1.  **Repository klonen:**
-
-    `git clone https://github.com/DavidSchuchert/VereinsManagementTool-Laravel.git
-    cd VereinsManagementTool` 
-    
-2.  **Abhängigkeiten installieren:**
-
-    `composer install
-    npm install
-    npm run build` 
-    
-3.  **.env-Datei erstellen:** Erstellen Sie eine `.env`-Datei, indem Sie die `.env.example` kopieren:
-    
-    `cp .env.example .env` 
-    
-    Bearbeiten Sie die `.env`-Datei und fügen Sie Ihre Datenbankinformationen sowie weitere Konfigurationsdetails hinzu.
-    
-4.  **App-Schlüssel generieren:**
-    
-    `php artisan key:generate` 
-    
-5.  **Datenbankmigrationen ausführen:**
-    
-    `php artisan migrate --seed` 
-    
-    **Hinweis**: Der `--seed`-Befehl füllt die Datenbank mit einigen Beispieldaten und erzeugt den Admin benutzer.
-    
-6.  **Storage verlinken:**
-
-    `php artisan storage:link` 
-    
-7.  **Webserver einrichten:** Richten Sie einen Webserver (z.B. Apache oder Nginx) ein, um die Anwendung in einer Produktionsumgebung auszuführen.
-
-7.  **Rechte prüfen:** Bitte vergeben sie alle erforderlichen rechte für Laravel, wie z.B. den public ordner und die storage.
-    
-
-## Standard-Login-Daten
-
-Nach der Installation können Sie sich mit den folgenden Standard-Login-Daten anmelden:
+## Standard-Login (nach Seed)
 
 -   **E-Mail**: `admin@admin`
 -   **Passwort**: `admin`
 
-**Hinweis**: Ändern Sie die Standard-Login-Daten nach der ersten Anmeldung, um die Sicherheit zu gewährleisten.
-
-## Weitere Informationen
-
--   **Environment Setup**: Stellen Sie sicher, dass alle Konfigurationsdaten korrekt in der `.env`-Datei eingetragen sind, z.B. Datenbankverbindungen.
--   **Seeds**: Die Datenbank wird mit Basisdaten für eine schnelle Übersicht gefüllt. Bearbeiten Sie die Seed-Dateien nach Bedarf.
--   **Storage Link**: Der Befehl `php artisan storage:link` erstellt eine symbolische Verknüpfung, um Dateien im `storage`-Verzeichnis öffentlich zugänglich zu machen.
-
-## Mitwirken
-
-Beiträge und Verbesserungsvorschläge sind herzlich willkommen! Bitte erstellen Sie einen Fork des Projekts, nehmen Sie Ihre Änderungen vor und senden Sie eine Pull-Request.# VereinsManagementTool
-
-**DEMO:  https://verein.david-schuchert.de/**
-E-Mail: admin@admin
-Passwort: admin
+---
+**DEMO: https://verein.david-schuchert.de/**

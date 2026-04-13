@@ -1,4 +1,4 @@
-@vite('resources/css/zahlungen/index.css')
+
 
 @extends('layouts.app')
 @section('title', 'Zahlungen')

@@ -84,9 +84,14 @@
 
                                     {{-- Lagerstandort --}}
                                     <div>
-                                        <label for="lagerstandort" class="block text-sm font-medium text-gray-900">Lagerstandort</label>
-                                        <input type="text" wire:model="lagerstandort" id="lagerstandort" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                                        @error('lagerstandort') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
+                                        <label for="location_id" class="block text-sm font-medium text-gray-900">Lagerstandort</label>
+                                        <select wire:model="location_id" id="location_id" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                            <option value="">Standort wählen...</option>
+                                            @foreach($locations as $location)
+                                                <option value="{{ $location->id }}">{{ $location->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('location_id') <span class="text-xs text-red-500">{{ $message }}</span> @enderror
                                     </div>
 
                                     {{-- Bemerkung --}}

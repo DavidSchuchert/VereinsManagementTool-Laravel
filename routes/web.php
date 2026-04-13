@@ -4,11 +4,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventarController;
 use App\Http\Controllers\MitgliederController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\SetupController;
 use App\Http\Controllers\ProtokollController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ZahlungController;
-use App\Http\Controllers\LogoController;
 use App\Http\Middleware\CheckForUpdate;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +22,10 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     /* Dashboard */
 /*     Route::get("/", [DashboardController::class, 'index'])->name("home"); */
 
-    /* Setup */
-    Route::get('/setup', [LogoController::class, 'index'])->name('setup.index');
-    Route::post('/setup/logo-upload', [LogoController::class, 'uploadLogo'])->name('logo.upload');
-    Route::post('/setup/update-app-name', [LogoController::class, 'updateAppName'])->name('update.app_name');
+    /* Setup / Einstellungen */
+    Route::get('/setup', function() {
+        return view('setup.index');
+    })->name('setup.index');
 
     /* Zahlungen */
     Route::resource('/zahlungen', ZahlungController::class);
@@ -41,9 +39,6 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::resource('/inventar', InventarController::class);
     Route::get('/pdf/export-inventar', [InventarController::class, 'exportPdf'])->name('inventar.exportPdf');
 
-    /* Events */
-    Route::get('/events', [App\Http\Controllers\EventController::class, 'index'])->name('events.index');
-    Route::get('/events/{event}', [App\Http\Controllers\EventController::class, 'show'])->name('events.show');
 
     /* Dokumente */
     Route::get('/dokumente', function() {
@@ -60,16 +55,13 @@ Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () 
     Route::get('/users', [UserController::class, 'index'])->name('users.index');
     Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
+    Route::get('/users/{user}/edit', [UserController::class, 'edit'])->name('users.edit');
+    Route::patch('/users/{user}', [UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
 
     /* Protokolle */
 
     Route::get('/protokolle', [ProtokollController::class, 'index'])->name('protokolle.index');
-    Route::get('/protokolle/create', [ProtokollController::class, 'create'])->name('protokolle.create');
-    Route::post('/protokolle', [ProtokollController::class, 'store'])->name('protokolle.store');
-    Route::get('/protokolle/{protokoll}/edit', [ProtokollController::class, 'edit'])->name('protokolle.edit');
-    Route::put('/protokolle/{protokoll}', [ProtokollController::class, 'update'])->name('protokolle.update');
-    Route::delete('/protokolle/{protokoll}', [ProtokollController::class, 'destroy'])->name('protokolle.destroy');
     Route::get('/protokolle/{protokoll}/export-pdf', [ProtokollController::class, 'exportSinglePdf'])->name('protokolle.exportSinglePdf');
 
 });

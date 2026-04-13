@@ -14,6 +14,7 @@ class InventarList extends Component
 
     public $search = '';
     public $filterCategory = '';
+    public $filterLocation = '';
     public $perPage = 10;
 
     protected $listeners = ['refresh-inventar-list' => '$refresh'];
@@ -21,6 +22,7 @@ class InventarList extends Component
     protected $queryString = [
         'search' => ['except' => ''],
         'filterCategory' => ['except' => ''],
+        'filterLocation' => ['except' => ''],
     ];
 
     public function updatingSearch()
@@ -30,24 +32,36 @@ class InventarList extends Component
 
     public function render(FilterService $filterService)
     {
-        $query = Inventar::with('category');
+        $query = Inventar::with(['category', 'location']);
 
         $filters = [
             'search' => $this->search,
             'search_columns' => ['artikel', 'ean', 'bemerkung', 'lagerstandort'],
             'dropdowns' => [
                 'kategorie_id' => $this->filterCategory,
+                'location_id' => $this->filterLocation,
             ],
             'sort_by' => 'created_at',
             'sort_dir' => 'desc',
         ];
 
-        $items = $filterService->filter($query, $filters)->paginate($this->perPage);
-        $categories = Category::all();
+        $filteredQuery = $filterService->filter($query, $filters);
+        
+        $totalItems = (clone $filteredQuery)->count();
+        $totalQuantity = (clone $filteredQuery)->sum('menge');
+        $totalCategories = Category::count();
+
+        $items = $filteredQuery->paginate($this->perPage);
+        $categories = Category::where('type', 'inventar')->get();
+        $locations = Category::where('type', 'location')->get();
 
         return view('livewire.inventar-list', [
             'items' => $items,
             'categories' => $categories,
+            'locations' => $locations,
+            'totalItems' => $totalItems,
+            'totalQuantity' => $totalQuantity,
+            'totalCategories' => $totalCategories,
         ]);
     }
 }

@@ -1,7 +1,7 @@
   {{-- Edit Popup --}}
 
   <div class="popup createhidden" id="edit-popup">
-    @vite('resources/css/zahlungen/edit.css')
+
     <div class="create">
         <button class="close-btn" onclick="closeEditPopup()">×</button>
         <h2>Transaktion bearbeiten:</h2>

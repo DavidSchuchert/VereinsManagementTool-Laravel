@@ -44,6 +44,37 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    /**
+     * Show the form for editing the specified user.
+     */
+    public function edit(User $user)
+    {
+        return view('users.edit', compact('user'));
+    }
+
+    /**
+     * Update the specified user in storage.
+     */
+    public function update(Request $request, User $user)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:8|confirmed',
+        ]);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('users.index')->with('status', 'Benutzer erfolgreich aktualisiert.');
+    }
+
     public function destroy(User $user)
     {
         // Überprüfen, dass der Benutzer nicht der Benutzer mit der ID 1 ist

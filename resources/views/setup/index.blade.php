@@ -1,155 +1,84 @@
 @extends('layouts.app')
 
+@section('title', 'System-Setup & Stammdaten')
+
 @section('content')
-    <div class="container mt-5">
-        <div class="card shadow-sm">
-            <div class="card-header text-center bg-primary text-white">
-                <h2>Vereinslogo und -name ändern</h2>
-            </div>
-            <div class="card-body">
-                @if (session('success'))
-                    <div class="alert alert-success text-center">
-                        {{ session('success') }}
-                    </div>
-                @endif
-
-                <div class="row">
-                    <!-- Formular zum Hochladen des Logos -->
-                    <div class="col-md-6 mb-4 border_frm">
-                        <h4>Vereinslogo hochladen</h4>
-                        <form action="{{ route('logo.upload') }}" method="POST" enctype="multipart/form-data" class="mt-3">
-                            @csrf
-                            <div class="form-group">
-                                <label for="logo" class="font-weight-bold">Wähle ein Logo:</label>
-                                <input type="file" name="logo" id="logo" class="form-control-file">
-                            </div>
-                            <button type="submit" class="btn btn-success mt-3">Logo hochladen</button>
-                        </form>
-                    </div>
-
-                    <!-- Formular zum Ändern des Vereinsnamens -->
-                    <div class="col-md-6 border_frm">
-                        <h4>Vereinsname ändern</h4>
-                        <p style="color: red"><b>Bitte Seite nach der Änderung aktualisieren.</b></p>
-                        <form action="{{ route('update.app_name') }}" method="POST" class="mt-3">
-                            @csrf
-                            <div class="form-group">
-                                <label for="app_name" class="font-weight-bold">Neuer Vereinsname:</label>
-                                <input type="text" name="app_name" id="app_name" class="form-control"
-                                    value="{{ config('app.name') }}" placeholder="Vereinsname eingeben">
-                            </div>
-                            <button type="submit" class="btn btn-primary mt-3">Vereinsname speichern</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fade-in" x-data="{ activeTab: 'system' }">
+    {{-- Header --}}
+    <div class="mb-10">
+        <h1 class="text-3xl font-heading font-extrabold text-gray-900 tracking-tight">Einstellungen & Stammdaten</h1>
+        <p class="mt-2 text-lg text-gray-600">Verwalten Sie hier die Grundkonfiguration Ihres VereinsManagers.</p>
     </div>
 
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #eef2f7;
-        }
+    {{-- Tabs Navigation --}}
+    <div class="flex flex-wrap items-center gap-2 mb-8 bg-gray-100/50 p-1.5 rounded-2xl border border-gray-200/50 backdrop-blur-sm w-fit">
+        <button 
+            @click="activeTab = 'system'" 
+            :class="activeTab === 'system' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+            class="px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            System
+        </button>
+        <button 
+            @click="activeTab = 'ranks'" 
+            :class="activeTab === 'ranks' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+            class="px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            Mitglieder-Ränge
+        </button>
+        <button 
+            @click="activeTab = 'categories'" 
+            :class="activeTab === 'categories' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+            class="px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            Inventar-Kategorien
+        </button>
+        <button 
+            @click="activeTab = 'payment-types'" 
+            :class="activeTab === 'payment-types' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+            class="px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+            Zahlungsarten
+        </button>
+        <button 
+            @click="activeTab = 'locations'" 
+            :class="activeTab === 'locations' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'"
+            class="px-5 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            Standorte
+        </button>
+    </div>
 
-        /* Container-Styling */
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background-color: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
+    {{-- Tabs Content --}}
+    <div class="space-y-8 animate-slide-up">
+        {{-- Tab: System --}}
+        <div x-show="activeTab === 'system'" x-cloak>
+            @livewire('settings-manager')
+        </div>
 
-        /* Überschriften */
-        h1 {
-            text-align: center;
-            font-weight: bold;
-            color: #343a40;
-            margin-bottom: 30px;
-        }
+        {{-- Tab: Ränge --}}
+        <div x-show="activeTab === 'ranks'" x-cloak>
+            @livewire('lookup-manager', ['type' => 'rangart', 'title' => 'RangART'])
+        </div>
 
-        /* Erfolgsmeldung */
-        .alert-success {
-            background-color: #d4edda;
-            border-color: #c3e6cb;
-            color: #155724;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        {{-- Tab: Kategorien --}}
+        <div x-show="activeTab === 'categories'" x-cloak>
+            @livewire('lookup-manager', ['type' => 'category', 'title' => 'Kategorie', 'extraData' => ['type' => 'inventar']])
+        </div>
 
-        /* Formularfelder */
-        .form-group {
-            margin-bottom: 20px;
-        }
+        {{-- Tab: Zahlungsarten --}}
+        <div x-show="activeTab === 'payment-types'" x-cloak>
+            @livewire('lookup-manager', ['type' => 'zahlungsart', 'title' => 'Zahlungsart'])
+        </div>
 
-        label {
-            font-weight: bold;
-            color: #495057;
-        }
-
-        input[type="file"],
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            transition: border-color 0.3s;
-        }
-
-        input[type="file"]:focus,
-        input[type="text"]:focus {
-            border-color: #80bdff;
-            outline: none;
-        }
-
-        /* Buttons */
-        button.btn {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button.btn:hover {
-            background-color: #0056b3;
-        }
-
-        /* Abstände zwischen den Formularen */
-        form {
-            margin-top: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 32px !important;
-            font-weight: bold !important;
-            margin-bottom: 64px !important;
-            color: black !important;
-        }
-
-        h4 {
-            text-align: center;
-            font-size: 18px !important;
-            font-weight: bold !important;
-            margin-bottom: 64px !important;
-            color: black !important;
-        }
-
-        .border_frm {
-            border: 3px solid lightgray;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-    </style>
+        {{-- Tab: Standorte --}}
+        <div x-show="activeTab === 'locations'" x-cloak>
+            @livewire('lookup-manager', ['type' => 'category', 'title' => 'Standort', 'extraData' => ['type' => 'location']])
+        </div>
+    </div>
+    
+    <div class="mt-16 text-center text-[10px] text-gray-400 uppercase font-black tracking-widest border-t border-gray-100 pt-8">
+        <p>v2 &bull; Created by David Schuchert &bull; {{ date('Y') }}</p>
+    </div>
+</div>
 @endsection

@@ -66,9 +66,7 @@ return new class extends Migration
             $table->index('zahlungsart_id');
         });
 
-        Schema::table('events', function (Blueprint $table) {
-            $table->index('event_date');
-        });
+
 
         Schema::table('document_uploads', function (Blueprint $table) {
             $table->index('title');

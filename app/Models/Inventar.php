@@ -20,6 +20,7 @@ class Inventar extends Model
         'bemerkung',
         'lagerstandort',
         'kategorie_id',
+        'location_id',
     ];
 
     /**
@@ -27,6 +28,14 @@ class Inventar extends Model
      */
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'kategorie_id');
+    }
+
+    /**
+     * Get the location that belongs to this inventory item.
+     */
+    public function location()
+    {
+        return $this->belongsTo(Category::class, 'location_id')->where('type', 'location');
     }
 }

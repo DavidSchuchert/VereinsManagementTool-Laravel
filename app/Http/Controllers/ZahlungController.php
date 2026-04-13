@@ -55,7 +55,19 @@ class ZahlungController extends Controller
         $query = $this->applyFilters($request);
 
         $zahlungen = $query->orderBy('datum', 'desc')->get();
-        $pdf = Pdf::loadView('pdf.zahlungen', compact('zahlungen'))->setPaper('a4', 'landscape');
+        
+        // Calculate totals for the report
+        $totalEinnahmen = $zahlungen->where('typ', 'Einnahme')->sum('betrag');
+        $totalAusgaben = $zahlungen->where('typ', 'Ausgabe')->sum('betrag');
+        $bilanz = $totalEinnahmen - $totalAusgaben;
+
+        $pdf = Pdf::loadView('pdf.zahlungen', [
+            'zahlungen' => $zahlungen,
+            'totalEinnahmen' => $totalEinnahmen,
+            'totalAusgaben' => $totalAusgaben,
+            'bilanz' => $bilanz,
+            'exporteur' => auth()->user()->name ?? 'System',
+        ])->setPaper('a4', 'landscape');
 
         return $pdf->download('zahlungen_' . date('Y-m-d_H-i-s') . '.pdf');
     }

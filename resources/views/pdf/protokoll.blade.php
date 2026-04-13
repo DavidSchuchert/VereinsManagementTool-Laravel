@@ -100,10 +100,19 @@
             padding-left: 20px;
         }
 
+        footer {
+            position: fixed;
+            bottom: -10px;
+            right: 0px;
+            font-size: 10px;
+            color: #999;
+            text-align: right;
+        }
     </style>
 </head>
 
 <body>
+    <footer>{{ config('app.name', 'VereinsManagementTool') }}</footer>
     <h2>Protokoll: {{ $protokoll->title }}</h2>
 
     <p><strong>Erstellt von:</strong> {{ $protokoll->user->name }}</p>
@@ -115,6 +124,15 @@
     <div class="content">
         {!! $protokoll->content !!}
     </div>
+    <script type="text/php">
+        if ( isset($pdf) ) {
+            $font = $fontMetrics->get_font("Arial, Helvetica, sans-serif", "normal");
+            $size = 10;
+            $y = $pdf->get_height() - 35;
+            $x = $pdf->get_width() - 110;
+            $pdf->page_text($x, $y, "Seite {PAGE_NUM} von {PAGE_COUNT}", $font, $size, array(0,0,0));
+        }
+    </script>
 </body>
 
 </html>

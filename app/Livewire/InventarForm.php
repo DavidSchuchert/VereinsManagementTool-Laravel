@@ -16,7 +16,7 @@ class InventarForm extends Component
     public $ean;
     public $menge;
     public $bemerkung;
-    public $lagerstandort;
+    public $location_id;
     public $kategorie_id;
 
     protected $listeners = ['open-inventar-form' => 'open'];
@@ -28,7 +28,7 @@ class InventarForm extends Component
             'ean' => 'nullable|string|max:255',
             'menge' => 'required|integer|min:0',
             'bemerkung' => 'nullable|string',
-            'lagerstandort' => 'required|string|max:255',
+            'location_id' => 'required|exists:categories,id',
             'kategorie_id' => 'required|exists:categories,id',
         ];
     }
@@ -44,7 +44,7 @@ class InventarForm extends Component
             $this->ean = $item->ean;
             $this->menge = $item->menge;
             $this->bemerkung = $item->bemerkung;
-            $this->lagerstandort = $item->lagerstandort;
+            $this->location_id = $item->location_id;
             $this->kategorie_id = $item->kategorie_id;
         } else {
             $this->resetExcept(['showModal']);
@@ -70,7 +70,7 @@ class InventarForm extends Component
             'ean' => $this->ean,
             'menge' => $this->menge,
             'bemerkung' => $this->bemerkung,
-            'lagerstandort' => $this->lagerstandort,
+            'location_id' => $this->location_id,
             'kategorie_id' => $this->kategorie_id,
         ];
 
@@ -91,7 +91,8 @@ class InventarForm extends Component
     public function render()
     {
         return view('livewire.inventar-form', [
-            'categories' => Category::all(),
+            'categories' => Category::where('type', 'inventar')->get(),
+            'locations' => Category::where('type', 'location')->get(),
         ]);
     }
 }
