@@ -141,48 +141,55 @@ body {
     font-size: 1.1rem;
 }
 
-/* Hero Section */
+/* Hero Section Redesign */
 .hero {
-    padding: 6rem 0 10rem;
-    text-align: center;
-    background-color: #fcfdfe;
+    padding: 10rem 0;
+    text-align: left;
+    background: linear-gradient(180deg, var(--primary-light) 0%, var(--white) 100%);
 }
 
-.hero-logo-wrapper {
-    margin-bottom: 2.5rem;
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    margin-bottom: 8rem;
+}
+
+.hero-logo-side {
+    flex: 0 0 320px;
 }
 
 .hero-logo-main {
-    height: 240px;
-    width: auto;
+    width: 100%;
+    height: auto;
     display: block;
-    margin: 0 auto;
-    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
 }
 
-.hero-header-box h1 {
+.hero-content-side {
+    flex: 1;
+}
+
+.hero-content-side h1 {
     font-size: 3.8rem;
     font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 2rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
     color: var(--dark);
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
     letter-spacing: -0.025em;
 }
 
-.hero-header-box p {
+.hero-content-side p {
     font-size: 1.35rem;
     color: var(--gray);
-    margin: 0 auto 4rem;
-    max-width: 800px;
+    margin-bottom: 3.5rem;
+    max-width: 650px;
 }
 
 .hero-btns {
     display: flex;
     gap: 1.5rem;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Large App Showcase */
