@@ -6,8 +6,9 @@ import ApexCharts from 'apexcharts';
 window.Alpine = Alpine;
 window.ApexCharts = ApexCharts;
 
-// Livewire 3 will automatically start Alpine if it's not already started.
-// However, if we are on a non-Livewire page, we must start it manually.
-if (!window.livewire_started) {
-    Alpine.start();
-}
+// In Livewire 3, Alpine is handled automatically. 
+// We only need to start it if Livewire is not present on the page.
+document.addEventListener('livewire:init', () => {
+    // Livewire 3 handles Alpine.start() automatically.
+});
+
