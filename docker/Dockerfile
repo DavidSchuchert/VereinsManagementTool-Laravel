@@ -29,14 +29,17 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /var/www/html
 
-# Apache konfigurieren (vhost.conf liegt im docker/ Ordner, Context ist Parent)
+# Apache konfigurieren
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite headers
 
 # PHP.ini
 COPY docker/php.ini /usr/local/etc/php/php.ini
 
-# Permissions
+# Laravel App kopieren
+COPY . .
+
+# Permissions NACH dem Copy (sonst existieren die Verzeichnisse noch nicht)
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
