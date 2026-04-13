@@ -5,6 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: vereinsmanagement-app
     restart: unless-stopped
+    volumes:
+      - .:/var/www/html
     working_dir: /var/www/html
     ports:
       - "8181:8000"

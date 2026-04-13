@@ -11,7 +11,7 @@ COPY resources ./resources
 RUN npm run build
 
 # -----------------------------------------------------------
-FROM php:8.2-cli
+FROM php:8.4-cli
 
 # System dependencies
 RUN apt-get update && apt-get install -y \

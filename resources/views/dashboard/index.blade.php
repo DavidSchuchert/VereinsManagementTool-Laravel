@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@apexchartsScripts
 @section('title', 'Dashboard')
 
 @section('content')
