@@ -80,6 +80,7 @@ Wenn du bereits eine ältere Version nutzt, befolge diese Schritte für ein reib
 
 1.  **Code aktualisieren:** `git pull` ausführen.
 2.  **Abhängigkeiten erneuern:**
+    Führe die folgenden Befehle nacheinander aus:
     ```bash
     composer install --no-dev --optimize-autoloader
     npm install
