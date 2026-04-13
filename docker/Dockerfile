@@ -33,6 +33,9 @@ WORKDIR /var/www/html
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite headers
 
+# PHP Temp Directory
+RUN mkdir -p /tmp/laravel && chmod 777 /tmp/laravel
+
 # PHP.ini
 COPY docker/php.ini /usr/local/etc/php/php.ini
 
