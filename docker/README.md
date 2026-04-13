@@ -25,44 +25,6 @@ Mailpit (DEV mail catcher): **http://localhost:8025**
 |-----------|------|-------------|
 | app       | 8181 | Apache + PHP 8.5 + Laravel |
 | mariadb   | 3307 | MariaDB 11 (externer Zugriff) |
-| mailpit   | 8025 | Mail Catcher UI, Port 1025 für SMTP |
-
-## Wichtige Commands
-
-```bash
-# Container starten
-docker compose up -d
-
-# Container stoppen
-docker compose down
-
-# Logs
-docker compose logs -f
-
-# Bash in Container
-docker compose exec app bash
-
-# Artisan im Container
-docker compose exec app php artisan migrate
-docker compose exec app php artisan db:seed
-docker compose exec app php artisan config:cache
-```
-
-## Datenbank von außen
-
-Mit TablePlus, DBeaver oder MySQL Workbench:
-- Host: `localhost`
-- Port: `3307`
-- User: `vereinsuser`
-- Password: `vereinspass`
-- Database: `vereinsmanagement`
-
-## Mailpit
-
-Mailpit fängt alle ausgehenden Mails ab. Keine echten Mails werden versendet.
-- Web UI: http://localhost:8025
-- SMTP: `localhost:1025`
-
 ## Initiales Setup
 
 Beim ersten Start führt der Entrypoint automatisch aus:

@@ -32,16 +32,12 @@ services:
       FILESYSTEM_DISK: public
       QUEUE_CONNECTION: sync
       CACHE_STORE: file
-      MAIL_MAILER: smtp
-      MAIL_HOST: mailpit
-      MAIL_PORT: 1025
+      MAIL_MAILER: log
       MAIL_FROM_ADDRESS: "info@localhost"
       MAIL_FROM_NAME: "${APP_NAME}"
     depends_on:
       mariadb:
         condition: service_healthy
-      mailpit:
-        condition: service_started
     networks:
       - vmt-network
 
@@ -67,15 +63,6 @@ services:
     networks:
       - vmt-network
 
-  mailpit:
-    image: axllent/mailpit
-    container_name: vmt-mailpit
-    restart: unless-stopped
-    ports:
-      - "8025:8025"
-      - "1025:1025"
-    networks:
-      - vmt-network
 
 networks:
   vmt-network:
