@@ -6,25 +6,64 @@
     <title>VereinsManagementTool | Die moderne Rundumlösung für Ihren Verein</title>
     
     <!-- SEO & Meta -->
-    <meta name="description" content="Digitalisieren Sie Ihren Verein mit VMT. 100% Kostenlos, Open Source und DSGVO-bereit. Mitgliederverwaltung, Finanzen und Dokumente sicher an einem Ort.">
+    <meta name="description" content="Digitalisieren Sie Ihren Verein mit VMT. 100% Kostenlos, Open Source und DSGVO-konform. Mitgliederverwaltung, Finanzen und Dokumente sicher an einem Ort.">
     <meta name="keywords" content="Vereinsverwaltung, Open Source Vereinssoftware, Kostenlose Mitgliederverwaltung, Digitaler Kassenwart, VMT">
     <meta name="author" content="David Schuchert">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://vmt.david-schuchert.de/">
     
     <!-- Share Meta -->
     <meta property="og:title" content="VMT – Vereinsverwaltung neu gedacht">
     <meta property="og:description" content="Vollständig kostenlos, sicher und modern. Entdecken Sie die Zukunft Ihres Vereins.">
-    <meta property="og:image" content="assets/dashboard.png">
-    <meta property="og:url" content="https://david-schuchert.de">
+    <meta property="og:image" content="https://vmt.david-schuchert.de/assets/dashboard.png">
+    <meta property="og:url" content="https://vmt.david-schuchert.de/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="VMT – Vereinsverwaltung neu gedacht">
+    <meta name="twitter:description" content="Vollständig kostenlos, sicher und modern. Entdecken Sie die Zukunft Ihres Vereins.">
+    <meta name="twitter:image" content="https://vmt.david-schuchert.de/assets/dashboard.png">
     
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "VereinsManagementTool",
+        "alternateName": "VMT",
+        "description": "Moderne Open-Source-Vereinsverwaltung für Vereine jeder Größe. Kostenlos, DSGVO-konform und selbst-hostbar.",
+        "url": "https://vmt.david-schuchert.de",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "David Schuchert",
+            "url": "https://david-schuchert.de"
+        }
+    }
+    </script>
 </head>
 <body>
     <nav class="main-nav">
         <div class="container">
-            <a href="#" class="logo">
-                <img src="assets/logo.png" alt="VMT Logo">
-                <span>VereinsManagementTool</span>
+            <a href="https://vmt.david-schuchert.de/" class="logo">
+                <img src="assets/logo.png" alt="VMT Logo" width="42" height="42">
+                <div class="logo-text">
+                    <span class="brand">VereinsManagementTool</span>
+                    <span class="tagline">Open Source · Kostenlos · DSGVO-konform</span>
+                </div>
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Funktionen</a></li>
@@ -38,7 +77,7 @@
     <header class="hero">
         <div class="container hero-container animate-fade-in">
             <div class="hero-logo-side">
-                <img src="assets/logo.png" alt="Großes VMT Logo" class="hero-logo-main">
+                <img src="assets/logo.png" alt="Großes VMT Logo" class="hero-logo-main" width="200" height="200" loading="eager">
             </div>
             <div class="hero-content-side">
                 <span class="badge">100% Kostenlos & Open Source</span>
@@ -55,7 +94,7 @@
                 <div class="browser-bar">
                     <span class="dot"></span><span class="dot"></span><span class="dot"></span>
                 </div>
-                <img src="assets/dashboard.png" alt="VMT Dashboard Vorschau" class="full-screenshot" loading="lazy">
+                <img src="assets/dashboard.png" alt="VMT Dashboard Vorschau" class="full-screenshot" width="1200" height="675" loading="lazy">
             </div>
         </div>
     </header>
@@ -127,13 +166,13 @@
                     <ul class="checklist">
                         <li><span>✓</span> <strong>Völlig kostenlos:</strong> Keine Abos, keine versteckten Gebühren.</li>
                         <li><span>✓</span> <strong>Open Source:</strong> Transparenter Code für maximale Sicherheit.</li>
-                        <li><span>✓</span> <strong>DSGVO-bereit:</strong> Lokale Datenspeicherung und volle Kontrolle.</li>
+                        <li><span>✓</span> <strong>DSGVO-konform:</strong> Lokale Datenspeicherung und volle Kontrolle.</li>
                         <li><span>✓</span> <strong>Keine Installation:</strong> Direkt im Browser auf jedem Gerät nutzbar.</li>
                         <li><span>✓</span> <strong>Modularer Aufbau:</strong> Nur das nutzen, was Ihr Verein wirklich braucht.</li>
                     </ul>
                 </div>
                 <div class="advantages-image">
-                    <img src="assets/setup.png" alt="VMT Anpassung" class="styled-img" loading="lazy">
+                    <img src="assets/setup.png" alt="VMT Anpassung" class="styled-img" width="600" height="400" loading="lazy">
                 </div>
             </div>
         </div>
@@ -147,7 +186,7 @@
                     <p>Filtern Sie nach Mitgliedsstatus, Rängen oder Standorten. Exportieren Sie Daten für Rundschreiben oder Beitragsrechnungen in Sekunden.</p>
                 </div>
                 <div class="showcase-visual">
-                    <img src="assets/mitglieder.png" alt="Mitglieder Ansicht" class="browser-style" loading="lazy">
+                    <img src="assets/mitglieder.png" alt="Mitglieder Ansicht" class="browser-style" width="600" height="400" loading="lazy">
                 </div>
             </div>
         </div>
@@ -179,13 +218,18 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/logo.png" alt="VMT Logo Footer">
-                    <span>VereinsManagementTool</span>
+                    <a href="https://vmt.david-schuchert.de/">
+                        <img src="assets/logo.png" alt="VMT Logo Footer" width="42" height="42">
+                        <div class="logo-text">
+                            <span class="brand">VereinsManagementTool</span>
+                            <span class="tagline">Open Source · Kostenlos · DSGVO-konform</span>
+                        </div>
+                    </a>
                 </div>
                 <div class="footer-nav">
                     <a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel">GitHub</a>
                     <a href="https://david-schuchert.de">Entwickler-Seite</a>
-                    <a href="https://david-schuchert.de">Impressum</a>
+                    <a href="https://vmt.david-schuchert.de/impressum">Impressum</a>
                 </div>
             </div>
             <div class="footer-bottom">

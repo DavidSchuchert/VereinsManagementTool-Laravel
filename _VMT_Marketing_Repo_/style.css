@@ -79,6 +79,29 @@ body {
     height: 42px;
 }
 
+.logo .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.logo .logo-text .brand {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+}
+
+.logo .logo-text .tagline {
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
 .nav-links {
     display: flex;
     list-style: none;
@@ -466,8 +489,39 @@ img {
     gap: 1rem;
 }
 
+.footer-brand a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: var(--white);
+}
+
 .footer-brand img {
-    height: 40px;
+    height: 42px;
+}
+
+.footer-brand .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.footer-brand .logo-text .brand {
+    background: linear-gradient(135deg, #60a5fa 0%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.footer-brand .logo-text .tagline {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: #94a3b8;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
 .footer-nav {

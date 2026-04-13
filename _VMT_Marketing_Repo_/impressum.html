@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | VereinsManagementTool</title>
+    
+    <meta name="description" content="Impressum des VereinsManagementTool (VMT) – Open Source Vereinsverwaltung von David Schuchert.">
+    <meta name="robots" content="noindex, follow">
+    
+    <link rel="canonical" href="https://vmt.david-schuchert.de/impressum">
+    
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #1e40af;
+            --primary-light: #eff6ff;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --gray-dark: #334155;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+            --accent: #10b981;
+            --border: #e2e8f0;
+            --radius: 12px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--white);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.25rem 0;
+        }
+
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo img {
+            height: 42px;
+        }
+
+        .logo .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo .logo-text .brand {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo .logo-text .tagline {
+            font-size: 0.65rem;
+            font-weight: 500;
+            color: var(--gray);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        /* Content */
+        .page-content {
+            padding: 8rem 0 4rem;
+        }
+
+        .page-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .legal-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .legal-section h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .legal-section p {
+            color: var(--gray-dark);
+            margin-bottom: 1rem;
+        }
+
+        .legal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .legal-section ul li {
+            padding: 0.5rem 0;
+            color: var(--gray-dark);
+        }
+
+        .legal-section ul li strong {
+            color: var(--dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: var(--white);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #334155;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 600px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <a href="https://vmt.david-schuchert.de/" class="logo">
+                <img src="assets/logo.png" alt="VMT Logo" width="42" height="42">
+                <div class="logo-text">
+                    <span class="brand">VereinsManagementTool</span>
+                    <span class="tagline">Open Source · Kostenlos · DSGVO-konform</span>
+                </div>
+            </a>
+            <a href="https://vmt.david-schuchert.de/" class="back-link">← Zurück zur Website</a>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1>Impressum</h1>
+                <p>Angaben gemäß § 5 TMG</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Angaben zum Anbieter</h2>
+                <p><strong>David Schuchert</strong><br>
+                Projektentwickler & Betreiber des VereinsManagementTool<br><br>
+                E-Mail: kontakt@david-schuchert.de<br>
+                Website: https://david-schuchert.de</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Über das VereinsManagementTool</h2>
+                <p>Das VereinsManagementTool (VMT) ist ein Open-Source-Softwareprojekt, das von David Schuchert als persönliches Entwicklungsprojekt ins Leben gerufen wurde. Es steht allen Vereinen kostenlos zur Verfügung und kann auf eigenen Servern gehostet werden.</p>
+                <p>Bei dem VMT handelt es sich um eine Selbsthosting-Lösung – es werden keine Vereinsdaten auf Servern von David Schuchert gespeichert. Jeder Betreiber ist selbst für den datenschutzkonformen Einsatz verantwortlich.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Haftung für Inhalte</h2>
+                <p>Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht unter Umständen verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Haftung für Links</h2>
+                <p>Das Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.</p>
+                <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Urheberrecht</h2>
+                <p>Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+                <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Quellennachweis</h2>
+                <p>Die Textinhalte dieses Impressums wurden mit Unterstützung von ChatGPT erstellt und an die spezifischen Gegebenheiten des Projekts angepasst.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-nav">
+                    <a href="https://vmt.david-schuchert.de/">Startseite</a>
+                    <a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel">GitHub</a>
+                    <a href="https://david-schuchert.de">Entwickler-Seite</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 David Schuchert. Mit ❤️ für das Ehrenamt entwickelt.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
