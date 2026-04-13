@@ -70,7 +70,7 @@ Du kannst das Tool sofort ausprobieren, ohne etwas installieren zu müssen. Scha
 Du möchtest das Tool für deinen eigenen Verein aufsetzen? Hier sind die technischen Details, die du für den Start benötigst.
 
 ### Voraussetzungen
-*   **PHP >= 8.2**
+*   **PHP >= 8.4**
 *   **Composer** (PHP-Paketmanager)
 *   **MySQL 8.0+** oder **MariaDB 10.11+**
 *   **Node.js & NPM** (für das Design)
@@ -130,6 +130,6 @@ Nach der ersten Installation (mit `--seed`) kannst du dich so anmelden:
 Beiträge und Feedback sind immer willkommen! Gemeinsam machen wir das Vereinsleben ein Stück digitaler.
 
 **Autor:** David Schuchert  
-**Website:** [https://verein.david-schuchert.de/](https://verein.david-schuchert.de/)
+**Website:** [https://david-schuchert.de/](https://david-schuchert.de/)
 
 *Lizenz: MIT*
