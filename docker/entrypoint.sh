@@ -29,9 +29,12 @@ if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:" ]; then
     export APP_KEY=$(php artisan key:generate --show)
 fi
 
-# Composer dependencies
+# Fix git safe.directory
+git config --global --add safe.directory /var/www/html
+
+# Composer dependencies (ignore platform reqs for dev)
 echo "📦 Installing composer dependencies..."
-composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
+composer install --no-dev --optimize-autoloader --no-scripts --no-interaction --ignore-platform-reqs
 
 # NPM dependencies & Build
 echo "🎨 Building frontend assets..."
