@@ -1,14 +1,16 @@
 import './bootstrap';
-
-import Alpine from 'alpinejs';
 import ApexCharts from 'apexcharts';
 
-window.Alpine = Alpine;
 window.ApexCharts = ApexCharts;
 
-// In Livewire 3, Alpine is handled automatically. 
-// We only need to start it if Livewire is not present on the page.
+// Use the Alpine instance bundled with Livewire 3
 document.addEventListener('livewire:init', () => {
-    // Livewire 3 handles Alpine.start() automatically.
+    console.log('[LIVEWIRE] Initialized');
+    
+    // Debug: Monitor all Livewire events
+    Livewire.on('*', ({ name, params }) => {
+        console.log(`[LIVEWIRE] Event received: ${name}`, params);
+    });
 });
+
 
