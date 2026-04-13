@@ -13,21 +13,19 @@ php artisan key:generate
 cd docker && docker compose up -d --build
 
 # 4. Logs verfolgen
-docker compose logs -f app
+cd docker && docker compose logs -f
 ```
 
 Danach erreichbar unter: **http://localhost:8181**
-Mailpit (DEV mail catcher): **http://localhost:8025**
 
 ## Services
 
-| Service   | Port | Beschreibung |
-|-----------|------|-------------|
-| app       | 8181 | Apache 2.4 + PHP 8.5 + Laravel |
-| mariadb   | 3307 | MariaDB 11 (externer Zugriff) |
-| mailpit   | 8025 | Mail Catcher UI, Port 1025 für SMTP |
+| Service | Port | Beschreibung |
+|---------|------|-------------|
+| app     | 8181 | Apache 2.4 + PHP 8.5 + Laravel |
+| mariadb | 3307 | MariaDB 11 (externer Zugriff) |
 
-## Initiales Setup (automатически)
+## Initiales Setup (automatisch)
 
 Der Entrypoint führt beim ersten Start automatisch aus:
 
@@ -61,12 +59,12 @@ cd docker && docker compose exec app bash
 
 # Artisan Commands
 cd docker && docker compose exec app php artisan migrate
-docker compose exec app php artisan db:seed
-docker compose exec app php artisan config:cache
-docker compose exec app php artisan livewire:publish --assets
+cd docker && docker compose exec app php artisan db:seed
+cd docker && docker compose exec app php artisan config:cache
+cd docker && docker compose exec app php artisan livewire:publish --assets
 
 # Frontend neu bauen
-docker compose exec app npm run build
+cd docker && docker compose exec app npm run build
 ```
 
 ## Datenbank von außen
@@ -78,12 +76,6 @@ Mit TablePlus, DBeaver oder MySQL Workbench:
 - Password: `vereinspass`
 - Database: `vereinsmanagement`
 
-## Mailpit
-
-Mailpit fängt alle ausgehenden Mails ab. Keine echten Mails werden versendet.
-- Web UI: http://localhost:8025
-- SMTP: `localhost:1025`
-
 ## Env-Variablen anpassen
 
 In der `.env` Datei anpassen:
@@ -93,6 +85,6 @@ APP_NAME="Dein Vereinsname"
 APP_URL=http://localhost:8181
 DB_DATABASE=vereinsmanagement
 DB_USERNAME=vereinsuser
-DB_PASSWORD=dein_sicheres_passwort
-DB_ROOT_PASSWORD=root_sicheres_passwort
+DB_PASSWORD=dein_s...wort
+DB_ROOT_PASSWORD=root_s...wort
 ```
