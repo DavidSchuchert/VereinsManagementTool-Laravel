@@ -27,3 +27,6 @@ docker-compose.yml
 docker-entrypoint.sh
 .dockerignore
 .env.docker
+
+# API Distribution
+api-dist/
