@@ -117,6 +117,8 @@ Wenn du das System aktualisieren möchtest, führe einfach diese Befehle nachein
 
 ### 🐳 Docker Installation (Alternative)
 
+![Docker Logo](https://upload.wikimedia.org/wikipedia/commons/1/1e/Docker_Logo.png)
+
 Du hast Docker? Noch schneller starten ohne manuelles Setup:
 
 **Voraussetzungen:** Docker & Docker Compose
