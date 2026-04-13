@@ -1,106 +1,138 @@
-# 🏆 VereinsManagementTool v2.2 Professional
+# 🚀 VereinsManagementTool (VMT) - Professional Open Source
 
-![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel)
-![PHP](https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php)
-![Livewire](https://img.shields.io/badge/Livewire-4.x-FB70A9?style=for-the-badge&logo=livewire)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
-![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker)
+[![Laravel 13](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![PHP 8.4](https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php)](https://php.net)
+[![Tailwind 4](https://img.shields.io/badge/TailwindCSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-Das **VereinsManagementTool** ist eine hochmoderne, leistungsstarke Webanwendung zur effizienten Verwaltung von Vereinen. Entwickelt mit dem neuesten Technologie-Stack von 2026, bietet es eine nahtlose Benutzererfahrung, Revisionssicherheit und ein anspruchsvolles Design.
+Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung von Vereinsmitgliedern, Finanzen, Inventar und Protokollen. In der aktuellen Version 2.2 wurde das System vollständig modernisiert und bietet eine intuitive Benutzeroberfläche sowie maximale Revisionssicherheit.
 
 ---
 
 ## ✨ Hauptmerkmale
 
-### 💎 Modernstes UI/UX (Glassmorphism & Tailwind 4)
-*   **Next-Gen Design:** Vollständiges Redesign mit Tailwind CSS 4 für ein flüssiges, modernes Look & Feel.
-*   **Responsive Experience:** Optimiert für alle Endgeräte, inklusive nativer Mobile-Navigation und Skeleton-Loadern.
-*   **Echtzeit-Interaktion:** Livewire 4 ermöglicht blitzschnelle Updates ohne Seiten-Reloads.
-
-### 📊 Intelligente Verwaltung
-*   **Echtzeit-Dashboard:** Interaktive Statistiken mit ApexCharts und automatischer Aktualisierung via Laravel Echo.
-*   **Stammdaten-Kontrollzentrum:** Zentrale Verwaltung von Rängen, Kategorien und Standorten mit dem neuen Lookup-Manager.
-*   **Audit-Trail & Revisionssicherheit:** Lückenlose Protokollierung aller Änderungen (Activity Logs) und Benutzerzuordnung bei Finanztransaktionen.
-
-### 📂 Dokumente & Datenaustausch
-*   **Dokumenten-Manager:** Drag & Drop Uploads mit integrierter Vorschau.
-*   **Import/Export-Wizard:** Effizienter Datenaustausch via Excel (Maatwebsite Excel) mit benutzerfreundlichem Wizard.
-*   **PDF-Reporting:** Professionelle Berichte für Finanzen, Mitglieder und Inventar.
-
-### 🛡️ Sicherheit & Privatsphäre
-*   **Rollen & Berechtigungen:** Granulare Zugriffskontrolle durch Spatie Laravel-Permission.
-*   **Privacy by Design:** Globaler Schutz vor Suchmaschinen-Indizierung (`noindex`) und restriktive SEO-Steuerung.
+*   💎 **Premium UI/UX:** Elegantes Glassmorphism-Design mit Tailwind CSS 4.
+*   📊 **Echtzeit-Statistiken:** Interaktive Dashboards via Livewire 4 und ApexCharts.
+*   🛡️ **Revisionssicherheit:** Lückenloser Audit-Trail (Aktivitätsprotokoll) und Benutzerzuordnung bei Finanzen.
+*   👥 **Mitgliederverwaltung:** Digitale Akten, Rang-Management und Status-Tracking.
+*   💰 **Finanzmanagement:** Einnahmen/Ausgaben-Journal mit automatischem PDF-Export.
+*   📦 **Inventarverwaltung:** Strukturierte Lagerstandorte und Kategorien.
+*   📄 **Dokumenten-Manager:** Zentraler Speicher für Satzungen und Verträge via Drag & Drop.
 
 ---
 
-## 🛠 Technologie-Stack (Upgrade April 2026)
+## 🌐 Live-Erlebnis (Demo)
 
-| Komponente | Version |
-| :--- | :--- |
-| **Framework** | Laravel 13.x |
-| **Laufzeit** | PHP 8.4.x |
-| **Frontend** | Tailwind CSS 4.0 / Vite 8.0 |
-| **Reaktivität** | Livewire 4.x / Alpine.js 3.15+ |
-| **Infrastruktur** | Docker & Docker Compose |
+Überzeuge dich selbst von der Geschwindigkeit und Eleganz des Systems! Wir haben eine voll funktionsfähige Demo-Umgebung bereitgestellt, in der du alle Premium-Features in Echtzeit testen kannst.
+
+✨ **[JETZT DIE LIVE-DEMO STARTEN](https://verein.david-schuchert.de/)** ✨
+
+**Login-Daten für die Demo:**
+*   **E-Mail:** `admin@admin`
+*   **Passwort:** `admin`
+
+*Erlebe das flüssige Glassmorphism-Design und die blitzschnellen Livewire-Interaktionen direkt im Browser.*
 
 ---
 
-## 🚀 Installation & Schnellstart
+## 📥 Installation & Setup
 
-### 🐳 Docker (Empfohlen)
+### Voraussetzungen
+*   **PHP >= 8.4** (mit BCMath, Ctype, Fileinfo, JSON, Mbstring, OpenSSL, PDO, Tokenizer, XML Erweiterungen)
+*   **Composer** (PHP Package Manager)
+*   **MySQL 8.0+** oder **MariaDB 10.11+**
+*   **Node.js & NPM** (für den Asset-Build)
+
+### Setup-Schritte
 
 1.  **Repository klonen:**
     ```bash
-    git clone https://github.com/dein-repo/VereinsManagementTool.git
-    cd VereinsManagementTool
+    git clone https://github.com/dein-repo/vereinsverwaltung-laravel.git
+    cd vereinsverwaltung-laravel
     ```
 
-2.  **Container starten:**
+2.  **Abhängigkeiten installieren:**
     ```bash
-    docker-compose up -d --build
+    composer install --no-dev --optimize-autoloader
+    npm install
+    npm run build
     ```
 
-3.  **Anwendung initialisieren:**
+3.  **Umgebung konfigurieren:**
+    Kopiere die Beispiel-Datei und passe sie an:
     ```bash
-    docker-compose exec app php artisan migrate --seed
-    docker-compose exec app php artisan storage:link
+    cp .env.example .env
+    ```
+    **Wichtige Felder in der `.env`:**
+    *   `APP_URL`: Die URL deiner Installation (z.B. `http://verein.test`).
+    *   `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`: Deine Datenbank-Zugangsdaten.
+
+4.  **Datenbank & App initialisieren:**
+    ```bash
+    php artisan key:generate
+    php artisan migrate --seed
+    php artisan storage:link
     ```
 
-4.  **Zugriff:**
-    Die Anwendung ist nun unter `http://localhost:8181` erreichbar.
+## 🔄 Upgrade-Anleitung (von v1 / v2.x auf v2.2)
 
-### 🔑 Standard-Login
-*   **Benutzer:** `admin@admin`
+Wenn du bereits eine ältere Version nutzt, befolge diese Schritte für ein reibungsloses Update auf den neuesten Tech-Stack:
+
+1.  **Code aktualisieren:** `git pull` ausführen.
+2.  **Abhängigkeiten erneuern:**
+    ```bash
+    composer install --no-dev --optimize-autoloader
+    npm install
+    npm run build
+    ```
+3.  **Datenbank migrieren:** `php artisan migrate --force`
+4.  **Caches leeren:**
+    ```bash
+    php artisan optimize:clear
+    ```
+
+---
+
+## 🔑 Standard-Zugangsdaten (nach Neu-Installation)
+
+Nach einer frischen Installation mit dem Befehl `--seed` kannst du dich mit folgenden Daten anmelden:
+
+*   **E-Mail:** `admin@admin`
 *   **Passwort:** `admin`
 
----
-
-## 📜 Versionshistorie (Changelog)
-
-### [v2.2.0] - Cutting Edge Upgrade (2026-04-13)
-*   **Framework:** Upgrade auf **Laravel 13** und **PHP 8.4**.
-*   **Frontend:** Umstellung auf **Tailwind CSS 4** und **Vite 8**.
-*   **Livewire:** Upgrade auf **Livewire 4**.
-*   **Charts:** Refactoring der ApexCharts-Integration (jetzt nativ via JS für bessere Performance).
-*   **Refactoring:** PSR-4 Namespace-Korrekturen und Bereinigung veralteter Paket-Referenzen.
-
-### [v2.1.0] - Master Data & Auditability (2026-04-10)
-*   **Setup 2.0:** Neues tab-basiertes Kontrollzentrum für Stammdaten.
-*   **Finanz-Audit:** Einführung der `user_id` für alle Zahlungen (Nachverfolgbarkeit).
-*   **Strukturierte Standorte:** Umstellung von Freitext auf kategorisierte Stammdaten.
-*   **Privacy:** Implementierung von globalem `noindex` und `robots.txt`.
-
-### [v2.0.0] - Premium UI & Feature Upgrade
-*   Einführung des Glassmorphism-Designs.
-*   Implementierung des zentralen FilterService.
-*   Integration von Echtzeit-Statistiken via Laravel Echo.
+*🔴 **WICHTIG:** Aus Sicherheitsgründen musst du diese Zugangsdaten **sofort** nach dem ersten Login ändern! Klicke dazu oben rechts auf deinen Namen und wähle den Bereich **"Profil"**. Dort kannst du sowohl deine E-Mail-Adresse als auch dein Passwort sicher aktualisieren.*
 
 ---
 
-## 👨‍💻 Autor & Lizenz
+## 📜 Versionshistorie (Changelog v1 ➔ v2.2)
 
-Entwickelt von **David Schuchert**.
-Dieses Projekt ist unter der MIT-Lizenz lizenziert.
+Das System wurde von Grund auf neu konzipiert. Hier sind die wichtigsten Änderungen im Vergleich zur klassischen v1:
+
+### [v2.2.0] - The 2026 Update (Aktuell)
+*   **Core:** Upgrade auf **Laravel 13** und **PHP 8.4**.
+*   **Frontend:** Umstellung auf **Tailwind CSS 4.0** (Engine-Rewrite) und **Vite 8.0**.
+*   **Reaktivität:** Upgrade auf **Livewire 4** für noch flüssigere Interaktionen.
+*   **Performance:** Refactoring der Charts (native JS-Integration statt PHP-Wrapper).
+
+### [v2.1.0] - Stammdaten & Revision
+*   **Zentrales Setup:** Neues Kontrollzentrum für Ränge, Kategorien und Standorte.
+*   **Finanz-Audit:** Jede Transaktion wird nun fest mit dem erfassenden Benutzer verknüpft.
+*   **Lager-Struktur:** Umstellung von Freitext-Standorten auf eine gesicherte Auswahl via Stammdaten.
+*   **Privacy:** Globaler Schutz vor Suchmaschinen-Indizierung (`noindex`) und `robots.txt` Steuerung.
+
+### [v2.0.0] - Das große Redesign
+*   **UI-Overhaul:** Einführung des Glassmorphism-Designs.
+*   **Livewire CRUD:** Alle Formulare (Mitglieder, Inventar, Zahlungen) funktionieren nun ohne Seiten-Reload in Modals und Slide-overs.
+*   **Echtzeit-Dashboard:** Statistiken aktualisieren sich automatisch bei Änderungen im Hintergrund.
+*   **Filter-Engine:** Einführung eines zentralen Filter-Services für konsistente Suche und Sortierung.
+*   **Dokumente:** Neuer Drag & Drop Uploader für Dokumente mit Vorschau-Funktion.
 
 ---
-**LIVE-DEMO:** [https://verein.david-schuchert.de/](https://verein.david-schuchert.de/)
+
+## 🤝 Mitwirken & Support
+Beiträge sind herzlich willkommen!
+
+**Autor:** David Schuchert  
+**Live-Demo:** [https://verein.david-schuchert.de/](https://verein.david-schuchert.de/)
+
+*Lizenz: MIT*

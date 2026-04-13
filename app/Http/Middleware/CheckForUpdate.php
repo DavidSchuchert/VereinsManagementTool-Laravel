@@ -22,33 +22,33 @@ class CheckForUpdate
 
     private function checkForUpdate()
     {
-
         try {
-            $response = Http::withoutVerifying()->get('https://api.david-schuchert.de/vmt/version.json');
+            // Set a low timeout for the update check to prevent blocking the app
+            $response = Http::withoutVerifying()
+                ->timeout(3)
+                ->get('https://api.david-schuchert.de/vmt/version.json');
 
             if ($response->failed()) {
-                return "Die API-Antwort war nicht erfolgreich.";
+                return null; // Silent failure if API is offline
             }
 
             $latestVersion = $response->json('version');
             $updateMessage = $response->json('message');
 
             if (!$latestVersion || !$updateMessage) {
-                return "Die API-Antwort ist ungültig.";
+                return null;
             }
-            $currentVersion = '1.1.0';
-            // Debugging: Protokolliere die Versionsnummern
-            Log::info("Current Version: $currentVersion, Latest Version: $latestVersion");
+
+            $currentVersion = '2.2.0';
 
             if (version_compare($currentVersion, $latestVersion, '<')) {
                 return $updateMessage;
-            } else {
-                
             }
-        } catch (RequestException $e) {
-            return "Die Update-Prüfung konnte nicht durchgeführt werden.";
+
+            return null;
         } catch (\Exception $e) {
-            return "Ein unbekannter Fehler ist aufgetreten: " . $e->getMessage();
+            // Fail silently if API is offline or unreachable
+            return null;
         }
     }
 
