@@ -1,0 +1,334 @@
+:root {
+    --primary: #00f2fe;
+    --secondary: #4facfe;
+    --dark: #0f172a;
+    --darker: #020617;
+    --gray: #64748b;
+    --light: #f8fafc;
+    --accent: #10b981;
+    --glass: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--darker);
+    color: var(--light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Glassmorphism Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 0;
+}
+
+.glass-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.logo img {
+    height: 32px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--light);
+    font-weight: 400;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 10px 20px -10px rgba(79, 172, 254, 0.5);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px -10px rgba(79, 172, 254, 0.6);
+}
+
+.btn-secondary {
+    border: 1px solid var(--glass-border);
+    background: var(--glass);
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-primary.large, .btn-secondary.large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 12rem 0 8rem;
+    background: radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.05) 0%, transparent 40%);
+}
+
+.hero .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--gray);
+    margin-bottom: 3rem;
+    max-width: 90%;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.1);
+    color: var(--accent);
+    padding: 0.4rem 1rem;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Browser Mockup */
+.browser-frame {
+    background: #1e293b;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.8);
+}
+
+.browser-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.browser-frame img {
+    width: 100%;
+    display: block;
+}
+
+/* Features */
+.features {
+    padding: 8rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.2rem;
+    color: var(--gray);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.glass-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    transition: 0.4s;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--secondary);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card p {
+    color: var(--gray);
+}
+
+/* Showcase */
+.showcase {
+    padding: 8rem 0;
+}
+
+.showcase-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+    margin-bottom: 10rem;
+}
+
+.showcase-item.reverse {
+    direction: rtl;
+}
+
+.showcase-item.reverse .showcase-text {
+    direction: ltr;
+}
+
+.showcase-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.showcase-text p {
+    font-size: 1.1rem;
+    color: var(--gray);
+}
+
+.browser-frame.mini {
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+}
+
+/* Footer */
+.footer {
+    padding: 4rem 0;
+    border-top: 1px solid var(--glass-border);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--light);
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .hero .container, .showcase-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .hero-btns {
+        justify-content: center;
+    }
+    .hero-content p {
+        margin: 0 auto 3rem;
+    }
+    .showcase-item.reverse {
+        direction: ltr;
+    }
+}
