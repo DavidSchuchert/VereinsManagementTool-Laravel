@@ -129,10 +129,22 @@ Du hast Docker? Noch schneller starten ohne manuelles Setup:
     cd VereinsManagementTool-Laravel
     ```
 
-2.  **Docker starten:**
+2.  **.env Datei erstellen:**
     ```
     cp docker/.env.docker .env
+    ```
+    Öffne die `.env` Datei und passe folgende Werte an:
+    *   `APP_URL` – deine URL (z.B. http://localhost:8181)
+    *   `DB_PASSWORD` – sicheres Passwort für die Datenbank
+    *   `DB_ROOT_PASSWORD` – sicheres Passwort für den MariaDB Root-User
+
+3.  **APP_KEY generieren:**
+    ```
     php artisan key:generate
+    ```
+
+4.  **Docker starten:**
+    ```
     cd docker && docker compose up -d --build
     ```
 
