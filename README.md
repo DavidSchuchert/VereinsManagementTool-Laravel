@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/assets/vmt-logo.png" width="200" alt="VMT Logo">
+</p>
+
 # 🚀 Das VereinsManagementTool (VMT)
 
 ### Endlich mehr Zeit für deinen Verein – weniger Zettelwirtschaft, mehr Gemeinschaft!
