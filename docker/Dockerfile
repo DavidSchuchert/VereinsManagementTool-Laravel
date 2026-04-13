@@ -29,19 +29,19 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /var/www/html
 
-# Apache konfigurieren
-COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+# Apache konfigurieren (vhost.conf liegt im docker/ Ordner, Context ist Parent)
+COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite headers
 
 # PHP.ini
-COPY php.ini /usr/local/etc/php/php.ini
+COPY docker/php.ini /usr/local/etc/php/php.ini
 
 # Permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Entrypoint
-COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 EXPOSE 80
