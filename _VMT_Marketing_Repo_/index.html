@@ -3,92 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VMT – Modernes VereinsManagementTool | 100% Kostenlos & Open Source</title>
-    <meta name="description" content="Digitalisiere deinen Verein mit VMT. Vollständig kostenlos, Open Source und sicher. Mitgliederverwaltung, Finanzen und Inventar an einem Ort.">
+    <title>VereinsManagementTool | Die moderne Rundumlösung für Ihren Verein</title>
+    
+    <!-- SEO & Meta -->
+    <meta name="description" content="Digitalisieren Sie Ihren Verein mit VMT. 100% Kostenlos, Open Source und DSGVO-bereit. Mitgliederverwaltung, Finanzen und Dokumente sicher an einem Ort.">
+    <meta name="keywords" content="Vereinsverwaltung, Open Source Vereinssoftware, Kostenlose Mitgliederverwaltung, Digitaler Kassenwart, VMT">
+    <meta name="author" content="David Schuchert">
+    
+    <!-- Share Meta -->
+    <meta property="og:title" content="VMT – Vereinsverwaltung neu gedacht">
+    <meta property="og:description" content="Vollständig kostenlos, sicher und modern. Entdecken Sie die Zukunft Ihres Vereins.">
+    <meta property="og:image" content="assets/dashboard.png">
+    <meta property="og:url" content="https://david-schuchert.de">
+    
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="main-nav">
         <div class="container">
-            <div class="logo">
+            <a href="#" class="logo">
                 <img src="assets/logo.png" alt="VMT Logo">
                 <span>VereinsManagementTool</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#features">Funktionen</a></li>
-                <li><a href="#showcase">Einblicke</a></li>
-                <li><a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel" class="btn-primary">Mehr erfahren</a></li>
+                <li><a href="#advantages">Ihre Vorteile</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel" class="btn-primary">GitHub</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero">
-        <div class="container hero-container">
+        <div class="container hero-container animate-fade-in">
             <div class="hero-logo-side">
-                <img src="assets/logo.png" alt="VMT Logo" class="hero-logo-main">
+                <img src="assets/logo.png" alt="Großes VMT Logo" class="hero-logo-main">
             </div>
             <div class="hero-content-side">
                 <span class="badge">100% Kostenlos & Open Source</span>
                 <h1>Effiziente Vereinsverwaltung ohne Zettelwirtschaft.</h1>
-                <p>Das VMT ist die moderne Lösung für Vereine jeder Größe. Verwalte deine Mitglieder, Finanzen und dein Inventar an einem sicheren, zentralen Ort – einfach, schnell und digital.</p>
+                <p>Das VMT ist die moderne Rundumlösung für Vereine jeder Größe. Verwalten Sie Mitglieder, Finanzen und Inventar an einem sicheren, zentralen Ort – intuitiv, rechtssicher und digital.</p>
                 <div class="hero-btns">
-                    <a href="https://verein.david-schuchert.de/" class="btn-primary large">Live-Demo testen</a>
-                    <a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel" class="btn-secondary large">GitHub</a>
+                    <a href="https://verein.david-schuchert.de/" class="btn-primary large">Jetzt Live-Demo testen</a>
+                    <a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel" class="btn-secondary large">Quellcode ansehen</a>
                 </div>
             </div>
         </div>
-        <div class="container hero-mockup-container">
-            <div class="hero-mockup">
-                <img src="assets/dashboard.png" alt="VMT Dashboard Übersicht" class="full-screenshot">
+        <div class="container hero-mockup-container animate-up">
+            <div class="browser-frame">
+                <div class="browser-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+                <img src="assets/dashboard.png" alt="VMT Dashboard Vorschau" class="full-screenshot" loading="lazy">
             </div>
         </div>
     </header>
 
-    <section id="features" class="features">
+    <section id="features" class="features scroll-reveal">
         <div class="container">
             <div class="section-title">
-                <h2>Ihre Vereinsarbeit, digital optimiert</h2>
+                <h2>Alles, was Ihr Projekt braucht</h2>
+                <div class="title-underline"></div>
             </div>
             <div class="feature-grid">
-                <div class="feature-item">
+                <div class="feature-card">
+                    <div class="icon">👥</div>
                     <h3>Mitgliederverwaltung</h3>
-                    <p>Führen Sie digitale Akten mit individuellen Rängen und verknüpften Dokumenten für jedes Mitglied.</p>
+                    <p>Führen Sie digitale Akten mit individuellen Rängen und allen Dokumenten. Schnellsuche inklusive.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-card">
+                    <div class="icon">💰</div>
                     <h3>Finanzmanagement</h3>
-                    <p>Erfassen Sie alle Einnahmen und Ausgaben revisionssicher und exportieren Sie Berichte direkt als PDF.</p>
+                    <p>Erfassen Sie alle Buchungen revisionssicher. PDF-Berichte für die Kassenprüfung auf Knopfdruck.</p>
                 </div>
-                <div class="feature-item">
-                    <h3>Inventar & Lager</h3>
-                    <p>Behalten Sie den Überblick über Vereinseigentum mit festen Standorten und Kategorien.</p>
+                <div class="feature-card">
+                    <div class="icon">📦</div>
+                    <h3>Inventar-Tracking</h3>
+                    <p>Behalten Sie den Überblick über Standorte und Kategorien Ihres gesamten Vereinseigentums.</p>
                 </div>
-                <div class="feature-item">
+                <div class="feature-card">
+                    <div class="icon">📄</div>
                     <h3>Protokollwesen</h3>
-                    <p>Erstellen und verwalten Sie Sitzungsprotokolle digital und stellen Sie diese als PDF bereit.</p>
+                    <p>Vom Entwurf bis zum PDF-Export: Verwalten Sie Ihre Sitzungsprotokolle vollständig digital.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="showcase" class="showcase">
+    <section id="advantages" class="advantages scroll-reveal">
         <div class="container">
-            <div class="showcase-row">
-                <div class="showcase-content">
-                    <h2>Stammdaten flexibel verwalten</h2>
-                    <p>Passen Sie das Tool auf Ihre Bedürfnisse an. Erstellen Sie eigene Lagerorte, Mitgliedsarten und Zahlungswege für Ihren spezifischen Vereinalltag.</p>
+            <div class="advantages-grid">
+                <div class="advantages-text">
+                    <h2>Warum der Wechsel zum VMT lohnt</h2>
+                    <ul class="checklist">
+                        <li><span>✓</span> <strong>Völlig kostenlos:</strong> Keine Abos, keine versteckten Gebühren.</li>
+                        <li><span>✓</span> <strong>Open Source:</strong> Transparenter Code für maximale Sicherheit.</li>
+                        <li><span>✓</span> <strong>DSGVO-bereit:</strong> Lokale Datenspeicherung und volle Kontrolle.</li>
+                        <li><span>✓</span> <strong>Keine Installation:</strong> Direkt im Browser auf jedem Gerät nutzbar.</li>
+                        <li><span>✓</span> <strong>Modularer Aufbau:</strong> Nur das nutzen, was Ihr Verein wirklich braucht.</li>
+                    </ul>
                 </div>
-                <div class="showcase-image-wrapper">
-                    <img src="assets/setup.png" alt="VMT Setup Bereich" class="app-screenshot">
+                <div class="advantages-image">
+                    <img src="assets/setup.png" alt="VMT Anpassung" class="styled-img" loading="lazy">
                 </div>
             </div>
-            <div class="showcase-row reversed">
+        </div>
+    </section>
+
+    <section id="showcase" class="showcase scroll-reveal">
+        <div class="container">
+            <div class="showcase-item">
                 <div class="showcase-content">
-                    <h2>Moderne Mitgliederlisten</h2>
-                    <p>Nutzen Sie leistungsatarke Filter und eine übersichtliche Tabellenansicht, um Informationen in Sekunden zu finden.</p>
+                    <h2>Präzise Mitgliederlisten</h2>
+                    <p>Filtern Sie nach Mitgliedsstatus, Rängen oder Standorten. Exportieren Sie Daten für Rundschreiben oder Beitragsrechnungen in Sekunden.</p>
                 </div>
-                <div class="showcase-image-wrapper">
-                    <img src="assets/mitglieder.png" alt="VMT Mitgliederliste" class="app-screenshot">
+                <div class="showcase-visual">
+                    <img src="assets/mitglieder.png" alt="Mitglieder Ansicht" class="browser-style" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq scroll-reveal">
+        <div class="container">
+            <div class="section-title">
+                <h2>Häufige Fragen</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card">
+                    <h4>Ist die Software wirklich kostenlos?</h4>
+                    <p>Ja, das VereinsManagementTool ist ein Open-Source-Projekt von David Schuchert und steht allen Vereinen dauerhaft kostenfrei zur Verfügung.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Wo werden meine Daten gespeichert?</h4>
+                    <p>Die Anwendung wird auf Ihrem eigenen Server installiert. Damit behalten Sie die volle Souveränität über alle Mitgliederdaten – perfekt für den Datenschutz.</p>
+                </div>
+                <div class="faq-card">
+                    <h4>Benötige ich IT-vorkenntnisse?</h4>
+                    <p>Die Bedienung ist so einfach wie Online-Banking gestaltet. Für die einmalige Installation stellen wir eine ausführliche Dokumentation bereit.</p>
                 </div>
             </div>
         </div>
@@ -96,16 +149,35 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-wrap">
+            <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/logo.png" alt="VMT Logo">
+                    <img src="assets/logo.png" alt="VMT Logo Footer">
                     <span>VereinsManagementTool</span>
                 </div>
-                <div class="footer-copy">
-                    <p>&copy; 2026 David Schuchert. Entwickelt für die Gemeinschaft. <a href="https://david-schuchert.de">Impressum</a></p>
+                <div class="footer-nav">
+                    <a href="https://github.com/DavidSchuchert/VereinsManagementTool-Laravel">GitHub</a>
+                    <a href="https://david-schuchert.de">Entwickler-Seite</a>
+                    <a href="https://david-schuchert.de">Impressum</a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 David Schuchert. Mit ❤️ für das Ehrenamt entwickelt.</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Simple Scroll Reveal Animation
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
