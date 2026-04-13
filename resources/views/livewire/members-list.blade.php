@@ -37,7 +37,7 @@
                 >
             </div>
             <div class="hidden md:block w-px bg-gray-200 my-2"></div>
-            <div class="flex items-center gap-2 overflow-x-auto px-2 pb-2 md:pb-0 scrollbar-hide" x-data="{ activeTab: @entangle('filterStatus') }">
+            <div class="flex items-center gap-2 overflow-x-auto px-2 pb-2 md:pb-0 scrollbar-hide" x-data="{ activeTab: $wire.entangle('filterStatus') }">
                 <button @click="activeTab = 'all'" 
                         :class="activeTab === 'all' ? 'bg-gray-900 text-white shadow-md' : 'text-gray-600 hover:bg-gray-100'"
                         class="px-4 py-1.5 text-sm font-medium rounded-lg whitespace-nowrap transition-all duration-200">

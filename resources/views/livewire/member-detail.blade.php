@@ -1,4 +1,4 @@
-<div x-data="{ open: @entangle('showModal') }"
+<div x-data="{ open: $wire.entangle('showModal') }"
      x-show="open"
      @keydown.window.escape="open = false"
      class="relative z-50"
