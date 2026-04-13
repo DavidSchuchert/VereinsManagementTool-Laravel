@@ -115,6 +115,68 @@ Wenn du das System aktualisieren möchtest, führe einfach diese Befehle nachein
 
 ---
 
+### 🐳 Docker Installation (Alternative)
+
+Du hast Docker? Noch schneller starten ohne manuelles Setup:
+
+**Voraussetzungen:** Docker & Docker Compose
+
+**In 3 Schritten:**
+
+1.  **Code holen:**
+    ```
+    git clone https://github.com/DavidSchuchert/VereinsManagementTool-Laravel.git
+    cd VereinsManagementTool-Laravel
+    ```
+
+2.  **Docker starten:**
+    ```
+    cp docker/.env.docker .env
+    php artisan key:generate
+    cd docker && docker compose up -d --build
+    ```
+
+3.  **Fertig!** Öffne [http://localhost:8181](http://localhost:8181)
+
+**Was passiert automatisch:**
+*   MariaDB 11 wird gestartet
+*   Composer & NPM Dependencies werden installiert
+*   Datenbank-Migrationen werden ausgeführt
+*   DB wird mit Beispieldaten befüllt (`--seed`)
+*   Livewire Assets werden veröffentlicht
+*   Storage Link wird erstellt
+
+**Services:**
+
+| Service   | Port | Beschreibung |
+|-----------|------|-------------|
+| App       | 8181 | Apache + PHP 8.5 + Laravel |
+| MariaDB   | 3307 | Datenbank (externer Zugriff) |
+| Mailpit   | 8025 | Mail Catcher UI |
+
+**Mailpit** fängt alle ausgehenden Mails ab. Web UI: [http://localhost:8025](http://localhost:8025)
+
+**Nützliche Commands:**
+```
+# Logs verfolgen
+cd docker && docker compose logs -f
+
+# Bash im Container
+cd docker && docker compose exec app bash
+
+# Manuell migrieren
+cd docker && docker compose exec app php artisan migrate
+
+# Frontend neu bauen
+cd docker && docker compose exec app npm run build
+```
+
+**Datenbank von außen** (TablePlus, DBeaver, etc.):
+*   Host: `localhost`, Port: `3307`
+*   User: `vereinsuser`, Password: `vereinspass`
+
+---
+
 ## 🔑 Deine ersten Schritte
 
 Nach der ersten Installation (mit `--seed`) kannst du dich so anmelden:
