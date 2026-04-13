@@ -1,85 +1,50 @@
-services:
-  app:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    container_name: vmt-app
-    restart: unless-stopped
-    volumes:
-      - .:/var/www/html
-    working_dir: /var/www/html
-    ports:
-      - "8181:80"
-    environment:
-      APP_NAME: "VereinsManagementTool"
-      APP_ENV: local
-      APP_KEY: "${APP_KEY}"
-      APP_DEBUG: "true"
-      APP_TIMEZONE: Europe/Berlin
-      APP_URL: "http://localhost:8181"
-      APP_LOCALE: de
-      APP_FALLBACK_LOCALE: en
-      APP_FAKER_LOCALE: de_DE
-      LOG_CHANNEL: stack
-      LOG_LEVEL: debug
-      DB_CONNECTION: mysql
-      DB_HOST: mariadb
-      DB_PORT: 3306
-      DB_DATABASE: "${DB_DATABASE}"
-      DB_USERNAME: "${DB_USERNAME}"
-      DB_PASSWORD: "${DB_PASSWORD}"
-      SESSION_DRIVER: file
-      FILESYSTEM_DISK: public
-      QUEUE_CONNECTION: sync
-      CACHE_STORE: file
-      MAIL_MAILER: smtp
-      MAIL_HOST: mailpit
-      MAIL_PORT: 1025
-      MAIL_FROM_ADDRESS: "info@localhost"
-      MAIL_FROM_NAME: "${APP_NAME}"
-    depends_on:
-      mariadb:
-        condition: service_healthy
-      mailpit:
-        condition: service_started
-    networks:
-      - vmt-network
+FROM php:8.5-apache
 
-  mariadb:
-    image: mariadb:11
-    container_name: vmt-db
-    restart: unless-stopped
-    environment:
-      MYSQL_DATABASE: "${DB_DATABASE}"
-      MYSQL_USER: "${DB_USERNAME}"
-      MYSQL_PASSWORD: "${DB_PASSWORD}"
-      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    ports:
-      - "3307:3306"
-    healthcheck:
-      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-      start_period: 30s
-    networks:
-      - vmt-network
+# System dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    libicu-dev \
+    libmariadb-dev \
+    zip \
+    unzip \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip intl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-  mailpit:
-    image: axllent/mailpit
-    container_name: vmt-mailpit
-    restart: unless-stopped
-    ports:
-      - "8025:8025"
-      - "1025:1025"
-    networks:
-      - vmt-network
+# Node.js für Frontend-Build
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g npm
 
-networks:
-  vmt-network:
-    driver: bridge
+# Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
-volumes:
-  mariadb_data:
+WORKDIR /var/www/html
+
+# Apache konfigurieren
+COPY vhost.conf /etc/apache2/sites-available/000-default.conf
+RUN a2enmod rewrite headers
+
+# PHP.ini
+COPY php.ini /usr/local/etc/php/php.ini
+
+# Permissions
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# Entrypoint
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+
+EXPOSE 80
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["apache2-foreground"]

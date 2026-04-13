@@ -2,7 +2,6 @@
 set -e
 
 echo "⏳ Waiting for database..."
-
 maxTries=30
 counter=0
 until php -r "
@@ -30,15 +29,32 @@ if [ -z "$APP_KEY" ] || [ "$APP_KEY" = "base64:" ]; then
     export APP_KEY=$(php artisan key:generate --show)
 fi
 
+# Composer dependencies
+echo "📦 Installing composer dependencies..."
+composer install --no-dev --optimize-autoloader --no-scripts --no-interaction
+
+# NPM dependencies & Build
+echo "🎨 Building frontend assets..."
+npm install
+npm run build
+
+# Livewire assets
+echo "⚡ Publishing Livewire assets..."
+php artisan livewire:publish --assets || true
+
+# Config cache
 echo "🔑 Caching config..."
 php artisan config:cache || true
 
+# Run migrations
 echo "📦 Running migrations..."
 php artisan migrate --force || true
 
+# Seed database
 echo "🌱 Seeding database..."
 php artisan db:seed --force || true
 
+# Storage link
 echo "🔗 Creating storage link..."
 php artisan storage:link || true
 
