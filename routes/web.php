@@ -17,6 +17,8 @@ Route::get('/', [DashboardController::class, 'index'])
     ->middleware(['auth', CheckForUpdate::class])
     ->name("dashboard");
 
+Route::get('/home', fn() => redirect()->route('dashboard'))->name('home');
+
 
 Route::middleware(CheckForUpdate::class)->middleware('auth')->group(function () {
     /* Dashboard */
