@@ -14,7 +14,7 @@
          x-transition:leave="ease-in-out duration-500" 
          x-transition:leave-start="opacity-100" 
          x-transition:leave-end="opacity-0" 
-         class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"></div>
+         class="fixed inset-0 transition-opacity bg-gray-900/80"></div>
 
     <div class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
