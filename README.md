@@ -133,9 +133,9 @@ Du hast Docker? Noch schneller starten ohne manuelles Setup:
 
 2.  **.env Datei erstellen:**
     ```
-    cp docker/.env.docker .env
+    cp docker/.env.docker docker/.env
     ```
-    Öffne die `.env` Datei und passe folgende Werte an:
+    Öffne die `docker/.env` Datei und passe folgende Werte an:
     *   `APP_URL` – deine URL (z.B. http://localhost:8181)
     *   `DB_PASSWORD` – sicheres Passwort für die Datenbank
     *   `DB_ROOT_PASSWORD` – sicheres Passwort für den MariaDB Root-User
