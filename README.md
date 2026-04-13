@@ -98,23 +98,6 @@ Befolge diese Schritte für ein Erst-Setup oder ein reibungsloses Update auf dei
     php artisan optimize
     ```
 
-### Docker-Setup (Alternative)
-
-Wenn du Docker nutzt, ist der Prozess noch einfacher:
-
-1.  **Container bauen & starten:**
-    ```bash
-    docker compose build --no-cache
-    docker compose up -d
-    ```
-2.  **Initialisierung:**
-    ```bash
-    docker compose exec app php artisan key:generate
-    docker compose exec app php artisan migrate --seed
-    docker compose exec app php artisan storage:link
-    docker compose exec app php artisan livewire:publish --assets
-    ```
-
 ---
 
 ## 🔑 Standard-Zugangsdaten (nach Neu-Installation)
