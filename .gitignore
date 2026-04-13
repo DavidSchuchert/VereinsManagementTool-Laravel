@@ -30,3 +30,7 @@ docker-entrypoint.sh
 
 # API Distribution
 api-dist/
+
+# OS Files
+.DS_Store
+Thumbs.db
