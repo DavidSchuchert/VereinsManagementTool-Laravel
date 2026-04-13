@@ -10,13 +10,46 @@ Das **VereinsManagementTool** ist dein digitaler Helfer im Vereinsalltag. Wir wi
 
 ---
 
-## ✨ Das macht dein Vereinsleben leichter
+## ✨ Features: Alles, was dein Verein braucht
 
-*   💎 **Moderne Optik:** Ein Design, das Spaß macht. Alles ist dort, wo du es erwartest.
-*   👥 **Mitglieder im Überblick:** Digitale Akten statt verstaubter Ordner. Wer ist dabei? Welchen Rang hat er? Alles sofort griffbereit.
-*   💰 **Sicherheit für den Kassenwart:** Erfasse Einnahmen und Ausgaben in Sekunden. Das System merkt sich jede Änderung – perfekt für eine entspannte Kassenprüfung.
-*   📦 **Dein Inventar im Griff:** Von Trikots über Bälle bis hin zur Technik – du weißt immer genau, was dein Verein besitzt und wo es lagert.
-*   📄 **Sicherer Dokumenten-Tresor:** Wichtige Dokumente wie Satzungen oder Verträge einfach hochladen und nie wieder suchen.
+Das VMT ist modular aufgebaut und deckt alle wichtigen Bereiche der Vereinsführung ab:
+
+### 👥 Mitgliederverwaltung
+*   **Digitale Mitgliederakte:** Alle Infos (Kontakt, Geburtsdatum, Eintritt) an einem Ort.
+*   **Rang-Management:** Verwalte verschiedene Mitgliedsarten (Aktiv, Passiv, Ehrenmitglieder).
+*   **Intuitive Filter:** Finde blitzschnell bestimmte Gruppen oder einzelne Mitglieder.
+*   **Dokumenten-Anhang:** Speichere Aufnahmeanträge oder Ausweise direkt beim Mitglied.
+
+### 💰 Finanzmanagement & Kasse
+*   **Einnahmen/Ausgaben-Journal:** Erfasse alle Kontobewegungen in Sekunden.
+*   **Revisionssicherheit:** Jede Buchung ist fest mit dem Ersteller verknüpft – keine anonymen Änderungen.
+*   **PDF-Export:** Generiere fertige Berichte für die Kassenprüfung oder das Finanzamt.
+*   **Zahlungsarten:** Unterstützt Barzahlung, Überweisung, PayPal und mehr.
+
+### 📦 Inventar & Lagerung
+*   **Gegenstands-Tracking:** Verwalte Trikots, Bälle, Technik und Schlüssel.
+*   **Feste Standorte:** Nie wieder suchen – ordne alles festen Räumen oder Schränken zu.
+*   **Kategorisierung:** Gruppiere dein Eigentum für eine bessere Übersicht.
+
+### 📄 Protokolle & Dokumente
+*   **Sitzungsprotokolle:** Erstelle Meeting-Minuten direkt im Tool und exportiere sie als PDF.
+*   **Zentraler Speicher:** Drag & Drop Uploader für Vereinssatzungen, Verträge und Konzepte.
+*   **Vorschau-Funktion:** PDF-Dateien direkt im Browser ansehen.
+
+### 📊 Dashboard & Master-Daten
+*   **Echtzeit-Statistiken:** Visualisiere dein Vereinswachstum und deine Finanzen mit interaktiven Charts.
+*   **Zentrales Setup:** Lege eigene Standorte, Ränge und Kategorien fest, um das Tool zu 100% auf deinen Verein anzupassen.
+*   **Aktivitätsprotokoll:** Vollständige Transparenz darüber, welche Änderungen im System vorgenommen wurden.
+
+---
+
+## 💎 Die moderne Technik dahinter
+
+Obwohl das Tool einfach zu bedienen ist, steckt unter der Haube modernste Technologie:
+*   **Premium Design:** Elegantes Glassmorphism-Interface für ein erstklassiges Nutzererlebnis.
+*   **Echtzeit-Interaktion:** Dank Livewire 3 musst du die Seite fast nie neu laden.
+*   **Sicherheit:** Höchste Standards beim Passwort-Hashing und Datenschutz.
+*   **SEO-Schutz:** Dein Vereinsheim bleibt privat und wird nicht von Google indiziert.
 
 ---
 
