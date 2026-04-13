@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center mr-8">
-                    <a href="{{ route('home') }}" class="flex items-center gap-3 group">
+                    <a href="{{ route('dashboard') }}" class="flex items-center gap-3 group">
                         @php
                             $logoPath = \App\Models\Setting::where('key', 'verein_logo')->value('value');
                         @endphp
@@ -28,7 +28,7 @@
 
                 <!-- Navigation Links (Desktop) -->
                 <div class="hidden space-x-1 lg:flex items-center ml-4">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')" class="px-3 py-2 rounded-lg transition-all duration-200 {{ request()->routeIs('home') ? 'bg-accent-50 text-accent-700 font-medium' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="px-3 py-2 rounded-lg transition-all duration-200 {{ request()->routeIs('dashboard') ? 'bg-accent-50 text-accent-700 font-medium' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
                         Übersicht
                     </x-nav-link>
                     <x-nav-link :href="route('mitglieder.index')" :active="request()->routeIs('mitglieder.*')" class="px-3 py-2 rounded-lg transition-all duration-200 {{ request()->routeIs('mitglieder.*') ? 'bg-accent-50 text-accent-700 font-medium' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
@@ -153,7 +153,7 @@
          x-transition:leave-end="opacity-0 -translate-y-4"
          class="lg:hidden bg-white border-b border-gray-200 absolute w-full shadow-lg z-50">
         <div class="px-4 pt-2 pb-4 space-y-1">
-            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')" class="rounded-xl">Übersicht</x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="rounded-xl">Übersicht</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('mitglieder.index')" :active="request()->routeIs('mitglieder.*')" class="rounded-xl">Mitglieder</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('zahlungen.index')" :active="request()->routeIs('zahlungen.*')" class="rounded-xl">Zahlungen</x-responsive-nav-link>
             <x-responsive-nav-link :href="route('inventar.index')" :active="request()->routeIs('inventar.*')" class="rounded-xl">Inventar</x-responsive-nav-link>
