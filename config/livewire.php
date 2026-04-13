@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'asset_url' => env('ASSET_URL', '/'),
+    'asset_url' => null,
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'update_route_pattern' => env('LIVEWIRE_UPDATE_ROUTE', '/livewire/update'),
+    'update_route_pattern' => '/livewire/update',
 
     /*
     |--------------------------------------------------------------------------
@@ -33,10 +33,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | Livewire 3 will automatically inject its scripts and styles.
+    | We set this to false because we use @livewireScripts manually.
     |
     */
 
-    'inject_assets' => true,
+    'inject_assets' => false,
 
     'navigate' => [
         'show_progress_bar' => true,
