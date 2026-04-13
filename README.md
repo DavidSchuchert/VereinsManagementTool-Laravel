@@ -1,8 +1,8 @@
 # 🚀 VereinsManagementTool (VMT) - Professional Open Source
 
-[![Laravel 13](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
-[![PHP 8.4](https://img.shields.io/badge/PHP-8.4-777BB4?style=for-the-badge&logo=php)](https://php.net)
-[![Tailwind 4](https://img.shields.io/badge/TailwindCSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
+[![Laravel 11](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel)](https://laravel.com)
+[![PHP 8.2](https://img.shields.io/badge/PHP-8.2-777BB4?style=for-the-badge&logo=php)](https://php.net)
+[![Tailwind 3](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com)
 [![License MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung von Vereinsmitgliedern, Finanzen, Inventar und Protokollen. In der aktuellen Version 2.2 wurde das System vollständig modernisiert und bietet eine intuitive Benutzeroberfläche sowie maximale Revisionssicherheit.
@@ -11,8 +11,8 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
 
 ## ✨ Hauptmerkmale
 
-*   💎 **Premium UI/UX:** Elegantes Glassmorphism-Design mit Tailwind CSS 4.
-*   📊 **Echtzeit-Statistiken:** Interaktive Dashboards via Livewire 4 und ApexCharts.
+*   💎 **Premium UI/UX:** Elegantes Glassmorphism-Design mit Tailwind CSS 3.
+*   📊 **Echtzeit-Statistiken:** Interaktive Dashboards via Livewire 3 und ApexCharts.
 *   🛡️ **Revisionssicherheit:** Lückenloser Audit-Trail (Aktivitätsprotokoll) und Benutzerzuordnung bei Finanzen.
 *   👥 **Mitgliederverwaltung:** Digitale Akten, Rang-Management und Status-Tracking.
 *   💰 **Finanzmanagement:** Einnahmen/Ausgaben-Journal mit automatischem PDF-Export.
@@ -78,18 +78,24 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
 
 Wenn du bereits eine ältere Version nutzt, befolge diese Schritte für ein reibungsloses Update auf den neuesten Tech-Stack:
 
+### Deployment & Updates (Produktion)
+
+Befolge diese Schritte für ein Erst-Setup oder ein reibungsloses Update auf deinem Server:
+
 1.  **Code aktualisieren:** `git pull` ausführen.
-2.  **Abhängigkeiten erneuern:**
-    Führe die folgenden Befehle nacheinander aus:
+2.  **Abhängigkeiten:**
     ```bash
     composer install --no-dev --optimize-autoloader
-    npm install
-    npm run build
+    npm install && npm run build
     ```
-3.  **Datenbank migrieren:** `php artisan migrate --force`
-4.  **Caches leeren:**
+3.  **Datenbank:** `php artisan migrate --force`
+4.  **Assets sichern (Wichtig bei 404 Fehlern):**
     ```bash
-    php artisan optimize:clear
+    php artisan livewire:publish --assets
+    ```
+5.  **Caches optimieren:**
+    ```bash
+    php artisan optimize
     ```
 
 ---
