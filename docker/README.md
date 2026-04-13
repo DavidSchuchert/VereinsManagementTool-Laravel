@@ -8,6 +8,8 @@
        🐳 Docker + Laravel Setup
 ```
 
+![Docker Logo](https://upload.wikimedia.org/wikipedia/commons/1/1e/Docker_Logo.png)
+
 ## Quick Start
 
 ```bash

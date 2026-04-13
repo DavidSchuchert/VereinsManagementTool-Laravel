@@ -138,12 +138,7 @@ Du hast Docker? Noch schneller starten ohne manuelles Setup:
     *   `DB_PASSWORD` – sicheres Passwort für die Datenbank
     *   `DB_ROOT_PASSWORD` – sicheres Passwort für den MariaDB Root-User
 
-3.  **APP_KEY generieren:**
-    ```
-    php artisan key:generate
-    ```
-
-4.  **Docker starten:**
+3.  **Docker starten:**
     ```
     cd docker && docker compose up -d --build
     ```
@@ -164,9 +159,6 @@ Du hast Docker? Noch schneller starten ohne manuelles Setup:
 |-----------|------|-------------|
 | App       | 8181 | Apache + PHP 8.5 + Laravel |
 | MariaDB   | 3307 | Datenbank (externer Zugriff) |
-| Mailpit   | 8025 | Mail Catcher UI |
-
-**Mailpit** fängt alle ausgehenden Mails ab. Web UI: [http://localhost:8025](http://localhost:8025)
 
 **Nützliche Commands:**
 ```
@@ -183,9 +175,6 @@ cd docker && docker compose exec app php artisan migrate
 cd docker && docker compose exec app npm run build
 ```
 
-**Datenbank von außen** (TablePlus, DBeaver, etc.):
-*   Host: `localhost`, Port: `3307`
-*   User: `vereinsuser`, Password: `vereinspass`
 
 ---
 
