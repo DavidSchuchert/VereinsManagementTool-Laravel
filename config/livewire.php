@@ -33,11 +33,10 @@ return [
     |--------------------------------------------------------------------------
     |
     | Livewire 3 will automatically inject its scripts and styles.
-    | We set this to false because we use @livewireScripts manually.
     |
     */
 
-    'inject_assets' => false,
+    'inject_assets' => true,
 
     'navigate' => [
         'show_progress_bar' => true,

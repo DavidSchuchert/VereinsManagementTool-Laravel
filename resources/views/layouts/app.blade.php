@@ -15,9 +15,6 @@
     <!-- QuillJS -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
-    @livewireStyles
-    <!-- Alpine x-cloak style -->
-    <style>[x-cloak] { display: none !important; }</style>
 </head>
 
 <body>
@@ -51,7 +48,6 @@
     </footer>
 
     <x-toast />
-    @livewireScripts
     @yield('scripts')
 </body>
 </html>
