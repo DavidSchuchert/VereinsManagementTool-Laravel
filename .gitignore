@@ -20,3 +20,10 @@ yarn-error.log
 /.idea
 /.vscode
 /.zed
+
+# Docker
+Dockerfile
+docker-compose.yml
+docker-entrypoint.sh
+.dockerignore
+.env.docker
