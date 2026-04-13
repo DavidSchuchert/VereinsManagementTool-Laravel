@@ -46,13 +46,13 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
 ### Setup-Schritte
 
 1.  **Repository klonen:**
-    ```bash
+    ```
     git clone https://github.com/dein-repo/vereinsverwaltung-laravel.git
     cd vereinsverwaltung-laravel
     ```
 
 2.  **Abhängigkeiten installieren:**
-    ```bash
+    ```
     composer install --no-dev --optimize-autoloader
     npm install
     npm run build
@@ -60,7 +60,7 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
 
 3.  **Umgebung konfigurieren:**
     Kopiere die Beispiel-Datei und passe sie an:
-    ```bash
+    ```
     cp .env.example .env
     ```
     **Wichtige Felder in der `.env`:**
@@ -68,7 +68,7 @@ Das **VereinsManagementTool** ist eine hochmoderne Webanwendung zur Verwaltung v
     *   `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`: Deine Datenbank-Zugangsdaten.
 
 4.  **Datenbank & App initialisieren:**
-    ```bash
+    ```
     php artisan key:generate
     php artisan migrate --seed
     php artisan storage:link
@@ -84,17 +84,17 @@ Befolge diese Schritte für ein Erst-Setup oder ein reibungsloses Update auf dei
 
 1.  **Code aktualisieren:** `git pull` ausführen.
 2.  **Abhängigkeiten:**
-    ```bash
+    ```
     composer install --no-dev --optimize-autoloader
     npm install && npm run build
     ```
 3.  **Datenbank:** `php artisan migrate --force`
 4.  **Assets sichern (Wichtig bei 404 Fehlern):**
-    ```bash
+    ```
     php artisan livewire:publish --assets
     ```
 5.  **Caches optimieren:**
-    ```bash
+    ```
     php artisan optimize
     ```
 
