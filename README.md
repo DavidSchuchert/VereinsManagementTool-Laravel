@@ -4,6 +4,11 @@
 
 # 🚀 VereinsManagementTool (VMT) – Version 2.2
 
+[![Laravel CI](https://github.com/DavidSchuchert/VereinsManagementTool-Laravel/actions/workflows/laravel.yml/badge.svg)](https://github.com/DavidSchuchert/VereinsManagementTool-Laravel/actions/workflows/laravel.yml)
+![PHP Version](https://img.shields.io/badge/php-%3E%3D%208.4-777bb4?logo=php)
+![Laravel Version](https://img.shields.io/badge/laravel-%3E%3D%2011.x-ff2d20?logo=laravel)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ### Endlich mehr Zeit für deinen Verein – weniger Zettelwirtschaft, mehr Gemeinschaft!
 
 Das **VereinsManagementTool** ist dein digitaler Helfer im Vereinsalltag. Wir wissen, dass Vereinsarbeit Herzblut bedeutet – und oft viel Papierkram. Deshalb haben wir eine Lösung entwickelt, die deine Mitglieder, Finanzen und Dokumente an einem sicheren Ort verwaltet. Es ist modern, blitzschnell und so intuitiv, dass du kein Technik-Profi sein musst, um es zu lieben.
