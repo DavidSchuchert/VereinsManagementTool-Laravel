@@ -119,63 +119,32 @@ Wenn du das System aktualisieren möchtest, führe einfach diese Befehle nachein
 
 ![Docker Logo](https://upload.wikimedia.org/wikipedia/commons/1/1e/Docker_Logo.png)
 
-Du hast Docker? Noch schneller starten ohne manuelles Setup:
+Du hast Docker? Starte das Tool in Sekunden mit einer optimierten Entwicklungsumgebung:
 
 **Voraussetzungen:** Docker & Docker Compose
 
 **In 3 Schritten:**
 
 1.  **Code holen:**
-    ```
+    ```bash
     git clone https://github.com/DavidSchuchert/VereinsManagementTool-Laravel.git
     cd VereinsManagementTool-Laravel
     ```
 
 2.  **.env Datei erstellen:**
-    ```
+    ```bash
     cp docker/.env.docker docker/.env
     ```
-    Öffne die `docker/.env` Datei und passe folgende Werte an:
-    *   `APP_URL` – deine URL (z.B. http://localhost:8181)
-    *   `DB_PASSWORD` – sicheres Passwort für die Datenbank
-    *   `DB_ROOT_PASSWORD` – sicheres Passwort für den MariaDB Root-User
+    Öffne die `docker/.env` Datei und passe ggf. die `APP_URL` an (Standard: `http://localhost:8082`).
 
 3.  **Docker starten:**
-    ```
+    ```bash
     cd docker && docker compose up -d --build
     ```
 
-3.  **Fertig!** Öffne [http://localhost:8181](http://localhost:8181)
+3.  **Fertig!** Öffne [http://localhost:8082](http://localhost:8082)
 
-**Was passiert automatisch:**
-*   MariaDB 11 wird gestartet
-*   Composer & NPM Dependencies werden installiert
-*   Datenbank-Migrationen werden ausgeführt
-*   DB wird mit Beispieldaten befüllt (`--seed`)
-*   Livewire Assets werden veröffentlicht
-*   Storage Link wird erstellt
 
-**Services:**
-
-| Service   | Port | Beschreibung |
-|-----------|------|-------------|
-| App       | 8181 | Apache + PHP 8.5 + Laravel |
-| MariaDB   | 3307 | Datenbank (externer Zugriff) |
-
-**Nützliche Commands:**
-```
-# Logs verfolgen
-cd docker && docker compose logs -f
-
-# Bash im Container
-cd docker && docker compose exec app bash
-
-# Manuell migrieren
-cd docker && docker compose exec app php artisan migrate
-
-# Frontend neu bauen
-cd docker && docker compose exec app npm run build
-```
 
 
 ---

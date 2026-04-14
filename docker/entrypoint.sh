@@ -26,6 +26,21 @@ fi
 # Fix git safe.directory
 git config --global --add safe.directory /var/www/html
 
+# Ensure storage structure exists (important when using named volumes)
+echo "📂 Ensuring storage structure..."
+mkdir -p storage/app/public \
+         storage/framework/cache/data \
+         storage/framework/sessions \
+         storage/framework/testing \
+         storage/framework/views \
+         storage/logs \
+         bootstrap/cache
+
+# Set permissions
+echo "🔐 Setting permissions..."
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
 # Composer dependencies (only if vendor is missing)
 if [ ! -d "vendor" ]; then
     echo "📦 Installing composer dependencies..."
