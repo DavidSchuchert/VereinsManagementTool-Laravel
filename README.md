@@ -19,7 +19,25 @@ Das **VereinsManagementTool** ist dein digitaler Helfer im Vereinsalltag. Wir wi
 *   [🔄 **Updates** – Wartung & Aktualisierung](#-updates--wartung-produktion)
 *   [🐳 **Docker** – Die schnelle Alternative](#-docker-installation-alternative)
 *   [🔑 **Erste Schritte** – Nach der Installation](#-deine-ersten-schritte)
+*   [📸 **Screenshots** – Das Tool in Aktion](#-screenshots)
 *   [🤝 **Community** – Support & Kontakt](#-gemeinschaft--support)
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="https://vmt.david-schuchert.de/assets/dashboard.png" width="800" alt="VMT Dashboard Preview">
+  <br>
+  <em>Modernes Dashboard mit Echtzeit-Statistiken</em>
+</p>
+
+<p align="center">
+  <img src="https://vmt.david-schuchert.de/assets/mitglieder.png" width="400" alt="Mitgliederverwaltung">
+  <img src="https://vmt.david-schuchert.de/assets/setup.png" width="400" alt="System Setup">
+  <br>
+  <em>Mitgliederverwaltung (links) & System-Setup (rechts)</em>
+</p>
 
 ---
 
