@@ -195,6 +195,6 @@ Nach der ersten Installation (mit `--seed`) kannst du dich so anmelden:
 Beiträge und Feedback sind immer willkommen! Gemeinsam machen wir das Vereinsleben ein Stück digitaler.
 
 **Autor:** David Schuchert  
-**Website:** [https://david-schuchert.de/](https://david-schuchert.de/)
+**Website:** [https://vmt.david-schuchert.de/](https://vmt.david-schuchert.de/)
 
 *Lizenz: MIT*
