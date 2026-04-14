@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip intl \
+    && docker-php-ext-install pdo_mysql mysqli mbstring exif pcntl bcmath gd zip intl opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Node.js für Frontend-Build
+# Node.js 20.x
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm
@@ -29,7 +29,7 @@ ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /var/www/html
 
-# Apache konfigurieren
+# Apache config
 COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite headers
 
@@ -39,13 +39,12 @@ RUN mkdir -p /tmp/laravel && chmod 777 /tmp/laravel
 # PHP.ini
 COPY docker/php.ini /usr/local/etc/php/php.ini
 
-# Laravel App kopieren (ohne storage, vendor, node_modules - kommen rein via Entrypoint)
+# Copy app (excluding what's in .dockerignore)
 COPY . .
 
-# Bootstrap/cache braucht Schreibzugriff
-RUN mkdir -p bootstrap/cache \
-    && chown -R www-data:www-data bootstrap/cache \
-    && chmod -R 775 bootstrap/cache
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Entrypoint
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
