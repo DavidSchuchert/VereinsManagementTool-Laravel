@@ -22,11 +22,8 @@ yarn-error.log
 /.zed
 
 # Docker
-Dockerfile
-docker-compose.yml
-docker-entrypoint.sh
-.dockerignore
-.env.docker
+docker/.env
+docker/data/
 
 # API Distribution
 api-dist/

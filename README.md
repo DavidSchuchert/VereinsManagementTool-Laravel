@@ -4,9 +4,45 @@
 
 # 🚀 VereinsManagementTool (VMT) – Version 2.2
 
+[![Laravel CI](https://github.com/DavidSchuchert/VereinsManagementTool-Laravel/actions/workflows/laravel.yml/badge.svg)](https://github.com/DavidSchuchert/VereinsManagementTool-Laravel/actions/workflows/laravel.yml)
+![PHP Version](https://img.shields.io/badge/php-%3E%3D%208.4-777bb4?logo=php)
+![Laravel Version](https://img.shields.io/badge/laravel-%3E%3D%2011.x-ff2d20?logo=laravel)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 ### Endlich mehr Zeit für deinen Verein – weniger Zettelwirtschaft, mehr Gemeinschaft!
 
 Das **VereinsManagementTool** ist dein digitaler Helfer im Vereinsalltag. Wir wissen, dass Vereinsarbeit Herzblut bedeutet – und oft viel Papierkram. Deshalb haben wir eine Lösung entwickelt, die deine Mitglieder, Finanzen und Dokumente an einem sicheren Ort verwaltet. Es ist modern, blitzschnell und so intuitiv, dass du kein Technik-Profi sein musst, um es zu lieben.
+
+---
+
+## 📍 Inhalt
+
+*   [✨ **Features** – Was das Tool alles kann](#-features-alles-was-dein-verein-braucht)
+*   [💎 **Technik** – Die moderne Basis](#-die-moderne-technik-dahinter)
+*   [🌐 **Live-Demo** – Direkt ausprobieren](#-erstmal-reinschnuppern-live-demo)
+*   [📥 **Installation** – Der klassische Weg](#-für-die-it-experten-installation)
+*   [🔄 **Updates** – Wartung & Aktualisierung](#-updates--wartung-produktion)
+*   [🐳 **Docker** – Die schnelle Alternative](#-docker-installation-alternative)
+*   [🔑 **Erste Schritte** – Nach der Installation](#-deine-ersten-schritte)
+*   [📸 **Screenshots** – Das Tool in Aktion](#-screenshots)
+*   [🤝 **Community** – Support & Kontakt](#-gemeinschaft--support)
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="https://vmt.david-schuchert.de/assets/dashboard.png" width="800" alt="VMT Dashboard Preview">
+  <br>
+  <em>Modernes Dashboard mit Echtzeit-Statistiken</em>
+</p>
+
+<p align="center">
+  <img src="https://vmt.david-schuchert.de/assets/mitglieder.png" width="400" alt="Mitgliederverwaltung">
+  <img src="https://vmt.david-schuchert.de/assets/setup.png" width="400" alt="System Setup">
+  <br>
+  <em>Mitgliederverwaltung (links) & System-Setup (rechts)</em>
+</p>
 
 ---
 
@@ -115,6 +151,40 @@ Wenn du das System aktualisieren möchtest, führe einfach diese Befehle nachein
 
 ---
 
+### 🐳 Docker Installation (Alternative)
+
+![Docker Logo](https://upload.wikimedia.org/wikipedia/commons/1/1e/Docker_Logo.png)
+
+Du hast Docker? Starte das Tool in Sekunden mit einer optimierten Entwicklungsumgebung:
+
+**Voraussetzungen:** Docker & Docker Compose
+
+**In 3 Schritten:**
+
+1.  **Code holen:**
+    ```bash
+    git clone https://github.com/DavidSchuchert/VereinsManagementTool-Laravel.git
+    cd VereinsManagementTool-Laravel
+    ```
+
+2.  **.env Datei erstellen:**
+    ```bash
+    cp docker/.env.docker docker/.env
+    ```
+    Öffne die `docker/.env` Datei und passe ggf. die `APP_URL` an (Standard: `http://localhost:8082`).
+
+3.  **Docker starten:**
+    ```bash
+    cd docker && docker compose up -d --build
+    ```
+
+3.  **Fertig!** Öffne [http://localhost:8082](http://localhost:8082)
+
+
+
+
+---
+
 ## 🔑 Deine ersten Schritte
 
 Nach der ersten Installation (mit `--seed`) kannst du dich so anmelden:
@@ -130,6 +200,6 @@ Nach der ersten Installation (mit `--seed`) kannst du dich so anmelden:
 Beiträge und Feedback sind immer willkommen! Gemeinsam machen wir das Vereinsleben ein Stück digitaler.
 
 **Autor:** David Schuchert  
-**Website:** [https://david-schuchert.de/](https://david-schuchert.de/)
+**Website:** [https://vmt.david-schuchert.de/](https://vmt.david-schuchert.de/)
 
 *Lizenz: MIT*
