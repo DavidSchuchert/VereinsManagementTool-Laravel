@@ -10,6 +10,19 @@ Das **VereinsManagementTool** ist dein digitaler Helfer im Vereinsalltag. Wir wi
 
 ---
 
+## 📍 Inhalt
+
+*   [✨ **Features** – Was das Tool alles kann](#-features-alles-was-dein-verein-braucht)
+*   [💎 **Technik** – Die moderne Basis](#-die-moderne-technik-dahinter)
+*   [🌐 **Live-Demo** – Direkt ausprobieren](#-erstmal-reinschnuppern-live-demo)
+*   [📥 **Installation** – Der klassische Weg](#-für-die-it-experten-installation)
+*   [🔄 **Updates** – Wartung & Aktualisierung](#-updates--wartung-produktion)
+*   [🐳 **Docker** – Die schnelle Alternative](#-docker-installation-alternative)
+*   [🔑 **Erste Schritte** – Nach der Installation](#-deine-ersten-schritte)
+*   [🤝 **Community** – Support & Kontakt](#-gemeinschaft--support)
+
+---
+
 ## ✨ Features: Alles, was dein Verein braucht
 
 Das VMT ist modular aufgebaut und deckt alle wichtigen Bereiche der Vereinsführung ab:
